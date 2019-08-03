@@ -1,0 +1,146 @@
+
+/* CSS for entire page */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #e0e0e0;
+}
+
+/* CSS for Intro Image */
+
+.name {
+  text-align: center;
+  font-size: 50px;
+  color: #222831;
+}
+
+.image-gradient {
+  height: 100vh;
+  padding: 25px;
+  margin-bottom: 100px;
+
+  background-image: linear-gradient(to bottom right, #111111, #18d6e0);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+.img-text {
+  text-align: center;
+  font-size: 70px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #aaaaaa;
+  text-shadow: 1px 4px #111111;
+	
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  height: 10%;
+  width: 50%;
+  margin: -15% 0 0 -25%;
+}
+
+/* CSS for Navigation and Sections */
+
+h1 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: #222831;
+}
+
+.nav-body {
+  margin: 0;
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  font-family: system-ui, sans-serif;
+  }
+
+
+.side-nav {
+  white-space: nowrap;
+  background: #028991;
+  padding: 15px;
+  padding-top: 30px;
+  border-radius: 20px;
+}
+
+.side-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Only stick if you can fit */
+@media (min-height: 300px) {
+  .side-nav ul {
+    position: sticky;
+    /* position: -webkit-sticky; */
+    top: 10px;
+  }
+}
+
+.side-nav ul li a {
+  font-size: 22px;
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #393e46;
+  text-decoration: none;
+}
+
+.side-nav ul li a.current {
+  background: #393e46;
+  border-radius: 10px;
+  color: #eeeeee;
+}
+
+section {
+  padding: 2rem;
+  margin: 0 0 1rem 1rem;
+  /* border-style: solid; */
+  border-radius: 20px;
+  background: #e8e8e8;
+}
+
+p {
+  font-size: 18px;
+  color: #222831;
+}
+
+/* CSS for About */
+
+.avatar {
+  width: 300px;
+  height: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 2px;
+  margin-bottom: 30px;
+}
+
+/* CSS for Skills */
+
+li.language {
+  font-size: 18px;
+  color: #222831;
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  margin-bottom: 20px;
+}
+
+/* CSS for Resume */
+iframe {
+  border-radius: 10px;
+}
