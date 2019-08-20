@@ -15,12 +15,11 @@ let cur = [];
 
 window.addEventListener("scroll", event => {
   let fromTop = window.scrollY;
-
   mainNavLinks.forEach(link => {
     let section = document.querySelector(link.hash);
     if (
-      section.offsetTop - 50 <= fromTop &&
-      section.offsetTop + section.offsetHeight - 50 > fromTop
+      section.offsetTop + document.documentElement.clientHeight <= fromTop &&
+      section.offsetTop + section.offsetHeight + document.documentElement.clientHeight > fromTop
     ) {
       link.classList.add("current");
     } else {
@@ -28,3 +27,7 @@ window.addEventListener("scroll", event => {
     }
   });
 });
+
+AOS.init({
+  duration: 600,
+})

@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link href="index.css" rel="stylesheet">
   <script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 </head>
 
@@ -61,29 +63,37 @@
         <div class="col-sm-3">
         </div>
         <div class='col-sm-1 zoom'>
-          <span class="iconify" data-icon="ion:ios-mail" data-inline="false"></span>
-          <span class="tooltiptext">danielk6@vt.edu</span>
+          <a href="mailto:danielk6@vt.edu?Subject=Hello!" class="icon-color">
+            <span class="iconify" data-icon="ion:ios-mail" data-inline="false"></span>
+            <span class="tooltiptext">danielk6@vt.edu</span>         
+          </a>
         </div>
         <div class='col-sm-1 zoom'>
-          <span class="iconify" data-icon="ion:ios-call" data-inline="false"></span>
+          <span class="iconify icon-color" data-icon="ion:ios-call" data-inline="false"></span>
           <span class="tooltiptext">703-473-4328</span>
         </div>
         <div class='col-sm-1 zoom'>
-          <span class="iconify" data-icon="ion:ios-home" data-inline="false"></span>
+          <span class="iconify icon-color" data-icon="ion:ios-home" data-inline="false"></span>
           <span class="tooltiptext">Chantilly, VA</span>
         </div>
 
         <div class='col-sm-1 zoom'>
-          <span class="iconify" data-icon="ion:ios-globe" data-inline="false"></span>
-          <span class="tooltiptextlarger">daniel.kweon.dev</span>
+          <a href = "https://daniel.kweon.dev" class="icon-color">
+            <span class="iconify" data-icon="ion:ios-globe" data-inline="false"></span>
+            <span class="tooltiptextmedium">daniel.kweon.dev</span>
+          </a>
         </div>
         <div class='col-sm-1 zoom'>
-          <span class="iconify" data-icon="ion:logo-github" data-inline="false"></span>
-          <span class="tooltiptextlarger">github.com/daniekweon</span>
+          <a href = "https://github.com/danielkweon" class="icon-color">
+            <span class="iconify" data-icon="ion:logo-github" data-inline="false"></span>
+            <span class="tooltiptextlarger">github.com/danielkweon</span>
+          </a>
         </div>
         <div class='col-sm-1 zoom'>
-          <span class="iconify" data-icon="ion:logo-linkedin" data-inline="false"></span>
-          <span class="tooltiptextlarger">linkedin.com/in/daniel-kweon</span>
+          <a href = "https://linkedin.com/in/daniel-kweon" class="icon-color"> 
+            <span class="iconify" data-icon="ion:logo-linkedin" data-inline="false"></span>
+            <span class="tooltiptextlarger">linkedin.com/in/daniel-kweon</span>
+          </a>
         </div>
         <div class="col-sm-3">
         </div>
@@ -112,20 +122,69 @@
       <section id="About">
         <h1>About</h1>
         <div class="section-body">
-          <div class="row">
-              <div class="col-sm-5">
-                <img src="images/img_profile.jpg" alt="Avatar" class="avatar">
-              </div>
-              <div class="col-sm-7">
-                <p>
-                  Hello!
-                </p>
-                <p>
-                  My name is Daniel Kweon and I'm from Northern Virginia. 
-                  I'm a Computer Science and Mathematics double major at Virginia Tech. 
-                  I love exploring new topics and I do this by building various personal projects.
-                </p>
-              </div>
+          <div class="row" data-aos="fade-right">
+            <div class="col-sm-5">
+              <img src="images/img_profile.jpg" alt="Avatar" class="avatar">
+            </div>
+            <div class="col-sm-7">
+              <p class="about-text">
+                Hello!
+              </p>
+              <p class="about-text">
+                My name is Daniel Kweon and I'm from Northern Virginia. 
+              </p>
+            </div>
+          </div>
+
+          <div class="row" data-aos="fade-left">
+            <div class="col-sm-7">
+              <p class="about-text">
+                I’m an aspiring chef! jk... Not really
+              </p>
+              <p class="about-text">
+                Recently, I tried making macarons. Surprisingly, they were pretty good.
+              </p>
+              <p class="about-text">
+                So yes, I'm a chef.
+              </p>
+            </div>
+            <div class="col-sm-5">
+              <img src="images/img_chef.jpg" class="img-dragonstooth">
+            </div>
+          </div>
+
+          <div class="row" data-aos="fade-right">
+            <div class="col-sm-5">
+              <img src="images/img_dragonstooth.jpg" class="img-dragonstooth">
+            </div>
+            <div class="col-sm-7">
+              <p class="about-text">
+                I love to snowboard and hike.
+              </p>
+              <p class="about-text">
+                Last month, I got to hike at Dragon’s Tooth and I couldn’t use my legs for a week.
+              </p>
+              <p class="about-text">
+                Worth it.
+              </p>
+            </div>
+          </div>
+
+          <div class="row" data-aos="fade-left">
+            <div class="col-sm-7">
+              <p class="about-text">
+                My favorite superhero is Iron man.
+              </p>
+              <p class="about-text">
+                So naturally I spent 3 months making an Iron Man gauntlet.
+              </p>
+              <p class="about-text">
+                I cried a lil bit when he sacrificed himself in Endgame.
+              </p>
+            </div>
+            <div class="col-sm-5">
+              <img src="images/img_ironman.jpeg" class="img-dragonstooth">
+            </div>
           </div>
         </div>
       </section>
