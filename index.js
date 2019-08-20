@@ -19,7 +19,7 @@ window.addEventListener("scroll", event => {
   mainNavLinks.forEach(link => {
     let section = document.querySelector(link.hash);
     if (
-      section.offsetTop <= fromTop &&
+      section.offsetTop - 50 <= fromTop &&
       section.offsetTop + section.offsetHeight - 50 > fromTop
     ) {
       link.classList.add("current");
