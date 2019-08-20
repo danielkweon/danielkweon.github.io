@@ -31,7 +31,7 @@ body {
 
 .name {
   text-align: center;
-  font-size: 50px;
+  font-size: 400%;
   color: #222831;
 }
 
@@ -68,9 +68,49 @@ body {
   /* display: inline; */
   transition: transform .2s;
 }
+
 .zoom:hover {
   transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
+
+.zoom:hover .tooltiptext {
+  visibility: visible;
+}
+
+.zoom:hover .tooltiptextlarger {
+  visibility: visible;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  font-size: 25%;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltiptextlarger {
+  visibility: hidden;
+  width: 200px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  font-size: 25%;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
 
 /* CSS for Navigation and Sections */
 
