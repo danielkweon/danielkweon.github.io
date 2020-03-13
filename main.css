@@ -43,7 +43,7 @@ nav {
 
 /* Parallax Photo */
 .parallaxPhoto {
-  background-image: url("images/parallax_1.jpg");
+  background-image: url("images/parallax_profile.jpg");
   height: 850px;
   background-attachment: fixed;
   background-position: center;
@@ -207,13 +207,14 @@ nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 1000px;
+  width: 1250px;
   margin: auto;
   margin-top: 40px;
 }
 
 .adventureImg {
-  width: 200px;
+  width: 250px;
+  height: 200px;
   -webkit-transition: all 300ms ease-in-out;
   -moz-transition: all 300ms ease-in-out;
   -o-transition: all 300ms ease-in-out;
@@ -222,7 +223,7 @@ nav {
 }
 
 .adventureImg:hover {
-  transform: scale(1.75);
+  transform: scale(2);
 }
 
 /* Contact */
