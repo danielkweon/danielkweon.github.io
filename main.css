@@ -1,0 +1,281 @@
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 15px 25px;
+  background-color: rgb(8, 106, 142);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  border-bottom: 1px solid rgb(10, 10, 50);
+}
+
+.navlinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 75%;
+}
+
+.navlink {
+  list-style: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  color: rgb(10, 10, 50);
+  font-weight: bold;
+}
+
+.navlink:hover,
+.active {
+  color: rgb(180, 180, 150);
+}
+
+/* Parallax Photo */
+.parallaxPhoto {
+  background-image: url("images/parallax_1.jpg");
+  height: 850px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#name_1 {
+  position: absolute;
+  top: 225px;
+  right: 350px;
+  font-size: 45px;
+  color: rgb(30, 30, 100);
+  text-shadow: 0 0 2px rgb(255, 255, 253);
+}
+
+#name_2 {
+  position: absolute;
+  top: 275px;
+  right: 50px;
+  font-size: 70px;
+  color: rgb(30, 30, 100);
+  text-shadow: 0 0 2px rgb(255, 255, 253);
+}
+
+
+/* Sections */
+.section:nth-child(even) {
+  background: rgb(200, 200, 190);
+}
+
+.section:nth-child(odd) {
+  background: rgb(165, 175, 185);
+}
+
+.sectionHeader {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section {
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+
+/* Experiences */
+.experience {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 700px;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.experiencePhoto {
+  width: 300px;
+  height: 160px;
+  border-radius: 25px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.company {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.location {
+  font-size: 18px;
+}
+
+.title {
+  font-size: 18px;
+}
+
+.experiencePhotoDetails .experienceDetails {
+  position: absolute;
+  left: 0;
+  width: 300px;
+  top: 0;
+  visibility: hidden;
+  transform: translateX(0%);
+  -webkit-transform: translateX(0%);
+  opacity: 0;
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+
+.experiencePhotoDetails:hover .experienceDetails,
+.experiencePhotoDetails:focus .experienceDetails {
+  visibility: visible;
+  transform: translateX(-85%);
+  -webkit-transform: translateX(-85%);
+  opacity: 1;
+}
+
+/* Projects */
+.projects {
+  display: flex;
+  width: 1000px;
+  margin: auto;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.project {
+  margin: 10px;
+  border-radius: 25px;
+}
+
+.project,
+.projectPhoto {
+  cursor: pointer;
+  width: 300px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.project .projectOverlay {
+  background-color: #4d6eb9;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  opacity: 0;
+  width: 300px;
+  height: 100%;
+}
+
+.project .projectText {
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  font-size: 14px;
+  transform: translateY(-5px);
+  -webkit-transform: translateY(-5px);
+}
+
+.project:hover .projectOverlay {
+  opacity: 0.9;
+}
+.project:hover .projectText,
+.project:focus .projectText {
+  opacity: 1;
+  transform: translateY(100px);
+  -webkit-transform: translateY(100px);
+}
+
+/* Adventure Photos */
+.adventurePhotos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 1000px;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.adventureImg {
+  width: 200px;
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+
+.adventureImg:hover {
+  transform: scale(1.75);
+}
+
+/* Contact */
+.contactText {
+  text-align: center;
+}
+
+.icons {
+  width: 500px;
+  margin: auto;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon {
+  cursor: pointer;
+  font-size: 36px;
+  color: teal;
+  position: relative;
+  -webkit-transition: all 200ms ease-in-out;
+  -moz-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+  -ms-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+
+.icon:hover .tooltipText {
+  visibility: visible;
+}
+
+.icon .tooltipText {
+  font-size: 14px;
+  visibility: hidden;
+  position: absolute;
+  width: 200px;
+  left: 0;
+  transform: translateX(calc((-50% + 20px)));
+  top: 38px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+}
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+  .navlinks {
+    width: 90%;
+  }
+}
