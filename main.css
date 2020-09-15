@@ -59,14 +59,14 @@ nav {
 }
 
 #parallaxProfile {
-  width: 100%;
+  width: 100vw;
   z-index: -1;
   position: fixed;
 }
 
 #temp {
   visibility: hidden;
-  width: 100%;
+  width: 100vw;
   z-index: -1;
 }
 
