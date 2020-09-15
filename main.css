@@ -1,5 +1,16 @@
+:root {
+  --header-bg: #4099b7;
+  --header-text: #333255;
+  --header-text-hover: #b8e6d0;
+  --section-even-bg: rgb(176 199 174);
+  --section-odd-bg: rgb(240 240 240);
+  --icon: #021065;
+  --name: black;
+}
+
 html {
   font-family: Arial, Helvetica, sans-serif;
+  display: table;
 }
 
 body {
@@ -12,12 +23,11 @@ nav {
   flex-direction: row;
   justify-content: center;
   padding: 15px 25px;
-  background-color: rgb(8, 106, 142);
+  background-color: var(--header-bg);
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
-  border-bottom: 1px solid rgb(10, 10, 50);
 }
 
 .navlinks {
@@ -32,31 +42,40 @@ nav {
   cursor: pointer;
   width: 100%;
   text-align: center;
-  color: rgb(10, 10, 50);
+  color: var(--header-text);
   font-weight: bold;
 }
 
 .navlink:hover,
 .active {
-  color: rgb(180, 180, 150);
+  color: var(--header-text-hover);
 }
 
 /* Parallax Photo */
-.parallaxPhoto {
-  background-image: url("images/parallax_profile.jpg");
-  height: 850px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+.parallax {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+#parallaxProfile {
+  width: 100%;
+  z-index: -1;
+  position: fixed;
+}
+
+#temp {
+  visibility: hidden;
+  width: 100%;
+  z-index: -1;
 }
 
 #name_1 {
   position: absolute;
   top: 225px;
-  right: 350px;
+  right: 300px;
   font-size: 45px;
-  color: rgb(30, 30, 100);
+  color: var(--name);
   text-shadow: 0 0 2px rgb(255, 255, 253);
 }
 
@@ -65,18 +84,22 @@ nav {
   top: 275px;
   right: 50px;
   font-size: 70px;
-  color: rgb(30, 30, 100);
+  color: var(--name);
   text-shadow: 0 0 2px rgb(255, 255, 253);
 }
 
-
 /* Sections */
+.sections {
+  width: 100%;
+  display: table;
+}
+
 .section:nth-child(even) {
-  background: rgb(200, 200, 190);
+  background: var(--section-even-bg);
 }
 
 .section:nth-child(odd) {
-  background: rgb(165, 175, 185);
+  background: var(--section-odd-bg);
 }
 
 .sectionHeader {
@@ -95,7 +118,7 @@ nav {
 .experience {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
   width: 700px;
   margin: auto;
   margin-top: 40px;
@@ -124,6 +147,11 @@ nav {
   font-size: 18px;
 }
 
+.experienceDetails {
+  display: none;
+  text-align: justify;
+}
+
 .experiencePhotoDetails .experienceDetails {
   position: absolute;
   left: 0;
@@ -143,9 +171,13 @@ nav {
 .experiencePhotoDetails:hover .experienceDetails,
 .experiencePhotoDetails:focus .experienceDetails {
   visibility: visible;
-  transform: translateX(-85%);
-  -webkit-transform: translateX(-85%);
+  transform: translateX(-70%);
+  -webkit-transform: translateX(-70%);
   opacity: 1;
+}
+
+.experienceDescription {
+  width: 250px;
 }
 
 /* Projects */
@@ -198,8 +230,8 @@ nav {
 .project:hover .projectText,
 .project:focus .projectText {
   opacity: 1;
-  transform: translateY(100px);
-  -webkit-transform: translateY(100px);
+  transform: translateY(80px);
+  -webkit-transform: translateY(80px);
 }
 
 /* Adventure Photos */
@@ -207,7 +239,6 @@ nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 1250px;
   margin: auto;
   margin-top: 40px;
 }
@@ -227,6 +258,11 @@ nav {
 }
 
 /* Contact */
+#contact {
+  padding-top: 80px;
+  padding-bottom: 600px;
+}
+
 .contactText {
   text-align: center;
 }
@@ -242,7 +278,7 @@ nav {
 .icon {
   cursor: pointer;
   font-size: 36px;
-  color: teal;
+  color: var(--icon);
   position: relative;
   -webkit-transition: all 200ms ease-in-out;
   -moz-transition: all 200ms ease-in-out;
@@ -275,8 +311,40 @@ nav {
 }
 
 /* Mobile */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .navlinks {
     width: 90%;
+  }
+
+  .projects {
+    width: auto;
+  }
+
+  #name_1 {
+    top: 165px;
+    right: 140px;
+    font-size: 35px;
+  }
+  #name_2 {
+    top: 200px;
+    right: 10px;
+    font-size: 45px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #parallaxProfile,
+  #temp {
+    margin: 9% 0 -87% 0;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .experienceDetails {
+    display: block;
+  }
+
+  .experience {
+    padding-left: 80px;
   }
 }

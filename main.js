@@ -3,7 +3,7 @@ function navigateTo(section) {
 
   window.location = section;
 
-  navLinks.forEach(link => {
+  navLinks.forEach((link) => {
     let sectionTitle = link.getAttribute("value");
 
     if (`#${sectionTitle}` === section) {
@@ -42,7 +42,7 @@ function navLinkUpdate() {
 
   let fromTop = window.scrollY + headerHeight;
 
-  navLinks.forEach(link => {
+  navLinks.forEach((link) => {
     let sectionTitle = link.getAttribute("value");
     let section = document.querySelector(`#${sectionTitle}`);
     if (
