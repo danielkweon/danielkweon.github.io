@@ -2,270 +2,186 @@
 <html lang="en">
 
 <head>
-  <meta charset='utf-8'>
-  <title>Daniel Kweon</title>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-  <script src='main.js'></script>
+    <meta charset="UTF-8">
+    <title>Daniel Kweon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <nav>
-    <div class="navlinks">
-      <li class="navlink active" onclick="navigateTo('#about')" value="about">About</li>
-      <li class="navlink" onclick="navigateTo('#experiences')" value="experiences">Experiences</li>
-      <li class="navlink" onclick="navigateTo('#projects')" value="projects">Projects</li>
-      <li class="navlink" onclick="navigateTo('#adventures')" value="adventures">Adventures</li>
-      <li class="navlink" onclick="navigateTo('#contact')" value="contact">Contact</li>
-    </div>
-  </nav>
 
-  <div class="parallax" id="about">
-    <img src="images/parallax_profile.jpg" id="parallaxProfile" />
-    <img src="images/parallax_profile.jpg" id="temp" />
-    <p id="name_1">Hey, I'm</p>
-    <p id="name_2">Daniel Kweon</p>
-  </div>
+    <!-- Header -->
 
-  <div class="sections">
+    <header>
+        <div class="header-content">
+            <div class="header-content-left">
+                <span class="header-content-name">Daniel Kweon</span>
+                <span>| Software Engineer</span>
+            </div>
+            <div>
+                <nav>
+                    <a onclick="goToResume()">Resume</a> |
+                    <a onclick="goToProjects()">Projects</a> |
+                    <a onclick="openContacts()">Contact</a>
+                </nav>
+                <nav class="hamburger-menu" onclick="toggleMenu()">&#9776;</nav>
+            </div>
+        </div>
+    </header>
 
-    <!-- Experiences section -->
-    <div class="section" id="experiences">
-      <div class="sectionHeader">– Experiences –</div>
-      <div class="experience">
-        <div class="experiencePhotoDetails">
-          <img src="images/logo_Bloomberg.png" class="experiencePhoto" />
-          <div class="experienceDetails">
-            This summer, I'll have the amazing opportunity to join Bloomberg as a Software Engineering Intern at New
-            York City. I'm excited about all the cool technologies that Bloomberg develops in the financial tech
-            industry. I look forward to all the awesome people, culture, and experiences at Bloomberg!
-          </div>
-        </div>
-        <div class="experienceDescription">
-          <span class="company">Bloomberg</span> <br>
-          <span class="location">New York City, NY</span> <br>
-          <span class="title">June - August, 2020</span>
-        </div>
-      </div>
 
-      <div class="experience">
-        <div class="experiencePhotoDetails">
-          <img src="images/logo_KPMG.jpg" class="experiencePhoto" />
-          <div class="experienceDetails">
-            I had an amazing opportunity to join KPMG's Advisory practice as an engineering consultant over the summer
-            of 2019. I was a part of the Demo Squad that supplied clients with the Artificial Intelligence technologies
-            clients needed to succeed in their business. I got to develop a chatbot accelerator that efficiently
-            customized and translated chatbot dialogues through the Google Cloud Platform. During my internship, I
-            learned how to collaborate with engineers, designers, and strategists to develop technologies, design
-            interfaces, and incorporate storytelling.
-          </div>
-        </div>
-        <div class="experienceDescription">
-          <span class="company">KPMG Advisory</span> <br>
-          <span class="location">Baltimore, MD</span> <br>
-          <span class="title">June - August, 2019</span>
-        </div>
-      </div>
+    <!-- Main -->
 
-      <div class="experience">
-        <div class="experiencePhotoDetails">
-          <img src="images/logo_Optimal_Satcom.png" class="experiencePhoto" />
-          <div class="experienceDetails">
-            Optimal Satcom was the my first experience with computer science in the industry. Optimal Satcom developed
-            technologies for Enterprise Satellite Communication Capacity Management to help clients better use their
-            satellites. As an software engineering intern, I helped develop these technologies and incorporated export
-            functionalities between various mapping softwares. Throughout my time at Optimal Satcom, I got meet and
-            collaborate with passionate engineers to develop great software.
-          </div>
-        </div>
-        <div class="experienceDescription">
-          <span class="company">Optimal Satcom</span> <br>
-          <span class="location">Herndon, VA</span> <br>
-          <span class="title">May - August, 2018</span>
-        </div>
-      </div>
+    <main>
+        <section class="intro">
+            <img src="profile_pic.jpeg" alt="Daniel Kweon">
+            <div class="intro-text">
+                <div class="hello">Hello! 👋</div>
+                <div>Hi there! I'm Daniel Kweon, a Software Engineer based in New York City and the Bay Area. With a
+                    knack for problem-solving and a bringing ideas to life, I love tackling complex problems and
+                    crafting innovative solutions. Whether it's building elegant solutions or crafting seamless
+                    experiences, I'm dedicated to making an impact.</div>
+                <div class="buttons">
+                    <button id="resume-button" onclick="goToResume()">Resume</button>
+                    <button id="projects-button" onclick="goToProjects()">Projects</button>
+                    <button id="contact-button" onclick="openContacts()">Contact</button>
+                </div>
+            </div>
+        </section>
+    </main>
 
-      <div class="experience">
-        <div class="experiencePhotoDetails">
-          <img src="images/logo_VT.jpeg" class="experiencePhoto" />
-          <div class="experienceDetails">
-            I am currently a Virginia Tech undergraduate student double majoring in Computer Science and Mathematics.
-            Some of my favorite classes have been Machine Learning and Number Theory. Outside of classwork, I've had the
-            opportunity to do research on Interactive Assessment Platforms to help educators collect data on student's
-            problem solving. I've had wonderful times here learning and collaborating with passionate professors and
-            students.
-          </div>
-        </div>
-        <div class="experienceDescription">
-          <span class="company">Virginia Tech</span> <br>
-          <span class="location">Blacksburg, VA</span> <br>
-          <span class="title">Fall 2017 - Fall 2020</span>
-        </div>
-      </div>
 
-      <div class="experience">
-        <div class="experiencePhotoDetails">
-          <img src="images/logo_Bloomberg.png" class="experiencePhoto" />
-          <div class="experienceDetails">
-            During my senior year of high school, I had the opportunity to be a part of the George Mason University
-            Robotics Laboratory as a Robotics Mentorship student. I worked with the GMU Flockbots, which are swarm
-            robots designed to cooperate with one another to perform tasks one robot alone could not. I contributed to
-            the Flockbot kinematic library by incorporating a vision-based indoor localization system. From my time
-            here, I've learned to design and develop research project and gained a valuable passion for research.
-          </div>
-        </div>
-        <div class="experienceDescription">
-          <span class="company">GMU Robotics Lab</span><br>
-          <span class="location">Fairfax, VA</span> <br>
-          <span class="title">Robotics Intern</span>
-        </div>
-      </div>
+    <!-- Contact Modal -->
 
-      <div class="experience">
-        <div class="experiencePhotoDetails">
-          <img src="images/logo_TJHSST.png" class="experiencePhoto" />
-          <div class="experienceDetails">
-            I've had some of my favorite memories from Thomas Jefferson High School for Science and Technology. I've
-            built some of my coolest robotics and computer science projects with the guidance of my peers and teachers.
-            I've meet life-long friends and had a ton of fun being a high schooler. My wonderful time here sparked an
-            enduring passion for engineering and science.
-          </div>
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Contact Me!</h2>
+            <div class="contact-info">
+                <p><strong>Phone:</strong> 703-473-4328</p>
+                <p><strong>Email:</strong> <a href="mailto:daniel@kweon.dev">daniel@kweon.dev</a></p>
+                <p><strong>LinkedIn:</strong> <a
+                        href="https://linkedin.com/in/danielkweon">linkedin.com/in/danielkweon</a></p>
+                <p><strong>Github:</strong> <a href="https://github.com/danielkweon">github.com/danielkweon</a></p>
+            </div>
         </div>
-        <div class="experienceDescription">
-          <span class="company">TJHSST</span> <br>
-          <span class="location">Alexandria, VA</span> <br>
-          <span class="title">TJHSST Diploma earned 2017</span>
-        </div>
-      </div>
-
     </div>
 
-    <!-- Projects section -->
-    <div class="section" id="projects">
-      <div class="sectionHeader">– Projects –</div>
-      <div class="projects">
-        <div class="project">
-          <img class="projectPhoto" src="images/logo_Bloomberg.png" />
-          <div class="projectOverlay">
-            <div class="projectText">Yeeties yeet yeet</div>
-          </div>
+    <!-- Menu Modal -->
+
+    <div id="menuModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="menu-content">
+                <a onclick="goToResume()"><Strong>Resume</Strong></a>
+                <a onclick="goToProjects()"><Strong>Projects</Strong></a>
+                <a onclick="closeAndOpenContacts()"><Strong>Contact</Strong></a>
+            </div>
         </div>
-        <div class="project">
-          <img class="projectPhoto" src="images/logo_Bloomberg.png" />
-          <div class="projectOverlay">
-            <div class="projectText">Yeeties yeet yeet</div>
-          </div>
-        </div>
-        <div class="project">
-          <img class="projectPhoto" src="images/logo_Bloomberg.png" />
-          <div class="projectOverlay">
-            <div class="projectText">Yeeties yeet yeet</div>
-          </div>
-        </div>
-        <div class="project">
-          <img class="projectPhoto" src="images/logo_Bloomberg.png" />
-          <div class="projectOverlay">
-            <div class="projectText">Yeeties yeet yeet</div>
-          </div>
-        </div>
-        <div class="project">
-          <img class="projectPhoto" src="images/logo_Bloomberg.png" />
-          <div class="projectOverlay">
-            <div class="projectText">Yeeties yeet yeet</div>
-          </div>
-        </div>
-        <div class="project">
-          <img class="projectPhoto" src="images/logo_Bloomberg.png" />
-          <div class="projectOverlay">
-            <div class="projectText">Yeeties yeet yeet</div>
-          </div>
-        </div>
-      </div>
     </div>
 
-    <!-- Adventures section -->
-    <div class="section" id="adventures">
-      <div class="sectionHeader">– Adventures –</div>
-      <div class="adventurePhotos">
-        <img class="adventureImg" src="images/adventure_nyc.png" />
-        <img class="adventureImg" src="images/adventure_sf_1.png" />
-        <img class="adventureImg" src="images/adventure_baseball.png" />
-        <img class="adventureImg" src="images/adventure_eggtarts.png" />
-        <img class="adventureImg" src="images/adventure_seattle.png" />
-        <img class="adventureImg" src="images/adventure_gucci.png" />
-        <img class="adventureImg" src="images/adventure_boston_1.png" />
-        <img class="adventureImg" src="images/adventure_boston_2.png" />
-        <img class="adventureImg" src="images/adventure_boston_3.png" />
-        <img class="adventureImg" src="images/adventure_macarons_2.png" />
-        <img class="adventureImg" src="images/adventure_macarons.jpg" />
-        <img class="adventureImg" src="images/adventure_dragonstooth_1.png" />
-        <img class="adventureImg" src="images/adventure_dragonstooth_2.png" />
-      </div>
-    </div>
 
-    <!-- Contact section -->
-    <div class="section" id="contact">
-      <div class="sectionHeader">– Contact –</div>
-      <div class="contactText">Since you made it this far, let's connect!</div>
+    <!-- Footer -->
 
-      <div class="icons">
-        <a href="mailto:danielk6@vt.edu?Subject=Hello!" class="icon">
-          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
-            focusable="false" width="1em" height="1em"
-            style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
-            preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512" class="iconify" data-icon="ion:ios-mail"
-            data-inline="false">
-            <path
-              d="M460.6 147.3L353 256.9c-.8.8-.8 2 0 2.8l75.3 80.2c5.1 5.1 5.1 13.3 0 18.4-2.5 2.5-5.9 3.8-9.2 3.8s-6.7-1.3-9.2-3.8l-75-79.9c-.8-.8-2.1-.8-2.9 0L313.7 297c-15.3 15.5-35.6 24.1-57.4 24.2-22.1.1-43.1-9.2-58.6-24.9l-17.6-17.9c-.8-.8-2.1-.8-2.9 0l-75 79.9c-2.5 2.5-5.9 3.8-9.2 3.8s-6.7-1.3-9.2-3.8c-5.1-5.1-5.1-13.3 0-18.4l75.3-80.2c.7-.8.7-2 0-2.8L51.4 147.3c-1.3-1.3-3.4-.4-3.4 1.4V368c0 17.6 14.4 32 32 32h352c17.6 0 32-14.4 32-32V148.7c0-1.8-2.2-2.6-3.4-1.4z"
-              fill="currentColor"></path>
-            <path
-              d="M256 295.1c14.8 0 28.7-5.8 39.1-16.4L452 119c-5.5-4.4-12.3-7-19.8-7H79.9c-7.5 0-14.4 2.6-19.8 7L217 278.7c10.3 10.5 24.2 16.4 39 16.4z"
-              fill="currentColor"></path>
-          </svg>
-          <span class="tooltipText">danielk6@vt.edu</span>
-        </a>
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div class="follow-me">
+                    <a href="mailto:daniel@kweon.dev?Subject=Hello!" class="icon footer-copy">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            aria-hidden="true" focusable="false" width="1em" height="1em"
+                            style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                            preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512" class="iconify"
+                            data-icon="ion:ios-mail" data-inline="false">
+                            <path
+                                d="M460.6 147.3L353 256.9c-.8.8-.8 2 0 2.8l75.3 80.2c5.1 5.1 5.1 13.3 0 18.4-2.5 2.5-5.9 3.8-9.2 3.8s-6.7-1.3-9.2-3.8l-75-79.9c-.8-.8-2.1-.8-2.9 0L313.7 297c-15.3 15.5-35.6 24.1-57.4 24.2-22.1.1-43.1-9.2-58.6-24.9l-17.6-17.9c-.8-.8-2.1-.8-2.9 0l-75 79.9c-2.5 2.5-5.9 3.8-9.2 3.8s-6.7-1.3-9.2-3.8c-5.1-5.1-5.1-13.3 0-18.4l75.3-80.2c.7-.8.7-2 0-2.8L51.4 147.3c-1.3-1.3-3.4-.4-3.4 1.4V368c0 17.6 14.4 32 32 32h352c17.6 0 32-14.4 32-32V148.7c0-1.8-2.2-2.6-3.4-1.4z"
+                                fill="currentColor"></path>
+                            <path
+                                d="M256 295.1c14.8 0 28.7-5.8 39.1-16.4L452 119c-5.5-4.4-12.3-7-19.8-7H79.9c-7.5 0-14.4 2.6-19.8 7L217 278.7c10.3 10.5 24.2 16.4 39 16.4z"
+                                fill="currentColor"></path>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/danielkweon" class="icon footer-copy">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            aria-hidden="true" focusable="false" width="1em" height="1em"
+                            style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                            preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512" class="iconify"
+                            data-icon="ion:logo-linkedin" data-inline="false">
+                            <path
+                                d="M444.17 32H70.28C49.85 32 32 46.7 32 66.89v374.72C32 461.91 49.85 480 70.28 480h373.78c20.54 0 35.94-18.21 35.94-38.39V66.89C480.12 46.7 464.6 32 444.17 32zm-273.3 373.43h-64.18V205.88h64.18zM141 175.54h-.46c-20.54 0-33.84-15.29-33.84-34.43c0-19.49 13.65-34.42 34.65-34.42s33.85 14.82 34.31 34.42c-.01 19.14-13.31 34.43-34.66 34.43zm264.43 229.89h-64.18V296.32c0-26.14-9.34-44-32.56-44c-17.74 0-28.24 12-32.91 23.69c-1.75 4.2-2.22 9.92-2.22 15.76v113.66h-64.18V205.88h64.18v27.77c9.34-13.3 23.93-32.44 57.88-32.44c42.13 0 74 27.77 74 87.64z"
+                                fill="currentColor"></path>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/danielkweon" class="icon footer-copy">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            aria-hidden="true" focusable="false" width="1em" height="1em"
+                            style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                            preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512" class="iconify"
+                            data-icon="ion:logo-github" data-inline="false">
+                            <path
+                                d="M256 32C132.3 32 32 134.9 32 261.7c0 101.5 64.2 187.5 153.2 217.9a17.56 17.56 0 0 0 3.8.4c8.3 0 11.5-6.1 11.5-11.4c0-5.5-.2-19.9-.3-39.1a102.4 102.4 0 0 1-22.6 2.7c-43.1 0-52.9-33.5-52.9-33.5c-10.2-26.5-24.9-33.6-24.9-33.6c-19.5-13.7-.1-14.1 1.4-14.1h.1c22.5 2 34.3 23.8 34.3 23.8c11.2 19.6 26.2 25.1 39.6 25.1a63 63 0 0 0 25.6-6c2-14.8 7.8-24.9 14.2-30.7c-49.7-5.8-102-25.5-102-113.5c0-25.1 8.7-45.6 23-61.6c-2.3-5.8-10-29.2 2.2-60.8a18.64 18.64 0 0 1 5-.5c8.1 0 26.4 3.1 56.6 24.1a208.21 208.21 0 0 1 112.2 0c30.2-21 48.5-24.1 56.6-24.1a18.64 18.64 0 0 1 5 .5c12.2 31.6 4.5 55 2.2 60.8c14.3 16.1 23 36.6 23 61.6c0 88.2-52.4 107.6-102.3 113.3c8 7.1 15.2 21.1 15.2 42.5c0 30.7-.3 55.5-.3 63c0 5.4 3.1 11.5 11.4 11.5a19.35 19.35 0 0 0 4-.4C415.9 449.2 480 363.1 480 261.7C480 134.9 379.7 32 256 32z"
+                                fill="currentColor"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div>© 2024 Daniel Kweon</div>
+        </div>
+    </footer>
 
-        <a class="icon">
-          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
-            focusable="false" width="1em" height="1em"
-            style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
-            preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512" class="iconify icon" data-icon="ion:ios-call"
-            data-inline="false">
-            <path
-              d="M436.9 364.8c-14.7-14.7-50-36.8-67.4-45.1-20.2-9.7-27.6-9.5-41.9.8-11.9 8.6-19.6 16.6-33.3 13.6-13.7-2.9-40.7-23.4-66.9-49.5-26.2-26.2-46.6-53.2-49.5-66.9-2.9-13.8 5.1-21.4 13.6-33.3 10.3-14.3 10.6-21.7.8-41.9C184 125 162 89.8 147.2 75.1c-14.7-14.7-18-11.5-26.1-8.6 0 0-12 4.8-23.9 12.7-14.7 9.8-22.9 18-28.7 30.3-5.7 12.3-12.3 35.2 21.3 95 27.1 48.3 53.7 84.9 93.2 124.3l.1.1.1.1c39.5 39.5 76 66.1 124.3 93.2 59.8 33.6 82.7 27 95 21.3 12.3-5.7 20.5-13.9 30.3-28.7 7.9-11.9 12.7-23.9 12.7-23.9 2.9-8.1 6.2-11.4-8.6-26.1z"
-              fill="currentColor"></path>
-          </svg>
-          <span class="tooltipText">703-473-4328</span>
-        </a>
-
-        <a href="https://github.com/danielkweon" class="icon">
-          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
-            focusable="false" width="1em" height="1em"
-            style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
-            preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512" class="iconify" data-icon="ion:logo-github"
-            data-inline="false">
-            <path
-              d="M256 32C132.3 32 32 134.9 32 261.7c0 101.5 64.2 187.5 153.2 217.9a17.56 17.56 0 0 0 3.8.4c8.3 0 11.5-6.1 11.5-11.4c0-5.5-.2-19.9-.3-39.1a102.4 102.4 0 0 1-22.6 2.7c-43.1 0-52.9-33.5-52.9-33.5c-10.2-26.5-24.9-33.6-24.9-33.6c-19.5-13.7-.1-14.1 1.4-14.1h.1c22.5 2 34.3 23.8 34.3 23.8c11.2 19.6 26.2 25.1 39.6 25.1a63 63 0 0 0 25.6-6c2-14.8 7.8-24.9 14.2-30.7c-49.7-5.8-102-25.5-102-113.5c0-25.1 8.7-45.6 23-61.6c-2.3-5.8-10-29.2 2.2-60.8a18.64 18.64 0 0 1 5-.5c8.1 0 26.4 3.1 56.6 24.1a208.21 208.21 0 0 1 112.2 0c30.2-21 48.5-24.1 56.6-24.1a18.64 18.64 0 0 1 5 .5c12.2 31.6 4.5 55 2.2 60.8c14.3 16.1 23 36.6 23 61.6c0 88.2-52.4 107.6-102.3 113.3c8 7.1 15.2 21.1 15.2 42.5c0 30.7-.3 55.5-.3 63c0 5.4 3.1 11.5 11.4 11.5a19.35 19.35 0 0 0 4-.4C415.9 449.2 480 363.1 480 261.7C480 134.9 379.7 32 256 32z"
-              fill="currentColor"></path>
-          </svg>
-          <span class="tooltipText">github.com/danielkweon</span>
-        </a>
-
-        <a href="https://linkedin.com/in/daniel-kweon" class="icon">
-          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
-            focusable="false" width="1em" height="1em"
-            style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
-            preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512" class="iconify" data-icon="ion:logo-linkedin"
-            data-inline="false">
-            <path
-              d="M444.17 32H70.28C49.85 32 32 46.7 32 66.89v374.72C32 461.91 49.85 480 70.28 480h373.78c20.54 0 35.94-18.21 35.94-38.39V66.89C480.12 46.7 464.6 32 444.17 32zm-273.3 373.43h-64.18V205.88h64.18zM141 175.54h-.46c-20.54 0-33.84-15.29-33.84-34.43c0-19.49 13.65-34.42 34.65-34.42s33.85 14.82 34.31 34.42c-.01 19.14-13.31 34.43-34.66 34.43zm264.43 229.89h-64.18V296.32c0-26.14-9.34-44-32.56-44c-17.74 0-28.24 12-32.91 23.69c-1.75 4.2-2.22 9.92-2.22 15.76v113.66h-64.18V205.88h64.18v27.77c9.34-13.3 23.93-32.44 57.88-32.44c42.13 0 74 27.77 74 87.64z"
-              fill="currentColor"></path>
-          </svg>
-          <span class="tooltipText">linkedin.com/in/daniel-kweon</span>
-        </a>
-      </div>
-    </div>
-  </div>
 </body>
+
+
+<!-- Script for Contact Modal -->
+
+<script>
+    var contactModal = document.getElementById("contactModal");
+    var menuModal = document.getElementById("menuModal");
+    var span = document.getElementsByClassName("close")[0];
+
+    function openContacts() {
+        contactModal.style.display = "block";
+    }
+
+    function closeModal() {
+        contactModal.style.display = "none";
+        menuModal.style.display = "none";
+    }
+
+    function checkCloseModal(event) {
+        event.preventDefault();
+        if (event.target == contactModal) {
+            contactModal.style.display = "none";
+        }
+        if (event.target == menuModal) {
+            menuModal.style.display = "none";
+        }
+    }
+
+    window.onclick = checkCloseModal;
+    window.ontouchstart = checkCloseModal;
+
+    function goToResume() {
+        window.location.href = "https://daniel.kweon.dev/resume";
+    }
+
+    function goToProjects() {
+        window.location.href = "https://daniel.kweon.dev/projects";
+    }
+
+    function toggleMenu() {
+        var menu = document.getElementById("menuModal");
+        if (menu.style.display === "none") {
+            menu.style.display = "block";
+        } else {
+            menu.style.display = "none";
+        }
+    }
+
+    function closeAndOpenContacts() {
+        toggleMenu()
+        openContacts()
+    }
+</script>
 
 </html>
