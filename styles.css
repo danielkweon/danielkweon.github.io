@@ -21,8 +21,8 @@
   --shadow: rgba(0, 0, 0, 0.5);
 
   /* Typography */
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    sans-serif;
+  --font-sans:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", "SF Mono", monospace;
 
   /* Font Sizes */
@@ -821,22 +821,17 @@ section {
   margin-bottom: var(--space-lg);
 }
 
-.experience-list {
-  list-style: none;
-  padding: 0;
+.experience-body {
+  color: var(--text-secondary);
+  line-height: 1.7;
 }
 
-.experience-list li {
-  position: relative;
-  padding-left: var(--space-xl);
-  margin-bottom: var(--space-md);
+.experience-body p {
+  margin: 0 0 var(--space-md);
 }
 
-.experience-list li::before {
-  content: "▹";
-  position: absolute;
-  left: 0;
-  color: var(--accent);
+.experience-body p:last-child {
+  margin-bottom: 0;
 }
 
 .experience-tech {
@@ -867,19 +862,69 @@ section {
   scroll-margin-top: var(--space-section);
 }
 
+.projects-load-more-wrap {
+  text-align: center;
+  margin: var(--space-2xl) 0;
+}
+
+.projects-load-more-wrap.is-hidden {
+  display: none;
+}
+
+.btn-load-more {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--bg-tertiary);
+  padding: var(--space-sm) var(--space-xl);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition:
+    color var(--transition-base),
+    background-color var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.btn-load-more:hover {
+  color: var(--accent);
+  background-color: var(--accent-tint);
+  border-color: var(--accent);
+}
+
 .featured-project {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-3xl);
   margin-bottom: var(--space-3xl);
-  align-items: center;
+  align-items: start;
+}
+
+.featured-project.project-more[hidden] {
+  display: none !important;
+}
+
+.featured-project.project-more:not([hidden]) {
+  animation: project-reveal 0.4s ease forwards;
+}
+
+@keyframes project-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .project-image {
   position: relative;
   aspect-ratio: 1;
   width: 100%;
-  max-width: 400px;
+  max-width: 300px;
+  justify-self: center;
   border-radius: var(--radius-md);
   overflow: hidden;
   display: flex;
@@ -914,7 +959,7 @@ section {
 .project-placeholder {
   width: 100%;
   height: 100%;
-  min-height: 200px;
+  min-height: 150px;
   aspect-ratio: 1;
   background: linear-gradient(
     135deg,
@@ -971,33 +1016,68 @@ section {
 .project-tech {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-md);
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
   margin-bottom: var(--space-md);
 }
 
 .project-tech span {
   font-family: var(--font-mono);
-  font-size: var(--fs-sm);
+  font-size: var(--fs-xs);
   color: var(--text-secondary);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--bg-tertiary);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
 }
 
 .project-links {
   display: flex;
-  gap: var(--space-md);
+  gap: var(--space-sm);
 }
 
 .project-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
   color: var(--text-secondary);
-  transition: color var(--transition-base);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  transition:
+    color var(--transition-base),
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    transform var(--transition-base);
 }
 
 .project-links a:hover {
   color: var(--accent);
+  background-color: var(--accent-tint);
+  border-color: var(--accent);
+  transform: translateY(-2px);
 }
 
-.project-links svg {
+.project-links a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.project-links svg,
+.project-links img {
   width: 22px;
   height: 22px;
+}
+
+.project-links img {
+  vertical-align: middle;
+  filter: brightness(0) invert(1);
+}
+
+.project-links a:hover img {
+  filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(195deg);
 }
 
 /* ========================================
@@ -1024,7 +1104,9 @@ section {
 .photo-item {
   position: relative;
   aspect-ratio: 1;
-  transition: transform var(--transition-base), z-index 0s;
+  transition:
+    transform var(--transition-base),
+    z-index 0s;
 }
 
 .photo-item:hover {
@@ -1176,7 +1258,9 @@ footer a:hover {
 .fade-up {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
 }
 
 .fade-up.visible {
