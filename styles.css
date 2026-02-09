@@ -1413,12 +1413,6 @@ footer a:hover {
     margin-bottom: var(--space-lg);
   }
 
-  .project-description {
-    background-color: transparent;
-    padding: 0;
-    box-shadow: none;
-  }
-
   .photo-gallery {
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: var(--space-lg);
