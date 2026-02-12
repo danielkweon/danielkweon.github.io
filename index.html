@@ -146,630 +146,656 @@
       </nav>
     </div>
 
-    <!-- Main Content -->
-    <main id="content" class="main-content">
-      <!-- Hero Section -->
-      <section id="hero">
-        <div class="hero-content">
-          <p class="hero-intro">Hi, I'm</p>
-          <h1 class="hero-name">Daniel Kweon</h1>
-          <h2 class="hero-tagline">I build systems & puzzles</h2>
-          <p class="hero-description">
-            I'm Daniel, a software engineer in NYC. Previously Macro, Amazon,
-            Bloomberg. I also build puzzle games.
+    <!-- Main Content (wrapped so tumble easter egg doesn't affect fixed sidebar) -->
+    <div id="tumble-wrap">
+      <main id="content" class="main-content">
+        <!-- Hero Section -->
+        <section id="hero">
+          <div class="hero-content">
+            <p class="hero-intro">Hi, I'm</p>
+            <h1 class="hero-name">Daniel Kweon</h1>
+            <h2 class="hero-tagline">I build systems & puzzles</h2>
+            <p class="hero-description">
+              I'm Daniel, a software engineer in NYC. Previously Macro, Amazon,
+              Bloomberg. I also build puzzle games.
+            </p>
+            <div class="hero-cta">
+              <a href="#contact" class="btn btn-game btn-large">Get in touch</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="fade-up">
+          <h2 class="section-heading">
+            <span class="section-number">01.</span> About Me
+          </h2>
+
+          <div class="about-content">
+            <div class="about-text">
+              <p>
+                Hi, I'm Daniel — a software engineer in NYC. I like building
+                things that feel simple and elegant on the surface, with a lot
+                of care underneath.
+              </p>
+              <p>
+                I've worked at Macro, Amazon, and Bloomberg, with experience
+                across the stack — from deep infrastructure to product work.
+              </p>
+              <p>
+                Right now, I'm looking for what's next and spending a lot of
+                time on puzzles — building and shipping mobile games to the App
+                Store. If I'm not coding, I'm probably climbing, snowboarding,
+                cooking, or just wandering the city.
+              </p>
+            </div>
+
+            <div class="about-image">
+              <div class="about-image-wrapper">
+                <img src="content/profile_pic.png" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="fade-up">
+          <h2 class="section-heading">
+            <span class="section-number">02.</span> Where I've Been
+          </h2>
+
+          <div class="experience-container">
+            <div class="experience-tabs" role="tablist">
+              <button
+                class="experience-tab active"
+                role="tab"
+                aria-selected="true"
+                data-tab="macro"
+              >
+                Macro
+              </button>
+              <button
+                class="experience-tab"
+                role="tab"
+                aria-selected="false"
+                data-tab="amazon"
+              >
+                Amazon
+              </button>
+              <button
+                class="experience-tab"
+                role="tab"
+                aria-selected="false"
+                data-tab="bloomberg"
+              >
+                Bloomberg
+              </button>
+              <button
+                class="experience-tab"
+                role="tab"
+                aria-selected="false"
+                data-tab="vt"
+              >
+                Virginia Tech
+              </button>
+            </div>
+
+            <div class="experience-panels">
+              <!-- Macro -->
+              <div class="experience-panel active" id="macro" role="tabpanel">
+                <h3>
+                  Software Engineer
+                  <span class="company">@ Macro</span>
+                </h3>
+                <p class="experience-duration">July 2024 — January 2026</p>
+                <div class="experience-body">
+                  <p>
+                    At
+                    <a
+                      href="https://macro.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Macro</a
+                    >, I owned the metadata and properties platform across all
+                    workspace entity types, enabling extensibility and unified
+                    querying. I designed and implemented a permissions-aware
+                    properties service from the ground up (user- and
+                    system-defined properties, automated tagging, relationship
+                    inference) and drove cross-team alignment on property
+                    semantics adopted across multiple product teams.
+                  </p>
+                  <p>
+                    I built and rolled out a task management system on the
+                    properties platform and migrated the company off Linear. It
+                    was adopted company-wide and by external customers, scaling
+                    quickly in production.
+                  </p>
+                  <p>
+                    I developed the Markdown editor driving much of in-product
+                    activity—real-time collaboration, cross-workspace
+                    integrations, agentic AI writing workflows—and improved UX
+                    and reliability through telemetry, performance tuning, and
+                    bug triage.
+                  </p>
+                  <p>
+                    I built an AI chat with WebSocket token streaming and
+                    context-aware prompt assembly of conversations and
+                    documents. I also enabled in-browser docx rendering and
+                    editing via LibreOfficeKit (C++ / WebAssembly),
+                    significantly reducing document load times.
+                  </p>
+                </div>
+                <div class="experience-tech">
+                  <span>C++</span>
+                  <span>Rust</span>
+                  <span>TypeScript</span>
+                  <span>SolidJS</span>
+                  <span>TanStack</span>
+                  <span>Emscripten / WASM</span>
+                  <span>ECS Fargate</span>
+                  <span>RDS</span>
+                </div>
+              </div>
+
+              <!-- Amazon -->
+              <div class="experience-panel" id="amazon" role="tabpanel">
+                <h3>
+                  Software Engineer II
+                  <span class="company">@ Amazon</span>
+                </h3>
+                <p class="experience-duration">October 2022 — October 2023</p>
+                <div class="experience-body">
+                  <p>
+                    I led the design and implementation of a greenfield work
+                    order system for Amazon Business inventory replenishment
+                    services, defining the work order domain model and service
+                    interfaces end-to-end.
+                  </p>
+                  <p>
+                    I built an AWS ingestion pipeline (S3 upload, Lambda
+                    trigger, ECS Fargate) to validate and process work order
+                    files and publish updates downstream and to a data lake,
+                    enabling near real-time ops KPI visibility.
+                  </p>
+                  <p>
+                    I implemented automated scheduling and service provider
+                    assignment, reducing manual ops overhead and enabling
+                    onboarding for external customers.
+                  </p>
+                </div>
+                <div class="experience-tech">
+                  <span>Java</span>
+                  <span>Python</span>
+                  <span>React</span>
+                  <span>S3</span>
+                  <span>SQS / SNS</span>
+                  <span>Lambda</span>
+                  <span>ECS Fargate</span>
+                  <span>RDS</span>
+                  <span>DynamoDB</span>
+                </div>
+              </div>
+
+              <!-- Bloomberg -->
+              <div class="experience-panel" id="bloomberg" role="tabpanel">
+                <h3>
+                  Software Engineer
+                  <span class="company">@ Bloomberg L.P.</span>
+                </h3>
+                <p class="experience-duration">January 2021 — August 2022</p>
+                <div class="experience-body">
+                  <p>
+                    I maintained and extended the fixed income trading billing
+                    platform and C++ billing library, supporting significant
+                    annual revenue through accurate fee calculations across
+                    multiple trading workflows.
+                  </p>
+                  <p>
+                    I built internal tools—including a security classification
+                    API, backtesting, and clearinghouse simulation—to improve
+                    revenue forecasting accuracy and enable end-to-end trade
+                    testing.
+                  </p>
+                  <p>
+                    I improved the scalability of fixed income trading
+                    infrastructure by optimizing trade data models for better
+                    storage efficiency.
+                  </p>
+                </div>
+                <div class="experience-tech">
+                  <span>C++</span>
+                  <span>Python</span>
+                  <span>TypeScript</span>
+                  <span title="Bloomberg Application Service">BAS</span>
+                  <span>Comdb2</span>
+                  <span>Redis</span>
+                  <span>Kafka</span>
+                </div>
+              </div>
+
+              <!-- Virginia Tech -->
+              <div class="experience-panel" id="vt" role="tabpanel">
+                <h3>
+                  B.S. Computer Science & B.S. Mathematics (Applied Discrete)
+                  <span class="company">@ Virginia Tech</span>
+                </h3>
+                <p class="experience-duration">
+                  December 2020 · Blacksburg, VA
+                </p>
+                <div class="experience-body">
+                  <p>
+                    I graduated with a dual degree in Computer Science and
+                    Mathematics, with a focus on Applied Discrete Mathematics.
+                  </p>
+                  <p>
+                    My coursework included Data Structures, Operating Systems,
+                    Machine Learning, AI, Parallel Computing, and Combinatorics.
+                    I also collaborated with physics educators to design an
+                    interactive assessment platform for studying problem-solving
+                    processes.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="resume-link">
+            <a
+              href="content/Daniel_Kweon_Resume_2026.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn"
+              >Full resume (PDF)</a
+            >
+          </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="fade-up">
+          <h2 class="section-heading">
+            <span class="section-number">03.</span> Some Things I've Built
+          </h2>
+
+          <!-- Featured Project 1: Number Hunt -->
+          <div class="featured-project">
+            <div class="project-image">
+              <img src="content/projects/number-hunt.png" loading="lazy" />
+            </div>
+            <div class="project-content">
+              <p class="project-overline">Featured Project</p>
+              <h3 class="project-title">Number Hunt</h3>
+              <div class="project-description">
+                <p>
+                  An arithmetic puzzle game with procedural grid generation.
+                  Levels are guaranteed solvable via backtracking with pruning
+                  and tiered difficulty modeling, generated on-device. Still in
+                  development.
+                </p>
+              </div>
+              <div class="project-tech">
+                <span>Swift</span>
+                <span>iOS</span>
+                <span>UIKit</span>
+                <span>Storyboard</span>
+                <span>Xcode</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Featured Project 2: Tumble -->
+          <div class="featured-project">
+            <div class="project-image">
+              <a
+                href="https://apps.apple.com/us/app/tumble-puzzle-game/id6480238709"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="content/projects/tumble_0.gif"
+                  width="600"
+                  height="599"
+                  alt="Tumble puzzle game gameplay"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+            <div class="project-content">
+              <p class="project-overline">Featured Project</p>
+              <h3 class="project-title">
+                <a
+                  href="https://apps.apple.com/us/app/tumble-puzzle-game/id6480238709"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Tumble</a
+                >
+              </h3>
+              <div class="project-description">
+                <p>
+                  A modular MVC game engine with gesture-driven merging,
+                  persistent state, and user-selectable themes and grid layouts.
+                  Tilt the board and tiles slide and stack—2048 meets gravity.
+                  Published on the App Store.
+                </p>
+              </div>
+              <div class="project-tech">
+                <span>Swift</span>
+                <span>iOS</span>
+                <span>UIKit</span>
+                <span>Storyboard</span>
+                <span>Xcode</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://apps.apple.com/us/app/tumble-puzzle-game/id6480238709"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="App Store"
+                >
+                  <img
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/appstore.svg"
+                    alt=""
+                    width="22"
+                    height="22"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Featured Project 3: Background Noise Suppression -->
+          <div class="featured-project">
+            <div class="project-image">
+              <a
+                href="https://github.com/danielkweon/Background_Noise_Suppression"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="content/projects/background-noise-suppression.png"
+                  width="192"
+                  height="192"
+                  loading="lazy"
+                  alt="Background Noise Suppression project"
+                />
+              </a>
+            </div>
+            <div class="project-content">
+              <p class="project-overline">Featured Project</p>
+              <h3 class="project-title">
+                <a
+                  href="https://github.com/danielkweon/Background_Noise_Suppression"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Background Noise Suppression</a
+                >
+              </h3>
+              <div class="project-description">
+                <p>
+                  My senior capstone — I used DSP and RNNs to pull speech out of
+                  noisy audio in real time. Code and paper on GitHub.
+                </p>
+              </div>
+              <div class="project-tech">
+                <span>C++</span>
+                <span>Python</span>
+                <span>RNN</span>
+                <span>DSP</span>
+                <span>Machine Learning</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/danielkweon/Background_Noise_Suppression"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="projects-load-more-wrap">
+            <button
+              type="button"
+              class="btn btn-load-more"
+              id="projects-load-more"
+              aria-expanded="false"
+            >
+              LOAD MORE
+            </button>
+          </div>
+
+          <!-- Featured Project 4: PuzzLED -->
+          <div
+            class="featured-project project-more"
+            id="project-puzzled"
+            hidden
+          >
+            <div class="project-image">
+              <a href="#projects">
+                <img src="content/projects/puzzled.png" loading="lazy" />
+              </a>
+            </div>
+            <div class="project-content">
+              <p class="project-overline">Featured Project</p>
+              <h3 class="project-title">PuzzLED</h3>
+              <div class="project-description">
+                <p>
+                  A physical puzzle board with a triangular LED grid and
+                  Arduino, showing tangram-style shapes. It won a spot at the
+                  Children's Museum of Blacksburg in 2018 and is still on
+                  display.
+                </p>
+              </div>
+              <div class="project-tech">
+                <span>C++</span>
+                <span>Arduino</span>
+                <span>Hardware</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Life / Photos Section -->
+        <section id="personal" class="fade-up">
+          <h2 class="section-heading">
+            <span class="section-number">04.</span> Personal
+          </h2>
+
+          <div class="personal-intro">
+            <p>
+              When I'm not coding, I'm usually exploring the city, solving
+              puzzles, or hunting for good coffee.
+            </p>
+          </div>
+
+          <div class="photo-gallery">
+            <div class="photo-item">
+              <div class="photo-item-inner">
+                <div class="photo-item-img-wrap">
+                  <img
+                    src="content/personal/personal-dog.jpeg"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="photo-item">
+              <div class="photo-item-inner">
+                <div class="photo-item-img-wrap">
+                  <img src="content/personal/personal-bar.png" loading="lazy" />
+                </div>
+              </div>
+            </div>
+            <div class="photo-item">
+              <div class="photo-item-inner">
+                <div class="photo-item-img-wrap">
+                  <img
+                    src="content/personal/personal-seoul.jpg"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="photo-item">
+              <div class="photo-item-inner">
+                <div class="photo-item-img-wrap">
+                  <img
+                    src="content/personal/personal-beach.jpg"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="photo-item">
+              <div class="photo-item-inner">
+                <div class="photo-item-img-wrap">
+                  <img
+                    src="content/personal/personal-snowboard.png"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="photo-item">
+              <div class="photo-item-inner">
+                <div class="photo-item-img-wrap">
+                  <img
+                    src="content/personal/personal-bouldering.png"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="photo-item">
+              <div class="photo-item-inner">
+                <div class="photo-item-img-wrap">
+                  <img
+                    src="content/personal/personal-woods.jpg"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="photo-item">
+              <div class="photo-item-inner">
+                <div class="photo-item-img-wrap">
+                  <img
+                    src="content/personal/personal-snowman.jpeg"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="photo-item">
+              <div class="photo-item-inner">
+                <div class="photo-item-img-wrap">
+                  <img
+                    src="content/personal/personal-kitchen.jpeg"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="fade-up">
+          <p class="contact-overline">
+            <span class="section-number">05.</span> Contact
           </p>
-          <div class="hero-cta">
-            <a href="#contact" class="btn btn-game btn-large">Get in touch</a>
-          </div>
-        </div>
-      </section>
+          <h2>Get in Touch</h2>
+          <p>
+            I’m looking for what’s next. If you want to talk roles, puzzles, or
+            just say hi — get in touch.
+          </p>
+          <a href="mailto:daniel@kweon.dev" class="btn btn-game btn-large"
+            >Say hi</a
+          >
+        </section>
+      </main>
 
-      <!-- About Section -->
-      <section id="about" class="fade-up">
-        <h2 class="section-heading">
-          <span class="section-number">01.</span> About Me
-        </h2>
-
-        <div class="about-content">
-          <div class="about-text">
-            <p>
-              Hi, I'm Daniel — a software engineer in NYC. I like building
-              things that feel simple and elegant on the surface, with a lot of
-              care underneath.
-            </p>
-            <p>
-              I've worked at Macro, Amazon, and Bloomberg, with experience
-              across the stack — from deep infrastructure to product work.
-            </p>
-            <p>
-              Right now, I'm looking for what's next and spending a lot of time
-              on puzzles — building and shipping mobile games to the App Store.
-              If I'm not coding, I'm probably climbing, snowboarding, cooking,
-              or just wandering the city.
-            </p>
-          </div>
-
-          <div class="about-image">
-            <div class="about-image-wrapper">
-              <img src="content/profile_pic.png" loading="lazy" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Experience Section -->
-      <section id="experience" class="fade-up">
-        <h2 class="section-heading">
-          <span class="section-number">02.</span> Where I've Been
-        </h2>
-
-        <div class="experience-container">
-          <div class="experience-tabs" role="tablist">
-            <button
-              class="experience-tab active"
-              role="tab"
-              aria-selected="true"
-              data-tab="macro"
-            >
-              Macro
-            </button>
-            <button
-              class="experience-tab"
-              role="tab"
-              aria-selected="false"
-              data-tab="amazon"
-            >
-              Amazon
-            </button>
-            <button
-              class="experience-tab"
-              role="tab"
-              aria-selected="false"
-              data-tab="bloomberg"
-            >
-              Bloomberg
-            </button>
-            <button
-              class="experience-tab"
-              role="tab"
-              aria-selected="false"
-              data-tab="vt"
-            >
-              Virginia Tech
-            </button>
-          </div>
-
-          <div class="experience-panels">
-            <!-- Macro -->
-            <div class="experience-panel active" id="macro" role="tabpanel">
-              <h3>
-                Software Engineer
-                <span class="company">@ Macro</span>
-              </h3>
-              <p class="experience-duration">July 2024 — January 2026</p>
-              <div class="experience-body">
-                <p>
-                  At
-                  <a
-                    href="https://macro.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Macro</a
-                  >, I owned the metadata and properties platform across all
-                  workspace entity types, enabling extensibility and unified
-                  querying. I designed and implemented a permissions-aware
-                  properties service from the ground up (user- and
-                  system-defined properties, automated tagging, relationship
-                  inference) and drove cross-team alignment on property
-                  semantics adopted across multiple product teams.
-                </p>
-                <p>
-                  I built and rolled out a task management system on the
-                  properties platform and migrated the company off Linear. It
-                  was adopted company-wide and by external customers, scaling
-                  quickly in production.
-                </p>
-                <p>
-                  I developed the Markdown editor driving much of in-product
-                  activity—real-time collaboration, cross-workspace
-                  integrations, agentic AI writing workflows—and improved UX and
-                  reliability through telemetry, performance tuning, and bug
-                  triage.
-                </p>
-                <p>
-                  I built an AI chat with WebSocket token streaming and
-                  context-aware prompt assembly of conversations and documents.
-                  I also enabled in-browser docx rendering and editing via
-                  LibreOfficeKit (C++ / WebAssembly), significantly reducing
-                  document load times.
-                </p>
-              </div>
-              <div class="experience-tech">
-                <span>C++</span>
-                <span>Rust</span>
-                <span>TypeScript</span>
-                <span>SolidJS</span>
-                <span>TanStack</span>
-                <span>Emscripten / WASM</span>
-                <span>ECS Fargate</span>
-                <span>RDS</span>
-              </div>
-            </div>
-
-            <!-- Amazon -->
-            <div class="experience-panel" id="amazon" role="tabpanel">
-              <h3>
-                Software Engineer II
-                <span class="company">@ Amazon</span>
-              </h3>
-              <p class="experience-duration">October 2022 — October 2023</p>
-              <div class="experience-body">
-                <p>
-                  I led the design and implementation of a greenfield work order
-                  system for Amazon Business inventory replenishment services,
-                  defining the work order domain model and service interfaces
-                  end-to-end.
-                </p>
-                <p>
-                  I built an AWS ingestion pipeline (S3 upload, Lambda trigger,
-                  ECS Fargate) to validate and process work order files and
-                  publish updates downstream and to a data lake, enabling near
-                  real-time ops KPI visibility.
-                </p>
-                <p>
-                  I implemented automated scheduling and service provider
-                  assignment, reducing manual ops overhead and enabling
-                  onboarding for external customers.
-                </p>
-              </div>
-              <div class="experience-tech">
-                <span>Java</span>
-                <span>Python</span>
-                <span>React</span>
-                <span>S3</span>
-                <span>SQS / SNS</span>
-                <span>Lambda</span>
-                <span>ECS Fargate</span>
-                <span>RDS</span>
-                <span>DynamoDB</span>
-              </div>
-            </div>
-
-            <!-- Bloomberg -->
-            <div class="experience-panel" id="bloomberg" role="tabpanel">
-              <h3>
-                Software Engineer
-                <span class="company">@ Bloomberg L.P.</span>
-              </h3>
-              <p class="experience-duration">January 2021 — August 2022</p>
-              <div class="experience-body">
-                <p>
-                  I maintained and extended the fixed income trading billing
-                  platform and C++ billing library, supporting significant
-                  annual revenue through accurate fee calculations across
-                  multiple trading workflows.
-                </p>
-                <p>
-                  I built internal tools—including a security classification
-                  API, backtesting, and clearinghouse simulation—to improve
-                  revenue forecasting accuracy and enable end-to-end trade
-                  testing.
-                </p>
-                <p>
-                  I improved the scalability of fixed income trading
-                  infrastructure by optimizing trade data models for better
-                  storage efficiency.
-                </p>
-              </div>
-              <div class="experience-tech">
-                <span>C++</span>
-                <span>Python</span>
-                <span>TypeScript</span>
-                <span title="Bloomberg Application Service">BAS</span>
-                <span>Comdb2</span>
-                <span>Redis</span>
-                <span>Kafka</span>
-              </div>
-            </div>
-
-            <!-- Virginia Tech -->
-            <div class="experience-panel" id="vt" role="tabpanel">
-              <h3>
-                B.S. Computer Science & B.S. Mathematics (Applied Discrete)
-                <span class="company">@ Virginia Tech</span>
-              </h3>
-              <p class="experience-duration">December 2020 · Blacksburg, VA</p>
-              <div class="experience-body">
-                <p>
-                  I graduated with a dual degree in Computer Science and
-                  Mathematics, with a focus on Applied Discrete Mathematics.
-                </p>
-                <p>
-                  My coursework included Data Structures, Operating Systems,
-                  Machine Learning, AI, Parallel Computing, and Combinatorics. I
-                  also collaborated with physics educators to design an
-                  interactive assessment platform for studying problem-solving
-                  processes.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="resume-link">
+      <!-- Footer -->
+      <footer>
+        <div class="footer-social">
           <a
-            href="content/Daniel_Kweon_Resume_2026.pdf"
+            href="https://github.com/danielkweon"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn"
-            >Full resume (PDF)</a
+            aria-label="GitHub"
           >
-        </div>
-      </section>
-
-      <!-- Projects Section -->
-      <section id="projects" class="fade-up">
-        <h2 class="section-heading">
-          <span class="section-number">03.</span> Some Things I've Built
-        </h2>
-
-        <!-- Featured Project 1: Number Hunt -->
-        <div class="featured-project">
-          <div class="project-image">
-            <img src="content/projects/number-hunt.png" loading="lazy" />
-          </div>
-          <div class="project-content">
-            <p class="project-overline">Featured Project</p>
-            <h3 class="project-title">Number Hunt</h3>
-            <div class="project-description">
-              <p>
-                An arithmetic puzzle game with procedural grid generation.
-                Levels are guaranteed solvable via backtracking with pruning and
-                tiered difficulty modeling, generated on-device. Still in
-                development.
-              </p>
-            </div>
-            <div class="project-tech">
-              <span>Swift</span>
-              <span>iOS</span>
-              <span>UIKit</span>
-              <span>Storyboard</span>
-              <span>Xcode</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Featured Project 2: Tumble -->
-        <div class="featured-project">
-          <div class="project-image">
-            <a
-              href="https://apps.apple.com/us/app/tumble-puzzle-game/id6480238709"
-              target="_blank"
-              rel="noopener noreferrer"
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
             >
-              <img
-                src="content/projects/tumble_0.gif"
-                alt="Tumble puzzle game gameplay"
-                loading="lazy"
-              />
-            </a>
-          </div>
-          <div class="project-content">
-            <p class="project-overline">Featured Project</p>
-            <h3 class="project-title">
-              <a
-                href="https://apps.apple.com/us/app/tumble-puzzle-game/id6480238709"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Tumble</a
-              >
-            </h3>
-            <div class="project-description">
-              <p>
-                A modular MVC game engine with gesture-driven merging,
-                persistent state, and user-selectable themes and grid layouts.
-                Tilt the board and tiles slide and stack—2048 meets gravity.
-                Published on the App Store.
-              </p>
-            </div>
-            <div class="project-tech">
-              <span>Swift</span>
-              <span>iOS</span>
-              <span>UIKit</span>
-              <span>Storyboard</span>
-              <span>Xcode</span>
-            </div>
-            <div class="project-links">
-              <a
-                href="https://apps.apple.com/us/app/tumble-puzzle-game/id6480238709"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="App Store"
-              >
-                <img
-                  src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/appstore.svg"
-                  alt=""
-                  width="22"
-                  height="22"
-                  loading="lazy"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Featured Project 3: Background Noise Suppression -->
-        <div class="featured-project">
-          <div class="project-image">
-            <a
-              href="https://github.com/danielkweon/Background_Noise_Suppression"
-              target="_blank"
-              rel="noopener noreferrer"
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+              ></path>
+            </svg>
+          </a>
+          <a
+            href="https://linkedin.com/in/danielkweon"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
             >
-              <img
-                src="content/projects/background-noise-suppression.png"
-                loading="lazy"
-              />
-            </a>
-          </div>
-          <div class="project-content">
-            <p class="project-overline">Featured Project</p>
-            <h3 class="project-title">
-              <a
-                href="https://github.com/danielkweon/Background_Noise_Suppression"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Background Noise Suppression</a
-              >
-            </h3>
-            <div class="project-description">
-              <p>
-                My senior capstone — I used DSP and RNNs to pull speech out of
-                noisy audio in real time. Code and paper on GitHub.
-              </p>
-            </div>
-            <div class="project-tech">
-              <span>C++</span>
-              <span>Python</span>
-              <span>RNN</span>
-              <span>DSP</span>
-              <span>Machine Learning</span>
-            </div>
-            <div class="project-links">
-              <a
-                href="https://github.com/danielkweon/Background_Noise_Suppression"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                  ></path>
-                </svg>
-              </a>
-            </div>
-          </div>
+              <path
+                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+              ></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+          <a href="mailto:daniel@kweon.dev" aria-label="Email">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              ></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </a>
         </div>
-
-        <div class="projects-load-more-wrap">
-          <button
-            type="button"
-            class="btn btn-load-more"
-            id="projects-load-more"
-            aria-expanded="false"
-          >
-            LOAD MORE
-          </button>
-        </div>
-
-        <!-- Featured Project 4: PuzzLED -->
-        <div class="featured-project project-more" id="project-puzzled" hidden>
-          <div class="project-image">
-            <a href="#projects">
-              <img src="content/projects/puzzled.png" loading="lazy" />
-            </a>
-          </div>
-          <div class="project-content">
-            <p class="project-overline">Featured Project</p>
-            <h3 class="project-title">PuzzLED</h3>
-            <div class="project-description">
-              <p>
-                A physical puzzle board with a triangular LED grid and Arduino,
-                showing tangram-style shapes. It won a spot at the Children's
-                Museum of Blacksburg in 2018 and is still on display.
-              </p>
-            </div>
-            <div class="project-tech">
-              <span>C++</span>
-              <span>Arduino</span>
-              <span>Hardware</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Life / Photos Section -->
-      <section id="personal" class="fade-up">
-        <h2 class="section-heading">
-          <span class="section-number">04.</span> Personal
-        </h2>
-
-        <div class="personal-intro">
-          <p>
-            When I'm not coding, I'm usually exploring the city, solving
-            puzzles, or hunting for good coffee.
-          </p>
-        </div>
-
-        <div class="photo-gallery">
-          <div class="photo-item">
-            <div class="photo-item-inner">
-              <div class="photo-item-img-wrap">
-                <img src="content/personal/personal-dog.jpeg" loading="lazy" />
-              </div>
-            </div>
-          </div>
-          <div class="photo-item">
-            <div class="photo-item-inner">
-              <div class="photo-item-img-wrap">
-                <img src="content/personal/personal-bar.png" loading="lazy" />
-              </div>
-            </div>
-          </div>
-          <div class="photo-item">
-            <div class="photo-item-inner">
-              <div class="photo-item-img-wrap">
-                <img src="content/personal/personal-seoul.jpg" loading="lazy" />
-              </div>
-            </div>
-          </div>
-          <div class="photo-item">
-            <div class="photo-item-inner">
-              <div class="photo-item-img-wrap">
-                <img src="content/personal/personal-beach.jpg" loading="lazy" />
-              </div>
-            </div>
-          </div>
-          <div class="photo-item">
-            <div class="photo-item-inner">
-              <div class="photo-item-img-wrap">
-                <img
-                  src="content/personal/personal-snowboard.png"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="photo-item">
-            <div class="photo-item-inner">
-              <div class="photo-item-img-wrap">
-                <img
-                  src="content/personal/personal-bouldering.png"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="photo-item">
-            <div class="photo-item-inner">
-              <div class="photo-item-img-wrap">
-                <img src="content/personal/personal-woods.jpg" loading="lazy" />
-              </div>
-            </div>
-          </div>
-          <div class="photo-item">
-            <div class="photo-item-inner">
-              <div class="photo-item-img-wrap">
-                <img
-                  src="content/personal/personal-snowman.jpeg"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="photo-item">
-            <div class="photo-item-inner">
-              <div class="photo-item-img-wrap">
-                <img
-                  src="content/personal/personal-kitchen.jpeg"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact Section -->
-      <section id="contact" class="fade-up">
-        <p class="contact-overline">
-          <span class="section-number">05.</span> Contact
-        </p>
-        <h2>Get in Touch</h2>
-        <p>
-          I’m looking for what’s next. If you want to talk roles, puzzles, or
-          just say hi — get in touch.
-        </p>
-        <a href="mailto:daniel@kweon.dev" class="btn btn-game btn-large"
-          >Say hi</a
-        >
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-      <div class="footer-social">
-        <a
-          href="https://github.com/danielkweon"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path
-              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-            ></path>
-          </svg>
-        </a>
-        <a
-          href="https://linkedin.com/in/danielkweon"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path
-              d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-            ></path>
-            <rect x="2" y="9" width="4" height="12"></rect>
-            <circle cx="4" cy="4" r="2"></circle>
-          </svg>
-        </a>
-        <a href="mailto:daniel@kweon.dev" aria-label="Email">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path
-              d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-            ></path>
-            <polyline points="22,6 12,13 2,6"></polyline>
-          </svg>
-        </a>
-      </div>
-      <p>Built by Daniel &copy; 2026</p>
-      <p class="footer-easter-egg">Try typing "tumble" anywhere...</p>
-    </footer>
+        <p>Built by Daniel &copy; 2026</p>
+        <p class="footer-easter-egg">Try typing "tumble" anywhere...</p>
+      </footer>
+    </div>
 
     <script src="script.js"></script>
   </body>
