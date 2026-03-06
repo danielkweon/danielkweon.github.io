@@ -46,7 +46,7 @@
   --space-xl: 2rem;
   --space-2xl: 3rem;
   --space-3xl: 4rem;
-  --space-section: 100px;
+  --space-section: 72px;
 
   /* Layout */
   --max-width: 1000px;
@@ -217,10 +217,12 @@ a:hover {
 .section-heading::after {
   content: "";
   display: block;
-  width: 300px;
+  flex: 1;
   height: 1px;
   margin-left: var(--space-xl);
+  min-width: 0;
   background-color: var(--bg-tertiary);
+  align-self: center;
 }
 
 /* Mono text */
@@ -253,10 +255,9 @@ section {
   left: 0;
   width: var(--sidebar-width);
   height: 100vh;
-  padding: var(--space-3xl) var(--space-xl);
+  padding: var(--space-xl) var(--space-xl);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   z-index: 100;
   animation: slideInLeft 0.5s ease forwards;
 }
@@ -272,6 +273,10 @@ section {
   }
 }
 
+.sidebar-main {
+  flex-shrink: 0;
+}
+
 .sidebar-header {
   margin-bottom: var(--space-3xl);
 }
@@ -283,6 +288,15 @@ section {
   margin-bottom: var(--space-xs);
 }
 
+.sidebar-header a.sidebar-name {
+  color: var(--text-primary);
+  display: inline-block;
+}
+
+.sidebar-header a.sidebar-name:hover {
+  color: var(--accent);
+}
+
 .sidebar-title {
   font-size: var(--fs-md);
   color: var(--text-secondary);
@@ -290,7 +304,11 @@ section {
 }
 
 .sidebar-nav {
-  flex: 1;
+  position: absolute;
+  top: 50%;
+  left: var(--space-xl);
+  right: var(--space-xl);
+  transform: translateY(-50%);
 }
 
 .sidebar-nav ul {
@@ -320,6 +338,7 @@ section {
   margin-right: var(--space-md);
   background-color: var(--text-muted);
   transition: all var(--transition-base);
+  align-self: center;
 }
 
 .sidebar-nav a:hover,
@@ -344,6 +363,8 @@ section {
 .sidebar-social {
   display: flex;
   gap: var(--space-lg);
+  margin-top: auto;
+  flex-shrink: 0;
 }
 
 .sidebar-social a {
@@ -718,7 +739,7 @@ section {
    EXPERIENCE SECTION
    ======================================== */
 
-#experience {
+#work {
   scroll-margin-top: var(--space-section);
 }
 
@@ -1168,29 +1189,195 @@ section {
 }
 
 /* ========================================
+   BLOG SECTION
+   ======================================== */
+
+#blog {
+  scroll-margin-top: var(--space-section);
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-2xl);
+}
+
+.blog-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--transition-base), transform var(--transition-base);
+}
+
+.blog-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+
+.blog-card-placeholder-card:hover {
+  transform: none;
+}
+
+.blog-card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.blog-card-link-placeholder {
+  cursor: default;
+}
+
+.blog-card-link:hover {
+  color: inherit;
+}
+
+.blog-card-image {
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.blog-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.blog-card-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    var(--bg-tertiary) 0%,
+    var(--bg-secondary) 100%
+  );
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xl);
+  font-weight: 600;
+}
+
+.blog-card-content {
+  padding: var(--space-xl);
+}
+
+.blog-card-title {
+  font-size: var(--fs-xl);
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+  transition: color var(--transition-base);
+}
+
+.blog-card:hover .blog-card-title {
+  color: var(--accent);
+}
+
+.blog-preview {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Blog post page */
+.blog-post-content {
+  padding-top: var(--space-2xl);
+  padding-left: var(--space-xl);
+  padding-right: var(--space-xl);
+}
+
+.blog-top-bar {
+  width: 100%;
+  padding: var(--space-lg) var(--space-xl);
+}
+
+.blog-post-footer {
+  margin: var(--space-3xl) auto var(--space-2xl);
+  padding-top: var(--space-2xl);
+  border-top: 1px solid var(--bg-tertiary);
+  max-width: 864px;
+  text-align: center;
+}
+
+/* Solo blog post layout (no sidebar) */
+.blog-post-solo {
+  min-height: 100vh;
+  max-width: 864px;
+  margin: 0 auto;
+  padding: var(--space-3xl) var(--space-xl) var(--space-3xl);
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--fs-sm);
+}
+
+.btn-back-arrow {
+  font-size: var(--fs-lg);
+  line-height: 1;
+}
+
+.blog-article {
+  max-width: 864px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.blog-article-header {
+  margin-bottom: var(--space-2xl);
+}
+
+.blog-article-header h1 {
+  font-size: var(--fs-4xl);
+  color: var(--text-primary);
+}
+
+.blog-article-body h2 {
+  font-size: var(--fs-xl);
+  color: var(--text-primary);
+  margin-top: var(--space-3xl);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--bg-tertiary);
+}
+
+.blog-article-body h2:first-of-type {
+  margin-top: 0;
+}
+
+.blog-article-body p {
+  margin-bottom: var(--space-lg);
+}
+
+.blog-article-divider {
+  border: none;
+  border-top: 1px solid var(--bg-tertiary);
+  margin: var(--space-2xl) 0;
+}
+
+/* ========================================
    CONTACT SECTION
    ======================================== */
 
 #contact {
   scroll-margin-top: var(--space-section);
   text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
   padding-top: var(--space-section);
   padding-bottom: calc(var(--space-section) + 200px);
   min-height: 50vh;
-}
-
-.contact-overline {
-  font-family: var(--font-mono);
-  font-size: var(--fs-md);
-  color: var(--accent);
-  margin-bottom: var(--space-md);
-}
-
-#contact h2 {
-  font-size: var(--fs-4xl);
-  margin-bottom: var(--space-xl);
 }
 
 #contact p {
@@ -1359,8 +1546,7 @@ footer a:hover {
   }
 
   .section-heading::after {
-    width: 100%;
-    max-width: 150px;
+    flex: 1;
   }
 
   .about-content {
@@ -1411,6 +1597,7 @@ footer a:hover {
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: var(--space-lg);
   }
+
 }
 
 @media (max-width: 480px) {
