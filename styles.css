@@ -255,11 +255,9 @@ section {
   left: 0;
   width: var(--sidebar-width);
   height: 100vh;
-  min-height: 0;
   padding: var(--space-xl) var(--space-xl);
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
   z-index: 100;
   animation: slideInLeft 0.5s ease forwards;
 }
@@ -276,14 +274,10 @@ section {
 }
 
 .sidebar-main {
-  flex: 1;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
+  flex-shrink: 0;
 }
 
 .sidebar-header {
-  flex-shrink: 0;
   margin-bottom: var(--space-3xl);
 }
 
@@ -310,11 +304,11 @@ section {
 }
 
 .sidebar-nav {
-  flex: 1;
-  min-height: 0;
-  overflow-y: auto;
-  display: flex;
-  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: var(--space-xl);
+  right: var(--space-xl);
+  transform: translateY(-50%);
 }
 
 .sidebar-nav ul {
@@ -1216,6 +1210,8 @@ section {
   background-image: linear-gradient(
     135deg,
     var(--bg-tertiary) 0%,
+    var(--bg-tertiary) 25%,
+    var(--bg-secondary) 75%,
     var(--bg-secondary) 100%
   );
   border: 1px solid var(--bg-tertiary);
@@ -1240,9 +1236,10 @@ section {
   background: linear-gradient(
     135deg,
     var(--bg-tertiary) 0%,
+    var(--bg-tertiary) 30%,
     var(--bg-secondary) 100%
   );
-  opacity: 0.35;
+  opacity: 0.75;
   pointer-events: none;
 }
 
@@ -1294,6 +1291,8 @@ section {
   background: linear-gradient(
     135deg,
     var(--bg-tertiary) 0%,
+    var(--bg-tertiary) 25%,
+    var(--bg-secondary) 75%,
     var(--bg-secondary) 100%
   );
   color: var(--text-muted);
@@ -1381,6 +1380,14 @@ section {
   text-align: center;
 }
 
+.blog-post-date {
+  display: block;
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  margin-top: var(--space-sm);
+  text-align: center;
+}
+
 .blog-post-footer {
   margin: var(--space-3xl) auto var(--space-2xl);
   padding-top: var(--space-2xl);
@@ -1405,6 +1412,12 @@ section {
 }
 
 .btn-back-arrow {
+  font-size: var(--fs-lg);
+  line-height: 1;
+}
+
+.btn-up-arrow {
+  margin-left: var(--space-xs);
   font-size: var(--fs-lg);
   line-height: 1;
 }
@@ -1551,7 +1564,8 @@ footer a:hover {
    RESPONSIVE DESIGN
    ======================================== */
 
-@media (max-width: 1080px) {
+/* Narrow viewport OR short viewport: use mobile nav so sidebar never overlaps */
+@media (max-width: 1080px), (max-height: 650px) {
   :root {
     --sidebar-width: 0px;
   }
@@ -1662,6 +1676,9 @@ footer a:hover {
   }
 
   .project-image {
+    max-width: 220px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: var(--space-lg);
   }
 
@@ -1677,7 +1694,11 @@ footer a:hover {
 
 @media (max-width: 480px) {
   section {
-    padding: var(--space-2xl) var(--space-md);
+    padding: var(--space-2xl) var(--space-lg);
+  }
+
+  .project-image {
+    max-width: 200px;
   }
 
   .photo-gallery {

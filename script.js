@@ -28,9 +28,22 @@
     }
 
     init() {
+      this.setupScrollOnLoad();
       this.setupScrollSpy();
       this.setupMobileNav();
       this.setupSmoothScroll();
+    }
+
+    setupScrollOnLoad() {
+      if (!this.sidebarLinks.length || !this.sections.length) return;
+      const pathname = window.location.pathname;
+      if (window.location.hash || window.location.search) {
+        history.replaceState(null, "", pathname);
+      }
+      const goTop = () => window.scrollTo(0, 0);
+      goTop();
+      requestAnimationFrame(goTop);
+      setTimeout(goTop, 0);
     }
 
     setupScrollSpy() {
