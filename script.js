@@ -215,7 +215,7 @@
     constructor() {
       this.elements = document.querySelectorAll(".fade-up");
       this.prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
+        "(prefers-reduced-motion: reduce)",
       ).matches;
 
       this.init();
@@ -303,7 +303,7 @@
 
       console.log("%c🎮 TUMBLE! 🎮", "font-size: 24px; color: #4dabf7;");
       console.log(
-        "You found the easter egg! Play the full game: https://apps.apple.com/us/app/tumble-puzzle-game/id6480238709"
+        "You found the easter egg! Play the full game: https://apps.apple.com/us/app/tumble-puzzle-game/id6480238709",
       );
     }
   }
