@@ -1364,11 +1364,11 @@ section {
   .blog-page .blog-left-panel {
     position: static;
     width: 100%;
-    padding: var(--space-xl) var(--space-xl) var(--space-md);
+    padding: var(--space-xl) var(--space-xl) var(--space-xl);
   }
 
   .blog-page .blog-post-solo {
-    padding-top: var(--space-lg);
+    padding-top: var(--space-xl);
   }
 }
 
