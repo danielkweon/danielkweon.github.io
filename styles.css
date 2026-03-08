@@ -1321,6 +1321,16 @@ section {
   color: var(--accent);
 }
 
+.blog-card-date {
+  display: inline-block;
+  margin-bottom: var(--space-md);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
 .blog-preview {
   font-size: var(--fs-sm);
   color: var(--text-secondary);
