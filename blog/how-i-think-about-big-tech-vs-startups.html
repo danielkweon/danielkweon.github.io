@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="How working at Bloomberg, Amazon, and a 12-person startup changed the way I think about engineering."
+    />
+    <meta name="author" content="Daniel Kweon" />
+
+    <title>How I Think About Big Tech vs Startups - Daniel Kweon</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body class="blog-page">
+    <a href="#content" class="skip-to-content">Skip to Content</a>
+    <div class="blog-layout">
+      <aside class="blog-left-panel">
+        <a href="https://daniel.kweon.dev" class="btn btn-back">
+          <span class="btn-back-arrow" aria-hidden="true">&larr;</span> Back to
+          home
+        </a>
+      </aside>
+      <main id="content" class="blog-post-solo">
+        <article class="blog-article">
+          <h1 class="blog-post-title">
+            How I Think About Big Tech vs Startups
+          </h1>
+          <time class="blog-post-date" datetime="2026-03-06"
+            >March 6, 2026</time
+          >
+          <hr class="blog-article-divider" />
+
+          <div class="blog-article-body">
+            <p>
+              When I first started working as a software engineer in 2021, I was
+              not really thinking in terms of big tech versus startup. The
+              bigger adjustment, at least at first, was just school to
+              professional engineering. In school, most of what I built felt
+              direct. The goal was usually to make something work. If the
+              project ran, if the demo held together, if the idea came to life
+              in some recognizable form, that was often enough. There was a kind
+              of freedom in that. You could move quickly, try things, throw
+              things away, and keep going without thinking too much about what
+              the code would have to support six months later.
+            </p>
+
+            <p>
+              Starting at Bloomberg felt very different almost immediately.
+              Writing code was still part of the job, but it was obvious very
+              quickly that it was only one part. A lot of the work was learning
+              how to read code I did not write, understand systems I did not
+              design, and make changes inside codebases that were already large,
+              already in motion, and already shaped by years of decisions before
+              I got there. Even early on, I could feel that professional
+              engineering in that environment was not just about whether I could
+              get something to work. It was about whether I could understand
+              enough of the surrounding system to make a change that made sense
+              inside it.
+            </p>
+
+            <p>
+              That was one of the first real shifts in how I thought about
+              engineering. In school, most problems felt local. You could hold
+              the project in your head, make a change, test it, and move on. At
+              Bloomberg, and later at Amazon, even a task that looked small on
+              the surface usually sat inside much more context than I could see
+              at first. There were existing patterns, existing architecture,
+              existing assumptions, downstream dependencies, operational
+              concerns, team norms, review expectations. A local fix was not
+              necessarily a good fix. The change had to make sense in the larger
+              system it was entering.
+            </p>
+
+            <p>
+              Over time, that way of working began to feel normal to me.
+              Larger-company engineering had a rhythm to it. There were clearer
+              boundaries, more established processes, more coordination around
+              how work moved, and more structure around how ideas became
+              projects and how projects became code. Sometimes that structure
+              felt heavy. Sometimes it felt slower than it needed to be. But the
+              longer I worked in those environments, the more I understood that
+              a lot of that friction existed for a reason. When more people are
+              involved, more systems are connected, and more customers already
+              depend on the software, care has to show up earlier.
+            </p>
+
+            <p>
+              I think that is part of why I started to appreciate rigor
+              differently. Early in my career, rigor sounded like a vague
+              virtue. It sounded like a more polished way of saying "be
+              careful." But in bigger companies it felt much more concrete than
+              that. Rigor meant understanding that systems have memory. It meant
+              recognizing that decisions outlive the person who made them. It
+              meant knowing that a change could be technically correct and still
+              be wrong for the environment it enters. It meant asking not only
+              whether something worked, but whether it fit, whether it would
+              hold up, what assumptions it was making, what it would cost to
+              maintain later, and what could break at the edges once other
+              people started depending on it.
+            </p>
+
+            <p>
+              By the time I moved from Bloomberg to Amazon, that mode of
+              thinking had become much more natural to me. I was more used to
+              operating inside systems that already mattered. I was more used to
+              the fact that implementation was only one part of the job. You
+              also had to explain your thinking, defend tradeoffs, anticipate
+              review questions, and make sure your work aligned with patterns
+              larger than your own preferences. That taught me patience, but it
+              also taught me discipline. It trained me to respect the idea that
+              good engineering is often shaped by structure long before anyone
+              starts writing code.
+            </p>
+
+            <p>
+              Then I joined Macro and the contrast felt immediate. At Amazon, I
+              had worked on a two-pizza team, the idea that a team should not be
+              bigger than what two pizzas could feed. Macro was a two-pizza
+              company.
+            </p>
+
+            <p>
+              It was not just that things moved faster, even though they often
+              did. It was that much less had already been decided for you. The
+              work sat much closer to the product. The boundaries were less
+              defined. There was less process separating an idea from a decision
+              and a decision from implementation. The engineering felt broader,
+              but also more exposed. In bigger companies, a lot of the shape of
+              the work had already been determined by the time it reached me. At
+              Macro, the shape of the work was often part of the work.
+            </p>
+
+            <p>
+              In some ways, that shift felt strangely familiar. It reminded me a
+              little of school again, where you could move directly, build
+              quickly, and figure things out in motion. But it was not the same
+              kind of scrappiness. In school, the stakes were low and the
+              systems were small. At a startup, the work could still feel messy
+              and fast-moving, but now the product was real, the users were
+              real, and the consequences of a wrong assumption were real too. It
+              brought back some of that directness, but under much more
+              pressure.
+            </p>
+
+            <p>
+              People usually frame the difference between big tech and startups
+              in obvious ways: prestige, compensation, stability, speed. Those
+              things matter, but they do not feel like the most interesting
+              difference to me anymore. What has stayed with me more is that
+              each environment trained something different. Big tech taught me
+              how to build within structure. Startup taught me how to build
+              without it. Over time, I realized that was the deeper contrast.
+              They do not just offer different jobs. They shape different
+              instincts.
+            </p>
+
+            <hr class="blog-article-divider" />
+
+            <p>
+              What larger companies taught me first was that engineering is
+              often shaped by context long before it becomes code. Coming out of
+              school, that was one of the biggest adjustments for me. In school,
+              the standard was usually much simpler. You were trying to make
+              something work. The project might be rough around the edges, but
+              if the idea came to life and the result basically did what you
+              wanted, that was often enough. A lot of the work was local. You
+              could hold the project in your head, make a change, test it, and
+              move on.
+            </p>
+
+            <p>
+              At Bloomberg, and later at Amazon, the work felt much less local.
+              Even when a task seemed small, it usually sat inside a much larger
+              system than I could see from the surface. There were existing
+              patterns, existing architecture, existing assumptions, and
+              downstream dependencies that were easy to miss if I only looked at
+              the problem directly in front of me. A local fix was not enough.
+              The work had to make sense in the larger environment it was
+              entering. That changed how I thought about engineering pretty
+              quickly. "Does it work?" was still necessary, but it was no longer
+              the full standard.
+            </p>
+
+            <p>
+              Part of that came from the systems themselves, but part of it came
+              from the workflow around them. In bigger companies, engineering
+              moved through an established rhythm. There was planning,
+              implementation, review, testing, deployment, and a whole layer of
+              communication wrapped around all of it. Team meetings, design
+              discussions, cross-team coordination, dependency management.
+              Earlier in my career, I mostly experienced that as friction. It
+              felt like distance between the idea and the work. Later, I started
+              to understand that some of that friction was really accumulated
+              caution. It was the cost of working in systems that already
+              carried history and trust.
+            </p>
+
+            <p>
+              I think that is what made me appreciate rigor differently over
+              time. Early on, rigor sounded like a vague virtue, almost like a
+              polished way of saying "be careful." But in those environments it
+              felt more concrete than that. Rigor meant respecting the fact that
+              systems have memory. It meant knowing that decisions outlive the
+              person who made them. It meant understanding that a change could
+              be technically correct and still be wrong for the environment it
+              enters. It meant thinking about what happens at the edges, what
+              assumptions are hidden in the implementation, and what kind of
+              maintenance burden you might be creating for someone else later.
+            </p>
+
+            <p>
+              That way of working also trained a certain kind of humility in me.
+              When you join a system that already has history, a lot of your job
+              at first is learning before changing. You are not walking into a
+              blank canvas. You are walking into other people's reasoning,
+              tradeoffs, and mistakes, some of which still make sense and some
+              of which no longer do. That made me slower to assume I understood
+              the whole problem from the surface. It made me more likely to ask
+              why a system looks the way it does before deciding too quickly
+              that it should be changed.
+            </p>
+
+            <p>
+              The longer I worked that way, the more I noticed where my
+              attention naturally went. I thought a lot about fit. Would this
+              design hold up? Does it match the surrounding architecture? Are we
+              introducing a shortcut that will quietly become expensive later?
+              What happens if this assumption fails once other people depend on
+              it? In that sense, big tech trained my instinct toward system
+              judgment. The work was not only about building something useful.
+              It was also about making sure the thing would behave well inside a
+              larger machine that already mattered to other people.
+            </p>
+
+            <p>
+              That way of thinking has stayed with me. Even now, some of my
+              first instincts still come from those years. I naturally look for
+              edge cases. I think about whether an abstraction really belongs. I
+              worry about long-term maintainability. I care whether a change
+              fits the rest of the system, not just whether it succeeds in
+              isolation. Those instincts came from working in environments where
+              code carried more history, more scale, and more consequences.
+            </p>
+
+            <hr class="blog-article-divider" />
+
+            <p>
+              Startup taught me to pay attention to a different set of
+              questions.
+            </p>
+
+            <p>
+              At Macro, it became much harder to separate implementation from
+              product judgment. The technical question was usually not the only
+              question. I found myself thinking much more often about whether
+              something was actually useful, whether users would care, whether
+              this was the right version of the idea, and whether the company
+              should even be investing in this direction yet. The work sat much
+              closer to uncertainty. A lot of engineering happened in the
+              overlap between product, execution, and learning.
+            </p>
+
+            <p>
+              That changed what "good" work looked like to me. In a larger
+              company, good work often meant making something fit cleanly into a
+              system with history. In a startup, good work often started one
+              step earlier. Before asking whether something was elegantly
+              designed, you had to ask whether it was worth building in the
+              first place. Sometimes the most valuable thing you could do was
+              not build the most polished version of an idea. It was build the
+              fastest honest version of it so the company could learn something
+              real.
+            </p>
+
+            <p>
+              That was one of the biggest adjustments. In bigger companies,
+              there was often more clarity around the shape of the work before I
+              started. At a startup, the shape of the work was often still
+              moving. The product direction could still be changing. The scope
+              could still be unsettled. Sometimes the technical direction was
+              clear and the product direction was not. Sometimes both were still
+              taking shape. There were more moments where the right answer was
+              not waiting to be discovered through enough careful analysis. You
+              had to make a reasonable call, move forward, and learn from what
+              happened next.
+            </p>
+
+            <p>
+              I think that is one of the most useful things startup taught me:
+              how to build and iterate without waiting for perfect clarity. It
+              taught me how much engineering depends on judgment when there is
+              not much process to lean on. It also taught me that usefulness
+              sometimes matters earlier than elegance. There are moments when
+              the most important question is not whether the system is as
+              polished or resilient as it could eventually become, but whether
+              the thing is valuable enough to deserve a second iteration at all.
+            </p>
+
+            <p>
+              That made engineering feel much closer to product than it had
+              before. In a startup, there is less distance between an idea and
+              the person expected to do something about it. Product questions,
+              technical questions, business questions, and user questions sit
+              much closer together. You are not just handed a neatly defined
+              problem and asked to execute. You are often helping shape the
+              scope, pressure-test whether the idea is actually good, decide
+              what version is worth shipping now, and accept that some of those
+              decisions will be revised quickly once reality shows up.
+            </p>
+
+            <p>
+              In that sense, startup work did feel more immediate. If something
+              needed to be built, it often just got built. There was less
+              ceremony around every step. Less insulation. Less of the feeling
+              that a task had to pass through layer after layer before it became
+              real. That directness could be energizing. It made the work feel
+              alive in a different way.
+            </p>
+
+            <p>
+              But I also do not want to romanticize it. Moving quickly in a
+              startup does not mean moving carelessly. The work still demands
+              judgment. In some ways, it demands more of it, because there is
+              less process protecting you from your own assumptions. You still
+              have to think clearly, make reasonable tradeoffs, and accept that
+              some of the context around the work may still be changing while
+              you build.
+            </p>
+
+            <p>
+              That is what I mean when I say startup taught me how to build
+              without structure. I do not mean without standards, or without
+              careful thinking, or without good engineering. I mean without the
+              same amount of settled process, institutional memory, and
+              predefined boundaries around the work. It taught me how to move
+              when more of the context was still changing, how to make decisions
+              with less certainty, and how to think not just about whether
+              something would hold up, but whether it would matter.
+            </p>
+
+            <hr class="blog-article-divider" />
+
+            <p>
+              After spending time in both kinds of environments, one thing that
+              stayed with me was that their strengths were usually tied closely
+              to their limitations. The same things that made larger companies
+              feel structured and dependable also made them harder to change
+              quickly. And the same things that made startup work feel fast and
+              adaptable also made it less settled and, at times, less durable.
+              Over time, I stopped thinking about the difference as just one of
+              pace. It felt more like each environment was optimized for a
+              different kind of problem, and that optimization always came with
+              a cost.
+            </p>
+
+            <p>
+              In bigger companies, a lot of the value came from continuity. The
+              systems had more history. The workflows had been refined over
+              time. The people around the work often carried more context, and
+              there was usually a clearer sense of how projects were supposed to
+              move from idea to implementation to deployment. When that kind of
+              structure matched the problem in front of you, it could feel
+              extremely effective. The work had a rhythm to it. There was more
+              confidence in the review process, more trust in the surrounding
+              systems, and more reason to believe that a thoughtfully built
+              thing might actually last.
+            </p>
+
+            <p>
+              But that same continuity could also become a kind of inertia. A
+              system that has been refined over years is strong partly because
+              it has habits, and habits are not always easy to change. When the
+              task changed, or the assumptions underneath the work shifted, some
+              of the same workflows and patterns that made the environment
+              effective could start to feel less flexible. The machine still
+              worked, but sometimes it was working very well for a version of
+              the problem that was no longer exactly the one in front of you.
+              That did not make the structure bad. It just meant the structure
+              had a cost.
+            </p>
+
+            <p>
+              Startup work had almost the opposite shape. There was much less
+              continuity to rely on, much less settled process, and much less
+              distance between building something and learning whether it
+              mattered. That made the work feel more responsive. It was easier
+              to change direction, easier to rethink scope, and easier to put
+              something in front of users and react to what happened next. A lot
+              of the work was not about fitting into a machine that already
+              existed. It was about helping figure out what the machine needed
+              to become.
+            </p>
+
+            <p>
+              But that flexibility came with its own kind of instability. In a
+              startup, you can build quickly, think carefully, and still end up
+              throwing away a surprising amount of work because the company
+              learns something new, the product shifts, or a different priority
+              suddenly matters more. The closeness to product is valuable, but
+              it also means your work is much more exposed to changing
+              assumptions. Progress can feel immediate, but it can also feel
+              fragile.
+            </p>
+
+            <p>
+              I think that changed how I define progress. In bigger companies,
+              progress often felt more durable. In startup work, progress often
+              felt more provisional. Sometimes the value of shipping something
+              quickly was not that it was polished or final, but that it
+              answered the question of whether the thing mattered at all. One
+              environment was often better at building for continuity. The other
+              was often better at building for adaptation. Neither was free of
+              friction. They just carried different kinds of it.
+            </p>
+
+            <p>
+              This is probably why I stopped seeing the difference in simplistic
+              terms. Big tech was not just bureaucracy and rigor. Startup was
+              not just speed and ownership. Each one had real strengths, and
+              each one imposed its own tax. Bigger companies risk slowness and
+              inertia. Startups risk wasted work and instability. The upside and
+              downside were usually inseparable.
+            </p>
+
+            <hr class="blog-article-divider" />
+
+            <p>
+              After spending time in both kinds of environments, I do not really
+              think of big tech and startups as opposites anymore. They feel
+              more like different chapters of learning how to be an engineer.
+              Bigger companies taught me structure, patience, and how to build
+              inside systems that already carried history, expectations, and
+              other people's trust. Startup taught me how to move with less
+              certainty, stay closer to the product, and make decisions when the
+              path forward was still taking shape.
+            </p>
+
+            <p>
+              What I appreciate now is that both changed what I pay attention
+              to. When I look at a problem, part of me still asks the
+              big-company questions first: will this hold up, does it fit, what
+              hidden costs are we creating, what happens when other people
+              depend on this? But another part of me now asks the startup
+              questions too: is this actually useful, is this the right version
+              of the idea, what are we learning by shipping this, and is this
+              worth building now?
+            </p>
+
+            <p>
+              I think that combination made me a better engineer than either
+              environment would have on its own. One taught me how to make
+              things fit inside systems that already mattered. The other taught
+              me how to move before the system was fully there. One made me more
+              rigorous. The other made me more adaptive. One pulled me toward
+              system judgment. The other pulled me toward product judgment. Both
+              mattered.
+            </p>
+
+            <p>
+              Looking back, I do not think the real question was ever which
+              environment was better. For me, the more meaningful question is
+              what each one was shaping in me while I was there. They did not
+              just give me different jobs. They gave me different habits,
+              different instincts, and different definitions of what good work
+              can look like. And if I am being honest, I do not think I would
+              trust my own engineering judgment in the same way without having
+              worked in both.
+            </p>
+          </div>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>

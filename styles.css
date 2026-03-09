@@ -1024,7 +1024,7 @@ section {
 
 .project-description {
   background-color: var(--bg-secondary);
-  padding: var(--space-xl);
+  padding: var(--space-lg);
   border-radius: var(--radius-md);
   border: 1px solid var(--bg-tertiary);
   margin-bottom: var(--space-lg);
@@ -1241,6 +1241,7 @@ section {
   );
   opacity: 0.75;
   pointer-events: none;
+  z-index: 0;
 }
 
 .blog-card:hover {
@@ -1283,6 +1284,8 @@ section {
 }
 
 .blog-card-placeholder {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   display: flex;
@@ -1295,7 +1298,7 @@ section {
     var(--bg-secondary) 75%,
     var(--bg-secondary) 100%
   );
-  color: var(--text-muted);
+  color: var(--accent-alt);
   font-family: var(--font-mono);
   font-size: var(--fs-2xl);
   font-weight: 600;
@@ -1312,9 +1315,15 @@ section {
 
 .blog-card-title {
   font-size: var(--fs-xl);
+  line-height: 1.35;
   color: var(--text-primary);
   margin-bottom: var(--space-md);
   transition: color var(--transition-base);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: calc(1.35em * 2);
 }
 
 .blog-card:hover .blog-card-title {
@@ -1336,6 +1345,7 @@ section {
   color: var(--text-secondary);
   line-height: 1.6;
   margin: 0;
+  min-height: calc(1.6em * 3);
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
