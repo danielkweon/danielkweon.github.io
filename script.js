@@ -260,6 +260,57 @@
   }
 
   // ========================================
+  // BLOG PREVIEWS
+  // ========================================
+
+  class BlogPreviews {
+    constructor() {
+      this.cards = document.querySelectorAll(
+        ".blog-card-link[data-preview-source]",
+      );
+
+      if (this.cards.length === 0) return;
+
+      this.init();
+    }
+
+    async init() {
+      await Promise.all(
+        Array.from(this.cards, (card) => this.populatePreview(card)),
+      );
+    }
+
+    async populatePreview(card) {
+      const preview = card.querySelector("[data-preview-auto]");
+      const source = card.dataset.previewSource;
+
+      if (!preview || !source) return;
+
+      try {
+        const response = await fetch(source);
+        if (!response.ok) return;
+
+        const html = await response.text();
+        const doc = new DOMParser().parseFromString(html, "text/html");
+        const firstParagraph = doc.querySelector(".blog-article-body p");
+
+        if (!firstParagraph) return;
+
+        const normalizedText = this.normalizeText(firstParagraph.textContent);
+        if (!normalizedText) return;
+
+        preview.textContent = normalizedText;
+      } catch (error) {
+        console.error(`Failed to load blog preview from ${source}`, error);
+      }
+    }
+
+    normalizeText(text) {
+      return text.replace(/\s+/g, " ").trim();
+    }
+  }
+
+  // ========================================
   // EASTER EGG
   // ========================================
 
@@ -329,6 +380,7 @@
     new Navigation();
     new ExperienceTabs();
     new ScrollAnimations();
+    new BlogPreviews();
     new TumbleEasterEgg();
 
     const loadMoreBtn = document.getElementById("projects-load-more");
