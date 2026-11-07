@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Daniel Kweon, software engineer in NYC. Previously Macro, Amazon, Bloomberg. I also build puzzle games."
+      content="Daniel Kweon, software engineer in NYC. Previously Adaptive Security, Macro, Amazon, and Bloomberg. I also build puzzle games."
     />
     <meta
       name="keywords"
-      content="Daniel Kweon, Software Engineer, NYC, Macro, Amazon, Bloomberg, Developer, Puzzle Games"
+      content="Daniel Kweon, Software Engineer, NYC, Adaptive Security, AI Governance, Macro, Amazon, Bloomberg, Developer, Puzzle Games"
     />
     <meta name="author" content="Daniel Kweon" />
 
@@ -17,7 +17,7 @@
     <meta property="og:title" content="Daniel Kweon | Software Engineer" />
     <meta
       property="og:description"
-      content="Software engineer in NYC. Previously Macro, Amazon, Bloomberg. I also build puzzle games."
+      content="Software engineer in NYC. Previously Adaptive Security, Macro, Amazon, and Bloomberg. I also build puzzle games."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://daniel.kweon.dev" />
@@ -156,8 +156,9 @@
             <h1 class="hero-name">Daniel Kweon</h1>
             <h2 class="hero-tagline">I build systems & puzzles</h2>
             <p class="hero-description">
-              I'm Daniel, a software engineer in NYC. Previously Macro, Amazon,
-              Bloomberg. I also build puzzle games.
+              I'm Daniel, a software engineer in NYC. Previously Adaptive
+              Security, Macro, Amazon, and Bloomberg. I also build puzzle
+              games.
             </p>
             <div class="hero-cta">
               <a href="#contact" class="btn btn-game btn-large">Get in touch</a>
@@ -179,8 +180,9 @@
                 of care underneath.
               </p>
               <p>
-                I've worked at Macro, Amazon, and Bloomberg, with experience
-                across the stack, from deep infrastructure to product work.
+                I've worked at Adaptive Security, Macro, Amazon, and Bloomberg,
+                with experience across the stack, from deep infrastructure to
+                product work.
               </p>
               <p>
                 Right now, I'm looking for what's next and spending a lot of
@@ -210,6 +212,14 @@
                 class="experience-tab active"
                 role="tab"
                 aria-selected="true"
+                data-tab="adaptive-security"
+              >
+                Adaptive Security
+              </button>
+              <button
+                class="experience-tab"
+                role="tab"
+                aria-selected="false"
                 data-tab="macro"
               >
                 Macro
@@ -241,13 +251,64 @@
             </div>
 
             <div class="experience-panels">
+              <!-- Adaptive Security -->
+              <div
+                class="experience-panel active"
+                id="adaptive-security"
+                role="tabpanel"
+              >
+                <h3>
+                  Software Engineer
+                  <span class="company">@ Adaptive Security</span>
+                </h3>
+                <p class="experience-duration">
+                  May 2026 to October 2026 · AI Security &amp; Governance Startup
+                  (Series B)
+                </p>
+                <div class="experience-body">
+                  <p>
+                    Built and scaled a Windows device agent for AI governance
+                    from 0 to 20 customers and 1,500+ endpoints, enabling AI
+                    application detection, app usage visibility, and fleet
+                    health monitoring.
+                  </p>
+                  <p>
+                    Developed a Kafka pipeline ingesting device activity and
+                    detecting risk, using RDS for operations and ClickHouse for
+                    analytics.
+                  </p>
+                  <p>
+                    Created an activity model for device, browser, and API
+                    integrations, powering a governance feed for user and
+                    agentic actions.
+                  </p>
+                  <p>
+                    Led development of policy enforcement in the device agent
+                    and admin controls for AI application, account, and DLP
+                    policies, using deterministic evaluation and an Amazon
+                    Bedrock-hosted LLM classifier to block sensitive data.
+                  </p>
+                </div>
+                <div class="experience-tech">
+                  <span>Windows</span>
+                  <span>Kafka</span>
+                  <span>RDS</span>
+                  <span>ClickHouse</span>
+                  <span>Amazon Bedrock</span>
+                  <span>DLP</span>
+                </div>
+              </div>
+
               <!-- Macro -->
-              <div class="experience-panel active" id="macro" role="tabpanel">
+              <div class="experience-panel" id="macro" role="tabpanel">
                 <h3>
                   Software Engineer
                   <span class="company">@ Macro</span>
                 </h3>
-                <p class="experience-duration">July 2024 to January 2026</p>
+                <p class="experience-duration">
+                  July 2024 to January 2026 · AI Productivity Suite Startup
+                  (Series A)
+                </p>
                 <div class="experience-body">
                   <p>
                     At
@@ -261,27 +322,30 @@
                     properties service from scratch (user- and system-defined
                     properties, automated tagging, relationship inference),
                     enabling unified querying and extensibility; drove
-                    cross-team alignment on semantics now adopted by multiple
+                    cross-team alignment on shared property semantics across 3
                     product teams.
                   </p>
                   <p>
-                    Replaced the company's task management stack by designing
-                    and rolling out an internal platform on the properties
-                    system, adopted company-wide and by customers in production.
+                    Built and rolled out an in-product task management system
+                    on the properties platform, replacing Linear company-wide.
+                    It was adopted by 3 external customers and scaled to 10K+
+                    tasks in the first month.
                   </p>
                   <p>
-                    Developed the Markdown editor that drives most in-product
-                    activity: real-time collaboration, cross-workspace
+                    Owned the Markdown editor that drives 50%+ of
+                    in-product activity: real-time collaboration, cross-workspace
                     integrations, agentic AI writing workflows. Improved UX and
                     reliability through telemetry, performance tuning, and bug
                     triage.
                   </p>
                   <p>
-                    Built a streaming AI chat system with context-aware prompt
-                    assembly and real-time token delivery over WebSockets,
-                    enabling interactive document workflows. Enabled in-browser
-                    docx rendering and editing via LibreOfficeKit (C++ /
-                    WebAssembly), significantly reducing document load times.
+                    Built a streaming AI chat system using conversation and
+                    document context for prompt assembly and real-time token
+                    delivery over WebSockets, improving answer quality and
+                    enabling interactive document workflows. Enabled
+                    in-browser docx rendering and editing via LibreOfficeKit
+                    (C++ / WebAssembly), significantly reducing document load
+                    times.
                   </p>
                 </div>
                 <div class="experience-tech">
@@ -302,7 +366,10 @@
                   Software Engineer II
                   <span class="company">@ Amazon</span>
                 </h3>
-                <p class="experience-duration">October 2022 to October 2023</p>
+                <p class="experience-duration">
+                  October 2022 to October 2023 · Amazon Business Inventory
+                  Replenishment Services
+                </p>
                 <div class="experience-body">
                   <p>
                     Led the design and implementation of a greenfield work order
@@ -318,7 +385,7 @@
                   <p>
                     Implemented automated scheduling and service provider
                     assignment, reducing manual ops overhead and enabling
-                    onboarding for external customers.
+                    onboarding for 3 external customers.
                   </p>
                 </div>
                 <div class="experience-tech">
@@ -340,11 +407,14 @@
                   Software Engineer
                   <span class="company">@ Bloomberg L.P.</span>
                 </h3>
-                <p class="experience-duration">January 2021 to August 2022</p>
+                <p class="experience-duration">
+                  January 2021 to August 2022 · Fixed Income Trading
+                  Infrastructure
+                </p>
                 <div class="experience-body">
                   <p>
                     Maintained and extended the fixed income trading billing
-                    platform and C++ billing library, supporting significant
+                    platform and C++ billing library, supporting $300M+ in
                     annual revenue through accurate fee calculations across
                     multiple trading workflows.
                   </p>

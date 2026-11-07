@@ -1,0 +1,195 @@
+%--------------------------------------------------
+% DANIEL KWEON RESUME 2026
+%--------------------------------------------------
+
+\documentclass[letterpaper, 10pt]{article}
+
+%--------------------------------------------------
+% PACKAGES
+%--------------------------------------------------
+
+% Layout & Formatting
+\usepackage[empty]{fullpage}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% Fonts
+\usepackage{iftex}
+\ifPDFTeX
+	\usepackage[T1]{fontenc}
+	\usepackage[scaled]{helvet} % Helvetica
+	\renewcommand{\familydefault}{\sfdefault}
+	\newcommand{\growthArrow}{\hspace{0.2em}$\rightarrow$\hspace{0.2em}}
+\else
+	\usepackage{fontspec}
+	\setmainfont[Scale=0.915,Renderer=OpenType,RawFeature={-liga,-clig}]{Helvetica}
+	\setsansfont[Scale=0.915,Renderer=OpenType,RawFeature={-liga,-clig}]{Helvetica}
+	\newfontfamily\arrowfont[Scale=0.915]{Arial Unicode MS}
+	\renewcommand{\familydefault}{\sfdefault}
+	\newcommand{\growthArrow}{\hspace{0.2em}{\arrowfont →}\hspace{0.2em}}
+\fi
+
+% Colors & Links
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+
+% ATS Compatibility
+\ifPDFTeX
+	\input{glyphtounicode}
+	\pdfgentounicode=1
+\fi
+
+%--------------------------------------------------
+% PAGE LAYOUT
+%--------------------------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{0.90in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+%--------------------------------------------------
+% CUSTOM COMMANDS
+%--------------------------------------------------
+
+% Section Header: ── TITLE ──────────────────────
+\newlength{\sectionTitleWidth}
+\newlength{\sectionLineLeftWidth}
+\setlength{\sectionLineLeftWidth}{0.04\textwidth}
+
+\newcommand{\resumeSection}[2][12pt]{%
+	\vspace{#1}%
+	\settowidth{\sectionTitleWidth}{{\sffamily\large\bfseries\MakeUppercase{#2}}}%
+	\noindent
+	\raisebox{0.65ex}{\textcolor{gray}{\rule{\sectionLineLeftWidth}{1.2pt}}}\hspace{0.5em}%
+	{\sffamily\large\bfseries\MakeUppercase{#2}}\hspace{0.5em}%
+	\raisebox{0.65ex}{\textcolor{gray}{\rule{\dimexpr\textwidth-\sectionTitleWidth-\sectionLineLeftWidth-1em}{1.2pt}}}%
+	\vspace{-3pt}%
+}
+
+% Entry: Company/School with Title and Location
+% Args: [optional rowsep, default 2pt] {Name}{Date}{Title}{Location}{Descriptor}
+\newcommand{\resumeEntry}[6][2pt]{%
+	\vspace{2pt}
+	\item
+	\begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+		{\fontsize{11pt}{13pt}\selectfont\textsf{\textbf{#2}}} & {\fontsize{10pt}{12pt}\selectfont #3} \\[#1]
+		\textit{\fontsize{10pt}{12pt}\selectfont #4} & \textit{\fontsize{9.5pt}{11.5pt}\selectfont #5} \\[1pt]
+		{\fontsize{10pt}{12pt}\selectfont #6} & \\
+	\end{tabular*}
+	\vspace{-4pt}
+}
+
+% Education Entry: School with two degree lines and Location
+% Args: {School}{Date}{Degree1}{Degree2}{Location}
+% Degree lines indented and spaced like resumeItemList bullets (0.15in, 4pt)
+\newcommand{\resumeEducationEntry}[5]{%
+	\vspace{4pt}
+	\item
+	\begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+		{\fontsize{11pt}{13pt}\selectfont\textsf{\textbf{#1}}} & {\fontsize{10pt}{12pt}\selectfont #2} \\[5pt]
+		\hspace{0.15in}\textit{\fontsize{10pt}{12pt}\selectfont #3} & \textit{\fontsize{9.5pt}{11.5pt}\selectfont #5} \\[4pt]
+		\hspace{0.15in}\textit{\fontsize{10pt}{12pt}\selectfont #4} & \\
+	\end{tabular*}
+	\vspace{-8pt}
+}
+
+% Bullet Point Item
+\newcommand{\resumeItem}[1]{%
+	\item{#1}
+}
+
+% Bullet Point Style
+\renewcommand{\labelitemii}{$\vcenter{\hbox{\fontsize{5pt}{6pt}\selectfont$\bullet$}}$}
+
+% Separator Bullets
+\newcommand{\sepBullet}{\raisebox{0.3ex}{\fontsize{6pt}{7pt}\selectfont$\bullet$}}
+\newcommand{\sepBulletSmall}{\raisebox{0.3ex}{\fontsize{5pt}{6pt}\selectfont$\bullet$}}
+
+% List Wrappers
+\newcommand{\resumeEntryListStart}{\begin{itemize}[leftmargin=0.15in, label={}, itemsep=2pt, topsep=5pt]}
+\newcommand{\resumeEntryListEnd}{\end{itemize}}
+\newcommand{\resumeSkillsListStart}{\begin{itemize}[leftmargin=0.15in, label={}, itemsep=0pt, topsep=8pt]}
+\newcommand{\resumeSkillsListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in, itemsep=1pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%--------------------------------------------------
+% DOCUMENT
+%--------------------------------------------------
+
+\begin{document}
+	%---------- HEADER ----------
+	\begin{center}
+		\textsf{\textbf{\fontsize{28pt}{28pt}\selectfont DANIEL KWEON}} \\
+		\vspace{10pt}
+		{\fontsize{10pt}{12pt}\selectfont
+			703-473-4328 \hspace{0.4em}\sepBullet\hspace{0.4em}
+			\href{mailto:daniel@kweon.dev}{daniel@kweon.dev} \hspace{0.4em}\sepBullet\hspace{0.4em}
+			\href{https://daniel.kweon.dev}{daniel.kweon.dev} \hspace{0.4em}\sepBullet\hspace{0.4em}
+			\href{https://www.linkedin.com/in/danielkweon}{linkedin.com/in/danielkweon} \hspace{0.4em}\sepBullet\hspace{0.4em}
+			\href{https://github.com/danielkweon}{github.com/danielkweon}}
+	\end{center}
+	\vspace{-8pt}
+
+	%---------- WORK EXPERIENCE ----------
+	\resumeSection{Work Experience}
+	\resumeEntryListStart
+	\resumeEntry{Adaptive Security}{05/2026 -- 10/2026}{Software Engineer}{New York City, NY}{AI Security \& Governance Startup (Series B)}
+	\resumeItemListStart
+	\resumeItem{Built a Windows device agent for AI governance and scaled deployment from \textbf{0\growthArrow20} customers and \textbf{1,500+} endpoints, enabling AI application detection, app usage visibility, and fleet health monitoring}
+	\resumeItem{Developed a Kafka pipeline ingesting device activity and detecting risk, using RDS for operations and ClickHouse for analytics}
+	\resumeItem{Created an activity model for device, browser, and API integrations, powering a governance feed for user and agentic actions}
+	\resumeItem{Led development of policy enforcement in the device agent and admin controls for AI application, account, and DLP policies, combining deterministic policy evaluation with an Amazon Bedrock-hosted LLM classifier to block sensitive data}
+	\resumeItemListEnd
+
+	\resumeEntry{Macro}{07/2024 -- 01/2026}{Software Engineer}{New York City, NY}{AI Productivity Suite Startup (Series A)}
+	\resumeItemListStart
+	\resumeItem{Owned the metadata \& properties platform across all workspace entity types, enabling extensibility and unified querying}
+	\resumeItem{Led the design and implementation of a permissions-aware service for user and system properties, automated tagging, and relationship inference; aligned \textbf{3 product teams} on shared property semantics}
+	\resumeItem{Built and rolled out an in-product task management system on the properties platform, replacing Linear company-wide and serving 3 external customers; scaled to \textbf{10K+ tasks} in the first month}
+	\resumeItem{Owned the Markdown editor driving \textbf{50\%+ of in-product activity}, delivering real-time collaboration and AI writing workflows while improving reliability through telemetry and performance tuning}
+	\resumeItem{Built an AI chat with WebSocket streaming and prompts using conversation and document context to improve answer quality}
+	\resumeItemListEnd
+
+	\resumeEntry{Amazon}{10/2022 -- 10/2023}{Software Engineer II}{New York City, NY}{Amazon Business Inventory Replenishment Services}
+	\resumeItemListStart
+	\resumeItem{Built and launched an Amazon Business inventory-replenishment work order system, automating scheduling and service provider assignment for 3 external customers}
+	\resumeItem{Developed and operated an AWS pipeline for work order validation and downstream data delivery, reducing manual processing and providing near-real-time operational visibility}
+	\resumeItemListEnd
+
+	\resumeEntry{Bloomberg L.P.}{01/2021 -- 08/2022}{Software Engineer}{New York City, NY}{Fixed Income Trading Infrastructure}
+	\resumeItemListStart
+	\resumeItem{Extended and maintained a fixed-income trading billing platform and C++ library supporting \textbf{\$300M+ in annual revenue} across multiple trading workflows}
+	\resumeItem{Built infrastructure for revenue forecasting and end-to-end trade testing, including a security classification API, backtesting framework, and clearinghouse simulator}
+	\resumeItemListEnd
+	\resumeEntryListEnd
+
+	%---------- EDUCATION ----------
+	\resumeSection[6pt]{Education}
+	\resumeEntryListStart
+	\resumeEducationEntry{Virginia Tech}{12/2020}{Bachelor of Science in Computer Science}{Bachelor of Science in Mathematics (Applied Discrete Mathematics)}{Blacksburg, VA}
+	\resumeEntryListEnd
+
+	%---------- SKILLS ----------
+	\resumeSection[14pt]{Skills}
+	\resumeSkillsListStart
+	\item \textbf{Languages:}\hspace{0.5em} Rust \hspace{0.5em}\sepBulletSmall\hspace{0.5em} TypeScript \hspace{0.5em}\sepBulletSmall\hspace{0.5em} Python \hspace{0.5em}\sepBulletSmall\hspace{0.5em} Java \hspace{0.5em}\sepBulletSmall\hspace{0.5em} C++ \hspace{0.5em}\sepBulletSmall\hspace{0.5em} Swift \hspace{0.5em}\sepBulletSmall\hspace{0.5em} SQL
+	\item \textbf{Frameworks \& APIs:}\hspace{0.5em} React \hspace{0.5em}\sepBulletSmall\hspace{0.5em} SolidJS \hspace{0.5em}\sepBulletSmall\hspace{0.5em} TanStack \hspace{0.5em}\sepBulletSmall\hspace{0.5em} REST APIs \hspace{0.5em}\sepBulletSmall\hspace{0.5em} GraphQL \hspace{0.5em}\sepBulletSmall\hspace{0.5em} WebSockets
+	\item \textbf{Data \& Infrastructure:}\hspace{0.5em} AWS \hspace{0.5em}\sepBulletSmall\hspace{0.5em} Kafka \hspace{0.5em}\sepBulletSmall\hspace{0.5em} ClickHouse \hspace{0.5em}\sepBulletSmall\hspace{0.5em} Docker
+	\resumeSkillsListEnd
+\end{document}
+
+
