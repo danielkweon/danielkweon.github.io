@@ -4,6 +4,9 @@
   --grid-bg: #d7d4ca;
   --grid-line: rgb(0 0 0 / 0.05);
   --cell: 24px;
+  --ink: #111;
+  --serif: Georgia, serif;
+  --mono: ui-monospace, Menlo, monospace;
 }
 
 * { box-sizing: border-box; }
@@ -11,9 +14,111 @@
 /* Grid paper. The body's background fills the whole window, even when empty. */
 body {
   margin: 0;
+  padding: var(--cell) max(24px, 4vw) 60px;
+  color: var(--ink);
+  font: 15px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: var(--grid-bg);
   background-image:
     linear-gradient(var(--grid-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: var(--cell) var(--cell);
+}
+
+a { color: inherit; }
+
+/* Header. Every line is a whole number of grid cells tall, so the rule lands on a gridline. */
+.site-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: last baseline;
+  gap: 0 var(--cell);
+  max-width: 1500px;
+  margin: 0 auto var(--cell);
+  padding-bottom: calc(var(--cell) - 2px);
+  border-bottom: 2px solid var(--ink);
+  line-height: var(--cell);
+}
+
+.site-header p { margin: 0; }
+
+.site-header h1 {
+  margin: 0;
+  font: 400 clamp(38px, 5vw, 70px) / calc(var(--cell) * 2) var(--serif);
+}
+
+/* Status stamp, alone in the top-right corner. */
+.tended {
+  grid-column: 1 / -1;
+  justify-self: end;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font: 12px / var(--cell) var(--mono);
+  white-space: nowrap;
+}
+
+.tended i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ink);
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* "Live" pulse: a halo that grows and fades. A box-shadow is painted with the dot, so it stays centred. */
+@keyframes ping {
+  from { box-shadow: 0 0 0 0 rgb(17 17 17 / 0.6); }
+  75%, to { box-shadow: 0 0 0 5px rgb(17 17 17 / 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tended i { animation: none; }
+}
+
+/* Month is spelled out on desktop and shortened on phones. */
+.tended .short { display: none; }
+
+/* Negative margins let the row shift onto the subtitle's baseline without growing the header. */
+.contact {
+  display: flex;
+  gap: 16px;
+  margin-block: -4px;
+  font: 13px / var(--cell) var(--mono);
+  white-space: nowrap;
+}
+
+.contact a { text-decoration: none; }
+
+/* Icons sit inline with the label, nudged down so they centre on its capitals. */
+.contact svg {
+  width: 16px;
+  height: 16px;
+  vertical-align: -0.25em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contact a:hover { text-decoration: underline; }
+
+@media (min-width: 960px) {
+  .site-header h1 { line-height: calc(var(--cell) * 3); }
+}
+
+@media (max-width: 900px) {
+  body { padding: var(--cell) 16px 50px; }
+  .site-header {
+    grid-template-columns: 1fr;
+    padding-bottom: calc(var(--cell) / 2 - 2px);
+  }
+  .surname { display: none; }
+  .site-header h1 + p { font-size: 13px; }
+  .contact { margin: calc(var(--cell) / 2) 0 0; justify-content: center; }
+  .tended { font-size: 10px; }
+  .tended .long { display: none; }
+  .tended .short { display: inline; }
+  .contact { font-size: 12px; }
+  .contact svg { width: 14px; height: 14px; }
 }
