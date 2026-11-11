@@ -1,0 +1,19 @@
+/* Site styles. */
+
+:root {
+  --grid-bg: #d7d4ca;
+  --grid-line: rgb(0 0 0 / 0.05);
+  --cell: 24px;
+}
+
+* { box-sizing: border-box; }
+
+/* Grid paper. The body's background fills the whole window, even when empty. */
+body {
+  margin: 0;
+  background-color: var(--grid-bg);
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: var(--cell) var(--cell);
+}
