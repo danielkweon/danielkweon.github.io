@@ -1,15 +1,20 @@
 /* Site styles. */
 
 :root {
+  --cell: 24px;
+  --page-width: 1500px;
+
   --grid-bg: #d7d4ca;
   --grid-line: rgb(0 0 0 / 0.05);
-  --cell: 24px;
   --ink: #111;
+
   --serif: Georgia, serif;
   --mono: ui-monospace, Menlo, monospace;
 }
 
 * { box-sizing: border-box; }
+
+p { margin: 0; }
 
 /* Grid paper. The body's background fills the whole window, even when empty. */
 body {
@@ -32,22 +37,25 @@ a { color: inherit; }
   grid-template-columns: 1fr auto;
   align-items: last baseline;
   gap: 0 var(--cell);
-  max-width: 1500px;
+  max-width: var(--page-width);
   margin: 0 auto var(--cell);
   padding-bottom: calc(var(--cell) - 2px);
   border-bottom: 2px solid var(--ink);
   line-height: var(--cell);
 }
 
-.site-header p { margin: 0; }
-
 .site-header h1 {
   margin: 0;
   font: 400 clamp(38px, 5vw, 70px) / calc(var(--cell) * 2) var(--serif);
 }
 
-/* Status stamp, alone in the top-right corner. */
-.tended {
+/* Once the title is taller than two cells, give it three. */
+@media (min-width: 960px) {
+  .site-header h1 { line-height: calc(var(--cell) * 3); }
+}
+
+/* "Last updated" stamp, alone in the top-right corner. */
+.updated {
   grid-column: 1 / -1;
   justify-self: end;
   display: flex;
@@ -57,7 +65,7 @@ a { color: inherit; }
   white-space: nowrap;
 }
 
-.tended i {
+.updated i {
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -67,16 +75,16 @@ a { color: inherit; }
 
 /* "Live" pulse: a halo that grows and fades. A box-shadow is painted with the dot, so it stays centred. */
 @keyframes ping {
-  from { box-shadow: 0 0 0 0 rgb(17 17 17 / 0.6); }
-  75%, to { box-shadow: 0 0 0 5px rgb(17 17 17 / 0); }
+  from { box-shadow: 0 0 0 0 color-mix(in srgb, var(--ink) 60%, transparent); }
+  75%, to { box-shadow: 0 0 0 5px transparent; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tended i { animation: none; }
+  .updated i { animation: none; }
 }
 
 /* Month is spelled out on desktop and shortened on phones. */
-.tended .short { display: none; }
+.updated .short { display: none; }
 
 /* Negative margins let the row shift onto the subtitle's baseline without growing the header. */
 .contact {
@@ -88,6 +96,7 @@ a { color: inherit; }
 }
 
 .contact a { text-decoration: none; }
+.contact a:hover { text-decoration: underline; }
 
 /* Icons sit inline with the label, nudged down so they centre on its capitals. */
 .contact svg {
@@ -101,24 +110,18 @@ a { color: inherit; }
   stroke-linejoin: round;
 }
 
-.contact a:hover { text-decoration: underline; }
-
-@media (min-width: 960px) {
-  .site-header h1 { line-height: calc(var(--cell) * 3); }
-}
-
 @media (max-width: 900px) {
   body { padding: var(--cell) 16px 50px; }
+
   .site-header {
     grid-template-columns: 1fr;
     padding-bottom: calc(var(--cell) / 2 - 2px);
   }
   .surname { display: none; }
   .site-header h1 + p { font-size: 13px; }
-  .contact { margin: calc(var(--cell) / 2) 0 0; justify-content: center; }
-  .tended { font-size: 10px; }
-  .tended .long { display: none; }
-  .tended .short { display: inline; }
-  .contact { font-size: 12px; }
+  .updated { font-size: 10px; }
+  .updated .long { display: none; }
+  .updated .short { display: inline; }
+  .contact { margin: calc(var(--cell) / 2) 0 0; justify-content: center; font-size: 12px; }
   .contact svg { width: 14px; height: 14px; }
 }
