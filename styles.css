@@ -11,6 +11,8 @@
   --paper-edge: #aaa;
   --tape: rgb(232 224 196);
   --tape-ink: #4a4740;
+  --muted: #6b6960;
+  --print-edge: #fff;
   --shadow: 3px 5px 0 rgb(0 0 0 / 0.13);
 
   --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -192,6 +194,92 @@ a { color: inherit; }
   left: 14px;
 }
 
+/* Print: a photo with a white border, tilted like it was set down on the page.
+   The crop is set per photo from the HTML, the same way blocks set their place:
+   --crop-zoom (image width), --crop-x and --crop-y (offsets, as a share of the frame's width),
+   and --crop-ratio (frame shape). Percentages keep the crop steady when the print resizes. */
+.print {
+  position: relative;
+  display: block;
+  margin: 0;
+  border: 6px solid var(--print-edge);
+  outline: 1px solid rgb(0 0 0 / 0.12);
+  box-shadow: 1px 2px 0 rgb(0 0 0 / 0.1);
+  transform: rotate(var(--print-r, -2deg));
+}
+
+.print-crop {
+  display: block;
+  aspect-ratio: var(--crop-ratio, 1);
+  overflow: hidden;
+}
+
+.print-crop img {
+  display: block;
+  width: var(--crop-zoom, 100%);
+  max-width: none;
+  height: auto;
+  margin: var(--crop-y, 0) 0 0 var(--crop-x, 0);
+}
+
+/* Profile card: a captioned print and a short list of facts.
+   The card is a size container, so the caption can size itself to the space beside the print. */
+.profile {
+  --photo-w: clamp(112px, 100cqw - 132px, 168px);
+  container-type: inline-size;
+  text-align: center;
+}
+
+/* Centred, and narrower on slim cards so the caption still fits beside it. */
+.profile-photo {
+  width: var(--photo-w);
+  margin: 12px auto 20px;
+}
+
+/* A note jotted beside the print's upper right, with a pen arrow curving back to it.
+   It fills the gap between the print and the card's edge, reaching a little into the padding. */
+.profile-caption {
+  position: absolute;
+  top: 4px;
+  left: 100%;
+  width: min(8.5em, (100cqw - var(--photo-w)) / 2 + 8px);
+  margin-left: 12px;
+  font: italic 14px / 1.3 var(--serif);
+  text-align: left;
+  transform: rotate(4deg);
+}
+
+.profile-caption svg {
+  display: block;
+  width: 30px;
+  height: 24px;
+  margin-top: 4px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* On the slimmest cards the caption steps down a size so each word fits. */
+@container (max-width: 240px) {
+  .profile-caption { font-size: 13px; }
+}
+
+/* Facts sit centred under the print, each key beside its value. */
+.profile-facts {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 20px;
+  width: fit-content;
+  margin: 16px auto 0;
+  font: 12px / 1.5 var(--mono);
+  text-align: left;
+}
+
+.profile-facts dt { color: var(--muted); }
+.profile-facts dd { margin: 0; }
+
 @media (max-width: 900px) {
   body { padding: var(--cell) 16px 50px; }
 
@@ -217,4 +305,6 @@ a { color: inherit; }
   .paper h2 { font-size: 16px; }
   .tape { padding: 3px 12px 2px; font-size: 11px; line-height: 14px; }
   .paper > .tape { top: -9px; }
+  .profile { --photo-w: 128px; }
+  .profile-facts { font-size: 11px; }
 }
