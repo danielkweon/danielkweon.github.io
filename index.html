@@ -130,5 +130,20 @@
         </p>
       </section>
     </main>
+
+    <footer class="site-footer">
+      <p class="footer-hint">Lost? Someone might know the way.</p>
+      <a class="footer-top" href="#">Back to top ↑</a>
+      <p class="footer-credit">Built by Daniel Kweon &copy; 2026</p>
+    </footer>
+
+    <script>
+      // Back to top: glide up without adding "#" to the URL. Without JS, the link still jumps.
+      document.querySelector(".footer-top").addEventListener("click", (event) => {
+        event.preventDefault();
+        const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+      });
+    </script>
   </body>
 </html>
