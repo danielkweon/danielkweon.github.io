@@ -1,8 +1,8 @@
 /* Site styles. */
 
 :root {
-  --cell: 24px;
-  --page-width: 1500px;
+  --cell: 19px;
+  --page-width: 1200px;
 
   --grid-bg: #d7d4ca;
   --grid-line: rgb(0 0 0 / 0.05);
@@ -13,7 +13,7 @@
   --tape-ink: #4a4740;
   --muted: #6b6960;
   --print-edge: #fff;
-  --shadow: 3px 5px 0 rgb(0 0 0 / 0.13);
+  --shadow: 2px 4px 0 rgb(0 0 0 / 0.13);
 
   --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
   --serif: Georgia, serif;
@@ -24,12 +24,15 @@
 
 p { margin: 0; }
 
-/* Grid paper. The body's background fills the whole window, even when empty. */
+/* Grid paper. The body's background fills the whole window, even when empty.
+   Below 360px (the narrowest common phones) the page stops shrinking and scrolls sideways,
+   so the cards never squeeze into one-word lines. */
 body {
+  min-width: 360px;
   margin: 0;
-  padding: var(--cell) max(24px, 4vw) 60px;
+  padding: var(--cell) max(19px, 3.2vw) 48px;
   color: var(--ink);
-  font: 15px/1.5 var(--sans);
+  font: 12px/1.5 var(--sans);
   background-color: var(--grid-bg);
   background-image:
     linear-gradient(var(--grid-line) 1px, transparent 1px),
@@ -54,7 +57,7 @@ a { color: inherit; }
 
 .site-header h1 {
   margin: 0;
-  font: 400 clamp(38px, 5vw, 70px) / calc(var(--cell) * 2) var(--serif);
+  font: 400 clamp(30px, 4vw, 56px) / calc(var(--cell) * 2) var(--serif);
 }
 
 /* Once the title is taller than two cells, give it three. */
@@ -67,15 +70,15 @@ a { color: inherit; }
   grid-column: 1 / -1;
   justify-self: end;
   display: flex;
-  gap: 8px;
+  gap: 6px;
   align-items: center;
-  font: 12px / var(--cell) var(--mono);
+  font: 10px / var(--cell) var(--mono);
   white-space: nowrap;
 }
 
 .updated i {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: var(--ink);
   animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
@@ -84,7 +87,7 @@ a { color: inherit; }
 /* "Live" pulse: a halo that grows and fades. A box-shadow is painted with the dot, so it stays centred. */
 @keyframes ping {
   from { box-shadow: 0 0 0 0 color-mix(in srgb, var(--ink) 60%, transparent); }
-  75%, to { box-shadow: 0 0 0 5px transparent; }
+  75%, to { box-shadow: 0 0 0 4px transparent; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -97,9 +100,9 @@ a { color: inherit; }
 /* Negative margins let the row shift onto the subtitle's baseline without growing the header. */
 .contact {
   display: flex;
-  gap: 16px;
-  margin-block: -4px;
-  font: 13px / var(--cell) var(--mono);
+  gap: 13px;
+  margin-block: -3px;
+  font: 10px / var(--cell) var(--mono);
   white-space: nowrap;
 }
 
@@ -108,8 +111,8 @@ a { color: inherit; }
 
 /* Icons sit inline with the label, nudged down so they centre on its capitals. */
 .contact svg {
-  width: 16px;
-  height: 16px;
+  width: 13px;
+  height: 13px;
   vertical-align: -0.25em;
   fill: none;
   stroke: currentColor;
@@ -128,7 +131,7 @@ a { color: inherit; }
   margin: calc(var(--cell) * 3) auto 0;
   padding-top: calc(var(--cell) - 2px);
   border-top: 2px solid var(--ink);
-  font: 12px / var(--cell) var(--mono);
+  font: 10px / var(--cell) var(--mono);
   color: var(--muted);
 }
 
@@ -160,19 +163,19 @@ a { color: inherit; }
   transform: rotate(calc(var(--r, 0deg) * var(--tilt, 1)));
 }
 
-.paper p + p { margin-top: 10px; }
+.paper p + p { margin-top: 8px; }
 
 .paper h2 {
-  margin: 6px 0 10px;
-  font: 500 20px / 1.1 var(--sans);
+  margin: 5px 0 8px;
+  font: 500 16px / 1.1 var(--sans);
 }
 
 /* Masking tape with torn ends. The tape and its thin outline are two layers cut to the same shape. */
 .tape {
   position: relative;
   z-index: 1;
-  padding: 4px 16px 3px;
-  font: 500 12px / 16px var(--mono);
+  padding: 3px 13px 2px;
+  font: 500 10px / 13px var(--mono);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--tape-ink);
@@ -208,8 +211,8 @@ a { color: inherit; }
 /* A block's label is tape stuck across its top-left corner. */
 .paper > .tape {
   position: absolute;
-  top: -11px;
-  left: 14px;
+  top: -9px;
+  left: 11px;
 }
 
 /* Print: a photo with a white border, tilted like it was set down on the page.
@@ -220,7 +223,7 @@ a { color: inherit; }
   position: relative;
   display: block;
   margin: 0;
-  border: 6px solid var(--print-edge);
+  border: 5px solid var(--print-edge);
   outline: 1px solid rgb(0 0 0 / 0.12);
   box-shadow: 1px 2px 0 rgb(0 0 0 / 0.1);
   transform: rotate(var(--print-r, -2deg));
@@ -243,7 +246,7 @@ a { color: inherit; }
 /* Profile card: a captioned print and a short list of facts.
    The card is a size container, so the caption can size itself to the space beside the print. */
 .profile {
-  --photo-w: clamp(112px, 100cqw - 132px, 168px);
+  --photo-w: clamp(90px, 100cqw - 106px, 134px);
   container-type: inline-size;
   text-align: center;
 }
@@ -251,27 +254,27 @@ a { color: inherit; }
 /* Centred, and narrower on slim cards so the caption still fits beside it. */
 .profile-photo {
   width: var(--photo-w);
-  margin: 12px auto 20px;
+  margin: 10px auto 16px;
 }
 
 /* A note jotted beside the print's upper right, with a pen arrow curving back to it.
    It fills the gap between the print and the card's edge, reaching a little into the padding. */
 .profile-caption {
   position: absolute;
-  top: 4px;
+  top: 3px;
   left: 100%;
-  width: min(8.5em, (100cqw - var(--photo-w)) / 2 + 8px);
-  margin-left: 12px;
-  font: italic 14px / 1.3 var(--serif);
+  width: min(8.5em, (100cqw - var(--photo-w)) / 2 + 6px);
+  margin-left: 10px;
+  font: italic 11px / 1.3 var(--serif);
   text-align: left;
   transform: rotate(4deg);
 }
 
 .profile-caption svg {
   display: block;
-  width: 30px;
-  height: 24px;
-  margin-top: 4px;
+  width: 24px;
+  height: 19px;
+  margin-top: 3px;
   fill: none;
   stroke: currentColor;
   stroke-width: 1.5;
@@ -279,27 +282,29 @@ a { color: inherit; }
   stroke-linejoin: round;
 }
 
-/* On the slimmest cards the caption steps down a size so each word fits. */
-@container (max-width: 240px) {
-  .profile-caption { font-size: 13px; }
-}
-
 /* Facts sit centred under the print, each key beside its value. */
 .profile-facts {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 4px 20px;
+  gap: 3px 16px;
   width: fit-content;
-  margin: 16px auto 0;
-  font: 12px / 1.5 var(--mono);
+  margin: 13px auto 0;
+  font: 10px / 1.5 var(--mono);
   text-align: left;
 }
 
 .profile-facts dt { color: var(--muted); }
 .profile-facts dd { margin: 0; }
 
+/* Phones keep the full-size measurements; desktop above uses smaller ones. */
 @media (max-width: 900px) {
-  body { padding: var(--cell) 16px 50px; }
+  :root {
+    --cell: 24px;
+    --shadow: 1px 2px 0 rgb(0 0 0 / 0.06);
+  }
+
+  body { padding: var(--cell) 16px 50px; font-size: 15px; }
+  .site-header h1 { font-size: clamp(38px, 5vw, 70px); }
 
   .site-header {
     grid-template-columns: 1fr;
@@ -307,14 +312,15 @@ a { color: inherit; }
   }
   .surname { display: none; }
   .site-header h1 + p { font-size: 13px; }
-  .updated { font-size: 10px; }
+  .updated { gap: 8px; font-size: 10px; }
+  .updated i { width: 8px; height: 8px; }
   .updated .long { display: none; }
   .updated .short { display: inline; }
-  .contact { margin: calc(var(--cell) / 2) 0 0; justify-content: center; font-size: 12px; }
+  .contact { gap: 16px; margin: calc(var(--cell) / 2) 0 0; justify-content: center; font-size: 12px; }
   .contact svg { width: 14px; height: 14px; }
 
   /* Phones: the three stack, centred, in the same order as on desktop. */
-  .site-footer { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .site-footer { grid-template-columns: 1fr; justify-items: center; text-align: center; font-size: 12px; }
   .footer-credit { justify-self: center; }
   .footer-top { margin-top: var(--cell); }
 
@@ -323,11 +329,20 @@ a { color: inherit; }
     --tilt: 0.4;
     margin: 0 0 var(--cell);
     font-size: 13px;
-    box-shadow: 1px 2px 0 rgb(0 0 0 / 0.06);
   }
-  .paper h2 { font-size: 16px; }
+  .paper p + p { margin-top: 10px; }
+  .paper h2 { margin: 6px 0 10px; font-size: 16px; }
   .tape { padding: 3px 12px 2px; font-size: 11px; line-height: 14px; }
-  .paper > .tape { top: -9px; }
+  .paper > .tape { top: -9px; left: 14px; }
+  .print { border-width: 6px; }
   .profile { --photo-w: 128px; }
-  .profile-facts { font-size: 11px; }
+  .profile-photo { margin: 12px auto 20px; }
+  .profile-caption {
+    top: 4px;
+    width: min(8.5em, (100cqw - var(--photo-w)) / 2 + 8px);
+    margin-left: 12px;
+    font-size: 14px;
+  }
+  .profile-caption svg { width: 30px; height: 24px; margin-top: 4px; }
+  .profile-facts { gap: 4px 20px; margin-top: 16px; font-size: 11px; }
 }
