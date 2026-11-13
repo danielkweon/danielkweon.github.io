@@ -129,6 +129,211 @@
           streets of NYC and found someone enjoying my puzzles.
         </p>
       </section>
+
+      <section
+        class="paper work"
+        style="--col: 1 / 8; --drop: var(--cell); --r: 0.4deg"
+        aria-labelledby="work-label"
+      >
+        <span class="tape" id="work-label">/ work</span>
+        <a class="work-resume" href="content/Daniel_Kweon_Resume_2026.pdf">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
+          </svg>
+          Resume
+        </a>
+        <ol class="work-list">
+          <li class="job">
+            <div class="job-head">
+              <h2 class="job-company" id="job-adaptive-company">Adaptive Security</h2>
+              <span class="job-team">AI Security &amp; Governance Startup (Series B)</span>
+              <span class="job-dates">May 2026 – Oct 2026</span>
+              <p class="job-role">Software Engineer</p>
+            </div>
+            <ul class="job-points" id="job-adaptive-points">
+              <li>
+                Built a Windows device agent for AI governance and scaled
+                deployment from 0 → 20 customers and 1,500+ endpoints, enabling
+                AI application detection, app usage visibility, and fleet health
+                monitoring.
+              </li>
+              <li>
+                Developed a Kafka pipeline ingesting device activity and
+                detecting risk, using RDS for operations and ClickHouse for
+                analytics.
+              </li>
+              <li>
+                Created an activity model for device, browser, and API
+                integrations, powering a governance feed for user and agentic
+                actions.
+              </li>
+              <li>
+                Led development of policy enforcement in the device agent and
+                admin controls for AI application, account, and DLP policies,
+                combining deterministic policy evaluation with an Amazon
+                Bedrock-hosted LLM classifier to block sensitive data.
+              </li>
+            </ul>
+            <dl class="job-tech" id="job-adaptive-tech">
+              <div>
+                <dt>Languages</dt>
+                <dd>Rust · Java · TypeScript</dd>
+              </div>
+              <div>
+                <dt>Infra</dt>
+                <dd>ECS&nbsp;Fargate · Kafka · ClickHouse · RDS · S3 · Bedrock</dd>
+              </div>
+            </dl>
+            <button
+              class="job-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="job-adaptive-points job-adaptive-tech"
+              aria-describedby="job-adaptive-company"
+              hidden
+            ><span class="job-toggle-expand">expand</span><span class="job-toggle-details">details</span><span class="job-toggle-hide">hide</span></button>
+          </li>
+          <li class="job">
+            <div class="job-head">
+              <h2 class="job-company" id="job-macro-company">Macro</h2>
+              <span class="job-team">AI Productivity Suite Startup (Series A)</span>
+              <span class="job-dates">Jul 2024 – Jan 2026</span>
+              <p class="job-role">Software Engineer</p>
+            </div>
+            <ul class="job-points" id="job-macro-points">
+              <li>
+                Owned the metadata &amp; properties platform across all
+                workspace entity types, enabling extensibility and unified
+                querying.
+              </li>
+              <li>
+                Led the design and implementation of a permissions-aware service
+                for user and system properties, automated tagging, and
+                relationship inference; aligned 3 product teams on shared
+                property semantics.
+              </li>
+              <li>
+                Built and rolled out an in-product task management system on the
+                properties platform, replacing Linear company-wide and serving 3
+                external customers; scaled to 10K+ tasks in the first month.
+              </li>
+              <li>
+                Owned the Markdown editor driving 50%+ of in-product activity,
+                delivering real-time collaboration and AI writing workflows
+                while improving reliability through telemetry and performance
+                tuning.
+              </li>
+              <li>
+                Built an AI chat with WebSocket streaming and prompts using
+                conversation and document context to improve answer quality.
+              </li>
+            </ul>
+            <dl class="job-tech" id="job-macro-tech">
+              <div>
+                <dt>Languages</dt>
+                <dd>Rust · TypeScript · C++</dd>
+              </div>
+              <div>
+                <dt>Frameworks</dt>
+                <dd>SolidJS · TanStack</dd>
+              </div>
+              <div>
+                <dt>Infra</dt>
+                <dd>ECS&nbsp;Fargate · RDS</dd>
+              </div>
+            </dl>
+            <button
+              class="job-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="job-macro-points job-macro-tech"
+              aria-describedby="job-macro-company"
+              hidden
+            ><span class="job-toggle-expand">expand</span><span class="job-toggle-details">details</span><span class="job-toggle-hide">hide</span></button>
+          </li>
+          <li class="job">
+            <div class="job-head">
+              <h2 class="job-company" id="job-amazon-company">Amazon</h2>
+              <span class="job-team">Amazon Business Inventory Replenishment Services</span>
+              <span class="job-dates">Oct 2022 – Oct 2023</span>
+              <p class="job-role">Software Engineer II</p>
+            </div>
+            <ul class="job-points" id="job-amazon-points">
+              <li>
+                Built and launched an Amazon Business inventory-replenishment
+                work order system, automating scheduling and service provider
+                assignment for 3 external customers.
+              </li>
+              <li>
+                Developed and operated an AWS pipeline for work order validation
+                and downstream data delivery, reducing manual processing and
+                providing near-real-time operational visibility.
+              </li>
+            </ul>
+            <dl class="job-tech" id="job-amazon-tech">
+              <div>
+                <dt>Languages</dt>
+                <dd>Java · Python</dd>
+              </div>
+              <div>
+                <dt>Frameworks</dt>
+                <dd>React</dd>
+              </div>
+              <div>
+                <dt>Infra</dt>
+                <dd>ECS&nbsp;Fargate · Lambda · SQS · DynamoDB · RDS · S3</dd>
+              </div>
+            </dl>
+            <button
+              class="job-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="job-amazon-points job-amazon-tech"
+              aria-describedby="job-amazon-company"
+              hidden
+            ><span class="job-toggle-expand">expand</span><span class="job-toggle-details">details</span><span class="job-toggle-hide">hide</span></button>
+          </li>
+          <li class="job">
+            <div class="job-head">
+              <h2 class="job-company" id="job-bloomberg-company">Bloomberg L.P.</h2>
+              <span class="job-team">Fixed Income Trading Infrastructure</span>
+              <span class="job-dates">Jan 2021 – Aug 2022</span>
+              <p class="job-role">Software Engineer</p>
+            </div>
+            <ul class="job-points" id="job-bloomberg-points">
+              <li>
+                Extended and maintained a fixed-income trading billing platform
+                and C++ library supporting $300M+ in annual revenue across
+                multiple trading workflows.
+              </li>
+              <li>
+                Built infrastructure for revenue forecasting and end-to-end
+                trade testing, including a security classification API,
+                backtesting framework, and clearinghouse simulator.
+              </li>
+            </ul>
+            <dl class="job-tech" id="job-bloomberg-tech">
+              <div>
+                <dt>Languages</dt>
+                <dd>C++ · Python · TypeScript</dd>
+              </div>
+              <div>
+                <dt>Infra</dt>
+                <dd>BAS · Kafka · Comdb2 · Redis</dd>
+              </div>
+            </dl>
+            <button
+              class="job-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="job-bloomberg-points job-bloomberg-tech"
+              aria-describedby="job-bloomberg-company"
+              hidden
+            ><span class="job-toggle-expand">expand</span><span class="job-toggle-details">details</span><span class="job-toggle-hide">hide</span></button>
+          </li>
+        </ol>
+      </section>
     </main>
 
     <footer class="site-footer">
@@ -143,6 +348,28 @@
         event.preventDefault();
         const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
         window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+      });
+
+      // Work: start each job collapsed and show its toggle ("expand" / "details" / "hide").
+      // Collapsed jobs show their first two points (one on phones); the stylesheet sets this.
+      // Clicking anywhere on a job toggles it too, except while selecting text;
+      // the button stays the control for keyboards and screen readers.
+      document.querySelectorAll(".job").forEach((job) => {
+        const toggle = job.querySelector(".job-toggle");
+        job.classList.add("is-collapsed", "is-clickable");
+        toggle.hidden = false;
+        toggle.addEventListener("click", (event) => {
+          // Don't let the job's own click handler toggle it straight back.
+          event.stopPropagation();
+          const open = !job.classList.toggle("is-collapsed");
+          toggle.setAttribute("aria-expanded", open);
+        });
+        job.addEventListener("click", () => {
+          const selection = getSelection();
+          const selecting = !selection.isCollapsed && job.contains(selection.anchorNode);
+          if (selecting) return;
+          toggle.click();
+        });
       });
     </script>
   </body>

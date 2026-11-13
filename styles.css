@@ -109,8 +109,10 @@ a { color: inherit; }
 .contact a { text-decoration: none; }
 .contact a:hover { text-decoration: underline; }
 
-/* Icons sit inline with the label, nudged down so they centre on its capitals. */
-.contact svg {
+/* Icons sit inline with the label, nudged down so they centre on its capitals.
+   The work card's resume link uses the same icon. */
+.contact svg,
+.work-resume svg {
   width: 13px;
   height: 13px;
   vertical-align: -0.25em;
@@ -296,6 +298,182 @@ a { color: inherit; }
 .profile-facts dt { color: var(--muted); }
 .profile-facts dd { margin: 0; }
 
+/* Work card: the resume, condensed. Each job shows its company, team and dates, its role,
+   and its first two points; "expand" ("details" on phones) opens the rest of the points and
+   the tech used. Clicking anywhere on a job does the same. Without JS every point and the
+   tech show, and there's no toggle.
+
+   One type system for the whole card, using sizes the rest of the page already has:
+   - company: sans, medium weight (500), ink, a step above the body
+   - points: the cards' body size, sans, ink
+   - role, tech and toggle: one step smaller, sans; the role and tech labels in grey
+   - team, dates, Resume link: the page's small mono, grey
+
+   --work-gap is the space between the card's top and the first job. */
+.work { --work-gap: 26px; }
+
+/* The Resume link sits centred between the top of the card and the first job's divider:
+   that gap is the card's top padding (one grid cell) plus --work-gap. */
+.work-resume {
+  --resume-h: 16px;
+  position: absolute;
+  top: calc((var(--cell) + var(--work-gap) - var(--resume-h)) / 2);
+  right: var(--cell);
+  height: var(--resume-h);
+  font: 10px / var(--resume-h) var(--mono);
+  text-decoration: none;
+}
+
+.work-resume:hover { text-decoration: underline; }
+
+.work-list {
+  margin: var(--work-gap) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.job {
+  padding: 12px 0;
+  border-top: 1px solid rgb(0 0 0 / 0.12);
+}
+
+.job:last-child { padding-bottom: 0; }
+
+/* Company, then team, with the dates pushed right; the role sits underneath. A long team
+   wraps in its own column, with its lines balanced so no word is left on its own.
+   The company is an h2 (each job is a list item with its own heading); the .job prefix
+   keeps the card heading styles (.paper h2) out. */
+.job-head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    "co team dates"
+    "role role role";
+  column-gap: 8px;
+  align-items: baseline;
+}
+
+.job .job-company {
+  grid-area: co;
+  margin: 0;
+  font: 500 14px / 1.4 var(--sans);
+}
+
+.job-team,
+.job-dates {
+  font: 10px / 1.5 var(--mono);
+  color: var(--muted);
+}
+
+.job-team {
+  grid-area: team;
+  min-width: 0;
+  text-wrap: balance;
+}
+
+.job-dates {
+  grid-area: dates;
+  margin-left: 8px;
+  white-space: nowrap;
+}
+
+.job-role {
+  grid-area: role;
+  margin: 2px 0 0;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.job-points {
+  margin: 6px 0 0;
+  padding-left: 15px;
+}
+
+.job-points li + li { margin-top: 4px; }
+
+/* Tech used, one row per kind (Languages, Frameworks, Infra): grey label, ink values
+   separated by dots. A job with nothing of a kind leaves that row out; the labels share a
+   column so the values line up. Infra is always ordered compute, messaging, databases,
+   storage, then AI services, alphabetical within each group. */
+.job-tech {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3px 16px;
+  margin: 10px 0 0;
+  font-size: 11px;
+}
+
+.job-tech div { display: contents; }
+.job-tech dt { color: var(--muted); }
+.job-tech dd { margin: 0; }
+
+/* Collapsed: the first two points (one on phones, set below; keep the two in sync with the
+   script's comment) and no tech. */
+.job.is-collapsed .job-points li:nth-child(n + 3),
+.job.is-collapsed .job-tech {
+  display: none;
+}
+
+/* The toggle: centred, grey with a faint underline, and an arrow that turns down when open.
+   Padding gives it a tap area of at least 24px (44px on phones) without changing how it
+   looks; the margins are reduced to match. */
+.job-toggle {
+  display: block;
+  margin: 2px auto -6px;
+  padding: 6px 14px;
+  border: 0;
+  background: none;
+  font: 11px / 1.5 var(--sans);
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: rgb(0 0 0 / 0.25);
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+/* The display above would otherwise override the hidden attribute (no JS). */
+.job-toggle[hidden] { display: none; }
+
+/* An open job gets a little more room above its toggle. */
+.job:not(.is-collapsed) .job-toggle { margin-top: 6px; }
+
+/* The whole job opens and closes on click, so it gets the pointer. On devices that can
+   hover, the toggle turns ink while the pointer is over the job. */
+.job.is-clickable { cursor: pointer; }
+
+@media (hover: hover) {
+  .job-toggle:hover,
+  .job.is-clickable:hover .job-toggle {
+    color: var(--ink);
+    text-decoration-color: currentColor;
+  }
+}
+
+/* The arrow is decoration: the second content value gives it empty alt text, so screen
+   readers don't read it out. The first is the fallback for browsers without that syntax. */
+.job-toggle::after {
+  content: "▸";
+  content: "▸" / "";
+  display: inline-block;
+  margin-left: 5px;
+  transition: transform 0.15s;
+}
+
+.job-toggle[aria-expanded="true"]::after { transform: rotate(90deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .job-toggle::after { transition: none; }
+}
+
+/* Labels: "expand" on desktop, "details" on phones, "hide" once open. */
+.job-toggle-details,
+.job-toggle-hide,
+.job-toggle[aria-expanded="true"] .job-toggle-expand {
+  display: none;
+}
+
+.job-toggle[aria-expanded="true"] .job-toggle-hide { display: inline; }
+
 /* Phones keep the full-size measurements; desktop above uses smaller ones. */
 @media (max-width: 900px) {
   :root {
@@ -317,7 +495,7 @@ a { color: inherit; }
   .updated .long { display: none; }
   .updated .short { display: inline; }
   .contact { gap: 16px; margin: calc(var(--cell) / 2) 0 0; justify-content: center; font-size: 12px; }
-  .contact svg { width: 14px; height: 14px; }
+  .contact svg, .work-resume svg { width: 14px; height: 14px; }
 
   /* Phones: the three stack, centred, in the same order as on desktop. */
   .site-footer { grid-template-columns: 1fr; justify-items: center; text-align: center; font-size: 12px; }
@@ -345,4 +523,29 @@ a { color: inherit; }
   }
   .profile-caption svg { width: 30px; height: 24px; margin-top: 4px; }
   .profile-facts { gap: 4px 20px; margin-top: 16px; font-size: 11px; }
+
+  /* Work card on phones: company and dates share the first line and the team gets its own
+     full-width line under them; the role is left out. Collapsed jobs show their first point,
+     and "details" opens the rest and the tech. .paper.work outranks the cards' 13px above. */
+  .paper.work { --work-gap: 18px; font-size: 12px; }
+  .work-resume { font-size: 11px; }
+  .job-head {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "co dates"
+      "team team";
+    column-gap: 12px;
+    row-gap: 1px;
+  }
+  .job .job-company { font-size: 13px; }
+  .job-role { display: none; }
+  .job-team { font-size: 11px; }
+  .job-dates { margin-left: 0; font-size: 11px; }
+  .job.is-collapsed .job-points li:nth-child(n + 2) { display: none; }
+  .job-points { padding-left: 16px; }
+  .job-tech { gap: 4px 20px; margin-top: 12px; }
+  .job-toggle { margin: -8px auto -12px; padding: 12px 20px; }
+  .job:not(.is-collapsed) .job-toggle { margin-top: -4px; }
+  .job-toggle-expand { display: none; }
+  .job-toggle[aria-expanded="false"] .job-toggle-details { display: inline; }
 }
