@@ -474,6 +474,82 @@ a { color: inherit; }
 
 .job-toggle[aria-expanded="true"] .job-toggle-hide { display: inline; }
 
+/* Blog card: the posts, newest first. Each has its title with the date pushed
+   right and the post's opening sentences underneath, divided like the work card's jobs. */
+.blog-list {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.post {
+  position: relative;
+  padding: 12px 0;
+  border-top: 1px solid rgb(0 0 0 / 0.12);
+}
+
+.post:last-child { padding-bottom: 0; }
+
+/* The title takes the free width and wraps; the date stays on its first line, the same
+   16px from it as a job's dates are from its team. The title is an h2 like a job's company,
+   and the .post prefix keeps the card heading styles (.paper h2) out. */
+.post-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.post .post-title {
+  flex: 1;
+  margin: 0;
+  font: 500 14px / 1.4 var(--sans);
+}
+
+/* The title's link stretches over the whole row, so clicking anywhere on a post opens
+   it; hovering the row underlines the title. */
+.post-title a { text-decoration: none; }
+.post-title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+@media (hover: hover) {
+  .post:hover .post-title a { text-decoration: underline; }
+}
+
+.post-date {
+  font: 10px / 1.5 var(--mono);
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* The preview is the start of the post, cut off partway through its second line with an
+   ellipsis. The float takes the last 30% of the second line, so the ellipsis lands there.
+   It sits in the inner span (a block) rather than on the clamped box, where Safari would
+   treat it as a line of its own. Its sizes are in em, since Safari ignores lh in
+   shape-outside: 1.5em is one line at the line-height set here. */
+.post-blurb {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin: 4px 0 0;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.post-blurb span { display: block; }
+
+.post-blurb span::before {
+  content: "";
+  float: right;
+  width: 30%;
+  height: 4.5em;
+  shape-outside: inset(1.5em 0 0 0);
+}
+
 /* Phones keep the full-size measurements; desktop above uses smaller ones. */
 @media (max-width: 900px) {
   :root {
@@ -548,4 +624,9 @@ a { color: inherit; }
   .job:not(.is-collapsed) .job-toggle { margin-top: -4px; }
   .job-toggle-expand { display: none; }
   .job-toggle[aria-expanded="false"] .job-toggle-details { display: inline; }
+
+  /* Blog card on phones: same sizes as the work card's. */
+  .post .post-title { font-size: 13px; }
+  .post-date { font-size: 11px; }
+  .post-blurb { font-size: 12px; }
 }
