@@ -550,6 +550,80 @@ a { color: inherit; }
   shape-outside: inset(1.5em 0 0 0);
 }
 
+/* Post page: the site header, smaller, with the notebook's name linking home; a link back
+   under it, lined up with the header; then one sheet of paper, untilted so long text reads
+   straight. The site footer closes the page with the link back in place of the hint. */
+.site-name {
+  margin: 0;
+  font: 400 28px / calc(var(--cell) * 2) var(--serif);
+}
+
+.site-name a,
+.post-back,
+.footer-home { text-decoration: none; }
+.site-name a:hover,
+.post-back:hover,
+.footer-home:hover { text-decoration: underline; }
+
+.post-back {
+  display: block;
+  max-width: var(--page-width);
+  margin: 0 auto var(--cell);
+  font: 10px / var(--cell) var(--mono);
+  color: var(--muted);
+}
+
+.footer-home { justify-self: start; }
+
+.article {
+  max-width: 760px;
+  margin-inline: auto;
+  padding: calc(var(--cell) * 2);
+}
+
+/* Blank tape across the sheet's four corners, as if it were taped to the page.
+   The .tape.corner-tape pairs outrank the label placement (.paper > .tape), phones too. */
+.article > .tape.corner-tape {
+  width: 92px;
+  height: 18px;
+  padding: 0;
+}
+
+.article > .tape.corner-tape-top-left { top: 8px; left: -24px; transform: rotate(-38deg); }
+.article > .tape.corner-tape-top-right { top: 8px; left: auto; right: -24px; transform: rotate(38deg); }
+.article > .tape.corner-tape-bottom-left { top: auto; bottom: 8px; left: -24px; transform: rotate(38deg); }
+.article > .tape.corner-tape-bottom-right { top: auto; bottom: 8px; left: auto; right: -24px; transform: rotate(-38deg); }
+
+.article-title {
+  margin: 0;
+  font: 400 32px / 1.2 var(--serif);
+}
+
+.article-date {
+  display: block;
+  margin-top: 8px;
+  font: 10px / 1.5 var(--mono);
+  color: var(--muted);
+}
+
+/* The body starts under a divider like the ones between its sections. The .article prefix
+   keeps the cards' tighter paragraph spacing (.paper p + p) out. */
+.article-body {
+  margin-top: var(--cell);
+  padding-top: var(--cell);
+  border-top: 1px solid rgb(0 0 0 / 0.12);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.article .article-body p + p { margin-top: 1em; }
+
+.article-body hr {
+  margin: calc(var(--cell) * 1.5) 0;
+  border: 0;
+  border-top: 1px solid rgb(0 0 0 / 0.12);
+}
+
 /* Phones keep the full-size measurements; desktop above uses smaller ones. */
 @media (max-width: 900px) {
   :root {
@@ -624,6 +698,21 @@ a { color: inherit; }
   .job:not(.is-collapsed) .job-toggle { margin-top: -4px; }
   .job-toggle-expand { display: none; }
   .job-toggle[aria-expanded="false"] .job-toggle-details { display: inline; }
+
+  /* Post page on phones: a smaller name and title, the footer's back link centred with the
+     rest of the footer, and less padding around the text. The corner tapes are a little shorter, so they stay
+     inside the page's side margin. */
+  .site-name { font-size: 22px; }
+  .post-back { font-size: 11px; }
+  .footer-home { justify-self: center; }
+  .article { padding: var(--cell) 20px; }
+  .article > .tape.corner-tape { width: 80px; }
+  .article > .tape.corner-tape-top-left,
+  .article > .tape.corner-tape-bottom-left { left: -18px; }
+  .article > .tape.corner-tape-top-right,
+  .article > .tape.corner-tape-bottom-right { right: -18px; }
+  .article-title { margin-top: 8px; font-size: 26px; }
+  .article-date { font-size: 11px; }
 
   /* Blog card on phones: same sizes as the work card's. */
   .post .post-title { font-size: 13px; }
