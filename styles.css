@@ -299,9 +299,8 @@ a { color: inherit; }
 .profile-facts dd { margin: 0; }
 
 /* Work card: the resume, condensed. Each job shows its company, team and dates, its role,
-   and its first two points; "expand" ("details" on phones) opens the rest of the points and
-   the tech used. Clicking anywhere on a job does the same. Without JS every point and the
-   tech show, and there's no toggle.
+   and its first two points; "+ more" opens the rest and the tech used. Clicking anywhere
+   on a job does the same. Without JS every point and the tech show, and there's no toggle.
 
    One type system for the whole card, using sizes the rest of the page already has:
    - company: sans, medium weight (500), ink, a step above the body
@@ -414,65 +413,31 @@ a { color: inherit; }
   display: none;
 }
 
-/* The toggle: centred, grey with a faint underline, and an arrow that turns down when open.
-   Padding gives it a tap area of at least 24px (44px on phones) without changing how it
-   looks; the margins are reduced to match. */
-.job-toggle {
+/* The toggle: a small grey line under the job, lined up with its text: "+ more", then
+   "− less" once open. The script writes the label. Padding gives it a tap area of at least
+   24px (44px on phones) without changing how it looks; the margins take the padding back. */
+.more-toggle {
   display: block;
-  margin: 2px auto -6px;
-  padding: 6px 14px;
+  margin: 4px 0 -6px -8px;
+  padding: 6px 8px;
   border: 0;
   background: none;
-  font: 11px / 1.5 var(--sans);
+  font: 500 11px / 1.5 var(--sans);
   color: var(--muted);
-  text-decoration: underline;
-  text-decoration-color: rgb(0 0 0 / 0.25);
-  text-underline-offset: 3px;
   cursor: pointer;
 }
 
 /* The display above would otherwise override the hidden attribute (no JS). */
-.job-toggle[hidden] { display: none; }
-
-/* An open job gets a little more room above its toggle. */
-.job:not(.is-collapsed) .job-toggle { margin-top: 6px; }
+.more-toggle[hidden] { display: none; }
 
 /* The whole job opens and closes on click, so it gets the pointer. On devices that can
    hover, the toggle turns ink while the pointer is over the job. */
-.job.is-clickable { cursor: pointer; }
+.is-clickable { cursor: pointer; }
 
 @media (hover: hover) {
-  .job-toggle:hover,
-  .job.is-clickable:hover .job-toggle {
-    color: var(--ink);
-    text-decoration-color: currentColor;
-  }
+  .more-toggle:hover,
+  .is-clickable:hover .more-toggle { color: var(--ink); }
 }
-
-/* The arrow is decoration: the second content value gives it empty alt text, so screen
-   readers don't read it out. The first is the fallback for browsers without that syntax. */
-.job-toggle::after {
-  content: "▸";
-  content: "▸" / "";
-  display: inline-block;
-  margin-left: 5px;
-  transition: transform 0.15s;
-}
-
-.job-toggle[aria-expanded="true"]::after { transform: rotate(90deg); }
-
-@media (prefers-reduced-motion: reduce) {
-  .job-toggle::after { transition: none; }
-}
-
-/* Labels: "expand" on desktop, "details" on phones, "hide" once open. */
-.job-toggle-details,
-.job-toggle-hide,
-.job-toggle[aria-expanded="true"] .job-toggle-expand {
-  display: none;
-}
-
-.job-toggle[aria-expanded="true"] .job-toggle-hide { display: inline; }
 
 /* Blog card: the posts, newest first. Each has its title with the date pushed
    right and the post's opening sentences underneath, divided like the work card's jobs. */
@@ -676,7 +641,7 @@ a { color: inherit; }
 
   /* Work card on phones: company and dates share the first line and the team gets its own
      full-width line under them; the role is left out. Collapsed jobs show their first point,
-     and "details" opens the rest and the tech. .paper.work outranks the cards' 13px above. */
+     and "+ more" opens the rest and the tech. .paper.work outranks the cards' 13px above. */
   .paper.work { --work-gap: 18px; font-size: 12px; }
   .work-resume { font-size: 11px; }
   .job-head {
@@ -694,10 +659,7 @@ a { color: inherit; }
   .job.is-collapsed .job-points li:nth-child(n + 2) { display: none; }
   .job-points { padding-left: 16px; }
   .job-tech { gap: 4px 20px; margin-top: 12px; }
-  .job-toggle { margin: -8px auto -12px; padding: 12px 20px; }
-  .job:not(.is-collapsed) .job-toggle { margin-top: -4px; }
-  .job-toggle-expand { display: none; }
-  .job-toggle[aria-expanded="false"] .job-toggle-details { display: inline; }
+  .more-toggle { margin: -8px 0 -14px -12px; padding: 14px 12px; }
 
   /* Post page on phones: a smaller name and title, the footer's back link centred with the
      rest of the footer, and less padding around the text. The corner tapes are a little shorter, so they stay
