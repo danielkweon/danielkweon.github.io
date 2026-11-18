@@ -347,7 +347,14 @@ a { color: inherit; }
   list-style: none;
 }
 
+/* A job is two columns, like a project: the company's logo as a small square print (styled
+   with the project prints, below), and everything else beside it. The logo repeats the name
+   next to it, so it's hidden from screen readers. */
 .job {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  column-gap: 14px;
+  align-items: start;
   padding: 12px 0;
   border-top: 1px solid rgb(0 0 0 / 0.12);
 }
@@ -476,13 +483,12 @@ a { color: inherit; }
 .post:last-child,
 .project:last-child { padding-bottom: 0; }
 
-/* A project is two columns: a small square print of its image, centred down the row, and
-   the text beside it. */
+/* A project is two columns: a small square print of its image and the text beside it. */
 .project {
   display: grid;
-  grid-template-columns: 72px 1fr;
+  grid-template-columns: 56px 1fr;
   column-gap: 14px;
-  align-items: center;
+  align-items: start;
 }
 
 /* The title takes the free width and wraps; the date stays on its first line, the same
@@ -580,18 +586,37 @@ a { color: inherit; }
   stroke-linejoin: round;
 }
 
-/* A project's print has a thinner border than the photos', to suit its size (on phones
-   too, below). */
-.project-print { border-width: 3px; }
+/* Project images and company logos are the same small square print, lined up with the top
+   of the title beside them, with a thinner border than the photos' to suit their size
+   (thinner still on phones, below). */
+.project-print,
+.job-logo {
+  margin-top: 2px;
+  border-width: 3px;
+}
+
 .project-print a { display: block; }
 
-.project-print .print-crop img {
+.project-print .print-crop img,
+.job-logo .print-crop img {
   height: 100%;
   object-fit: cover;
 }
 
+/* A logo instead sits in the middle of the print at about two-thirds its width (this
+   overrides the fill above), on the print's white, so a bold logo that runs to its edges
+   doesn't look heavier than the project images. */
+.job-logo .print-crop { background: var(--print-edge); }
+
+.job-logo .print-crop img {
+  box-sizing: border-box;
+  padding: 17%;
+  object-fit: contain;
+}
+
 /* On devices that can hover, pointing at a print picks it up: it straightens and grows from
-   its left edge to 2.5 times its size, over the text beside it. It waits a moment before
+   its centre to 3 times its size (or --grow from the HTML, for a detailed image), over the
+   text around it, with its border kept about as thin as at rest. It waits a moment before
    growing, so passing over it on the way to the text doesn't set it off, and shrinks back
    at once. It sits above the row's stretched link so it gets the hover; a linked project's
    print has its own copy of the link (hidden from screen readers and the tab order, which
@@ -599,14 +624,17 @@ a { color: inherit; }
 @media (hover: hover) {
   .project-print {
     z-index: 1;
-    transform-origin: left center;
-    transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+    transition:
+      transform 0.15s ease-out,
+      border-width 0.15s ease-out,
+      box-shadow 0.15s ease-out;
   }
 
   .project-print:hover {
     z-index: 2;
     transition-delay: 0.15s;
-    transform: scale(2.5);
+    transform: scale(var(--grow, 3));
+    border-width: calc(3px / var(--grow, 3));
     box-shadow: 2px 4px 12px rgb(0 0 0 / 0.18);
   }
 }
@@ -757,6 +785,7 @@ a { color: inherit; }
   .job-team { font-size: 11px; }
   .job-dates { margin-left: 0; font-size: 11px; }
   .job.is-collapsed .job-points li:nth-child(n + 2) { display: none; }
+  .job { grid-template-columns: 40px 1fr; column-gap: 12px; }
   .job-points { padding-left: 16px; }
   .job-tech { gap: 4px 20px; margin-top: 12px; }
   .more-toggle { margin: -8px 0 -14px -12px; padding: 14px 12px; }
@@ -777,15 +806,16 @@ a { color: inherit; }
   .article-date { font-size: 11px; }
 
   /* Blog and projects cards on phones: same sizes as the work card's. .paper.projects
-     outranks the cards' 13px above. The project print keeps its thin border, which the
-     prints' 6px above would otherwise replace. */
+     outranks the cards' 13px above. The project and logo prints keep a thin border, which
+     the prints' 6px above would otherwise replace. */
   .post .post-title,
   .project .project-title { font-size: 13px; }
   .post-date,
   .project-date,
   .project .project-tech { font-size: 11px; }
   .paper.projects { font-size: 12px; }
-  .project { grid-template-columns: 48px 1fr; }
-  .project-print { border-width: 3px; }
+  .project { grid-template-columns: 40px 1fr; }
+  .project-print,
+  .job-logo { border-width: 2px; }
   .post-blurb { font-size: 12px; }
 }
