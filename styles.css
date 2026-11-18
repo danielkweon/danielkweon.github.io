@@ -583,10 +583,36 @@ a { color: inherit; }
 /* A project's print has a thinner border than the photos', to suit its size (on phones
    too, below). */
 .project-print { border-width: 3px; }
+.project-print a { display: block; }
 
 .project-print .print-crop img {
   height: 100%;
   object-fit: cover;
+}
+
+/* On devices that can hover, pointing at a print picks it up: it straightens and grows from
+   its left edge to 2.5 times its size, over the text beside it. It waits a moment before
+   growing, so passing over it on the way to the text doesn't set it off, and shrinks back
+   at once. It sits above the row's stretched link so it gets the hover; a linked project's
+   print has its own copy of the link (hidden from screen readers and the tab order, which
+   have the title's), so clicking it still opens the project. */
+@media (hover: hover) {
+  .project-print {
+    z-index: 1;
+    transform-origin: left center;
+    transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+  }
+
+  .project-print:hover {
+    z-index: 2;
+    transition-delay: 0.15s;
+    transform: scale(2.5);
+    box-shadow: 2px 4px 12px rgb(0 0 0 / 0.18);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-print { transition: none; }
 }
 
 /* Post page: the site header, smaller, with the notebook's name linking home; a link back
