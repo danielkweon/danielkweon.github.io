@@ -141,11 +141,14 @@ a { color: inherit; }
 .footer-top:hover { text-decoration: underline; }
 .footer-credit { justify-self: end; }
 
-/* Board: a 12-column grid that the paper blocks sit on. */
+/* Board: a 12-column grid that the paper blocks sit on. The third row is flexible, so when
+   the work card (which spans rows two and three) opens a job, that row takes the extra
+   height and the cards beside it in row two stay put. */
 .board {
   position: relative;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto 1fr;
   gap: var(--cell) calc(var(--cell) * 2);
   align-items: start;
   max-width: var(--page-width);
@@ -153,10 +156,12 @@ a { color: inherit; }
 }
 
 /* Paper block. Each one sets its place from the HTML:
-   --col (grid columns), --drop (push down), --r (tilt, scaled on phones by --tilt). */
+   --col (grid columns), --row (grid rows, e.g. "span 2" to sit beside two blocks),
+   --drop (push down), --r (tilt, scaled on phones by --tilt). */
 .paper {
   position: relative;
   grid-column: var(--col, span 4);
+  grid-row: var(--row, auto);
   margin-top: var(--drop, 0);
   padding: var(--cell);
   background: var(--paper);
@@ -243,6 +248,17 @@ a { color: inherit; }
   max-width: none;
   height: auto;
   margin: var(--crop-y, 0) 0 0 var(--crop-x, 0);
+}
+
+/* The strip of blank tape holding a print on. */
+.tape.photo-tape {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 46px;
+  height: 14px;
+  padding: 0;
+  transform: translateX(-50%) rotate(-4deg);
 }
 
 /* Profile card: a captioned print and a short list of facts.
@@ -439,51 +455,73 @@ a { color: inherit; }
   .is-clickable:hover .more-toggle { color: var(--ink); }
 }
 
-/* Blog card: the posts, newest first. Each has its title with the date pushed
-   right and the post's opening sentences underneath, divided like the work card's jobs. */
-.blog-list {
+/* Blog and projects cards: one entry per row, divided like the work card's jobs. A blog
+   post has its title with the date pushed right and its opening sentences underneath; a
+   project has its image on the left and, beside it, its title with its year pushed right,
+   what it is, and what it's built with. A project with a link has ↗ after its title. */
+.blog-list,
+.project-list {
   margin: 8px 0 0;
   padding: 0;
   list-style: none;
 }
 
-.post {
+.post,
+.project {
   position: relative;
   padding: 12px 0;
   border-top: 1px solid rgb(0 0 0 / 0.12);
 }
 
-.post:last-child { padding-bottom: 0; }
+.post:last-child,
+.project:last-child { padding-bottom: 0; }
+
+/* A project is two columns: a small square print of its image, centred down the row, and
+   the text beside it. */
+.project {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  column-gap: 14px;
+  align-items: center;
+}
 
 /* The title takes the free width and wraps; the date stays on its first line, the same
    16px from it as a job's dates are from its team. The title is an h2 like a job's company,
-   and the .post prefix keeps the card heading styles (.paper h2) out. */
-.post-head {
+   and the .post and .project prefixes keep the card heading styles (.paper h2) out. */
+.post-head,
+.project-head {
   display: flex;
   align-items: baseline;
   gap: 16px;
 }
 
-.post .post-title {
+.post .post-title,
+.project .project-title {
   flex: 1;
   margin: 0;
   font: 500 14px / 1.4 var(--sans);
 }
 
-/* The title's link stretches over the whole row, so clicking anywhere on a post opens
-   it; hovering the row underlines the title. */
-.post-title a { text-decoration: none; }
-.post-title a::after {
+/* The title's link stretches over the whole row, so clicking anywhere on a post (or a
+   project with a link) opens it; hovering the row underlines the title and turns a
+   project's arrow ink. */
+.post-title a,
+.project-title a { text-decoration: none; }
+.post-title a::after,
+.project-title a::after {
   content: "";
   position: absolute;
   inset: 0;
 }
 
 @media (hover: hover) {
-  .post:hover .post-title a { text-decoration: underline; }
+  .post:hover .post-title a,
+  .project:hover .project-title a { text-decoration: underline; }
+  .project:hover .project-external { stroke: currentColor; }
 }
 
-.post-date {
+.post-date,
+.project-date {
   font: 10px / 1.5 var(--mono);
   color: var(--muted);
   white-space: nowrap;
@@ -513,6 +551,42 @@ a { color: inherit; }
   width: 30%;
   height: 4.5em;
   shape-outside: inset(1.5em 0 0 0);
+}
+
+/* A project's description reads like a job's points; its tech is grey, like the dates.
+   The .project prefix keeps the cards' paragraph spacing (.paper p + p) off the tech line. */
+.project .project-about { margin: 4px 0 0; }
+
+.project .project-tech {
+  margin: 4px 0 0;
+  font: 10px / 1.5 var(--mono);
+  color: var(--muted);
+}
+
+/* The arrow after a linked title: a small line icon in grey, drawn like the header's
+   icons, so it marks the link without adding weight. The title's last word and the arrow
+   sit in one span that doesn't wrap, so the arrow never ends up on a line alone. */
+.project-title-end { white-space: nowrap; }
+
+.project-external {
+  width: 8px;
+  height: 8px;
+  margin-left: 5px;
+  vertical-align: 0.1em;
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* A project's print has a thinner border than the photos', to suit its size (on phones
+   too, below). */
+.project-print { border-width: 3px; }
+
+.project-print .print-crop img {
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Post page: the site header, smaller, with the notebook's name linking home; a link back
@@ -676,8 +750,16 @@ a { color: inherit; }
   .article-title { margin-top: 8px; font-size: 26px; }
   .article-date { font-size: 11px; }
 
-  /* Blog card on phones: same sizes as the work card's. */
-  .post .post-title { font-size: 13px; }
-  .post-date { font-size: 11px; }
+  /* Blog and projects cards on phones: same sizes as the work card's. .paper.projects
+     outranks the cards' 13px above. The project print keeps its thin border, which the
+     prints' 6px above would otherwise replace. */
+  .post .post-title,
+  .project .project-title { font-size: 13px; }
+  .post-date,
+  .project-date,
+  .project .project-tech { font-size: 11px; }
+  .paper.projects { font-size: 12px; }
+  .project { grid-template-columns: 48px 1fr; }
+  .project-print { border-width: 3px; }
   .post-blurb { font-size: 12px; }
 }
