@@ -595,8 +595,6 @@ a { color: inherit; }
   border-width: 3px;
 }
 
-.project-print a { display: block; }
-
 .project-print .print-crop img,
 .job-logo .print-crop img {
   height: 100%;
@@ -612,35 +610,6 @@ a { color: inherit; }
   box-sizing: border-box;
   padding: 17%;
   object-fit: contain;
-}
-
-/* On devices that can hover, pointing at a print picks it up: it straightens and grows from
-   its centre to 3 times its size (or --grow from the HTML, for a detailed image), over the
-   text around it, with its border kept about as thin as at rest. It waits a moment before
-   growing, so passing over it on the way to the text doesn't set it off, and shrinks back
-   at once. It sits above the row's stretched link so it gets the hover; a linked project's
-   print has its own copy of the link (hidden from screen readers and the tab order, which
-   have the title's), so clicking it still opens the project. */
-@media (hover: hover) {
-  .project-print {
-    z-index: 1;
-    transition:
-      transform 0.15s ease-out,
-      border-width 0.15s ease-out,
-      box-shadow 0.15s ease-out;
-  }
-
-  .project-print:hover {
-    z-index: 2;
-    transition-delay: 0.15s;
-    transform: scale(var(--grow, 3));
-    border-width: calc(3px / var(--grow, 3));
-    box-shadow: 2px 4px 12px rgb(0 0 0 / 0.18);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .project-print { transition: none; }
 }
 
 /* Post page: the site header, smaller, with the notebook's name linking home; a link back
