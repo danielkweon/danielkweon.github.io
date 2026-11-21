@@ -250,10 +250,11 @@ a { color: inherit; }
   margin: var(--crop-y, 0) 0 0 var(--crop-x, 0);
 }
 
-/* The strip of blank tape holding a print on. */
+/* The strip of blank tape holding a print on, its lower part on the print's white edge
+   and the rest above it (top is measured from inside the 5px border). */
 .tape.photo-tape {
   position: absolute;
-  top: -10px;
+  top: -14px;
   left: 50%;
   width: 46px;
   height: 14px;
@@ -507,6 +508,10 @@ a { color: inherit; }
   margin: 0;
   font: 500 14px / 1.4 var(--sans);
 }
+
+/* A post title that runs to two lines splits into even lines, rather than leaving one
+   word on its own. */
+.post .post-title { text-wrap: balance; }
 
 /* The title's link stretches over the whole row, so clicking anywhere on a post (or a
    project with a link) opens it; hovering the row underlines the title and turns a
