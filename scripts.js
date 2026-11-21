@@ -11,7 +11,7 @@ document.querySelector(".footer-top")?.addEventListener("click", (event) => {
 // Work: start each job collapsed and show its toggle. Collapsed jobs show their first
 // two points (one on phones); the stylesheet sets this. The toggle reads "+ more", then
 // "− less" once open. Clicking anywhere on a job toggles it too, except while selecting
-// text; the button stays the control for keyboards and screen readers.
+// text; the button stays the control for keyboards.
 document.querySelectorAll(".job").forEach((job) => {
   const toggle = job.querySelector(".more-toggle");
   job.classList.add("is-collapsed", "is-clickable");
@@ -21,7 +21,6 @@ document.querySelectorAll(".job").forEach((job) => {
     // Don't let the job's own click handler toggle it straight back.
     event.stopPropagation();
     const open = !job.classList.toggle("is-collapsed");
-    toggle.setAttribute("aria-expanded", open);
     toggle.textContent = open ? "− less" : "+ more";
   });
   job.addEventListener("click", () => {

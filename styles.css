@@ -123,8 +123,8 @@ a { color: inherit; }
   stroke-linejoin: round;
 }
 
-/* Footer: a rule like the header's closing the page. A hint for the hidden hunt on the left,
-   a way back up in the middle, and the credit on the right. */
+/* Footer: a rule like the header's closing the page. A hint for the hidden hunt on the left
+   (left out of the HTML for now), a way back up in the middle, and the credit on the right. */
 .site-footer {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -137,7 +137,8 @@ a { color: inherit; }
   color: var(--muted);
 }
 
-.footer-top { text-decoration: none; }
+/* Back to top stays in the middle column, with or without the hint beside it. */
+.footer-top { grid-column: 2; text-decoration: none; }
 .footer-top:hover { text-decoration: underline; }
 .footer-credit { justify-self: end; }
 
@@ -650,7 +651,7 @@ a { color: inherit; }
 
 /* Post page: the site header, smaller, with the notebook's name linking home; a link back
    under it, lined up with the header; then one sheet of paper, untilted so long text reads
-   straight. The site footer closes the page with the link back in place of the hint. */
+   straight. The site footer closes the page with the link back in its left column. */
 .site-name {
   margin: 0;
   font: 400 28px / calc(var(--cell) * 2) var(--serif);
@@ -745,10 +746,12 @@ a { color: inherit; }
   .contact { gap: 16px; margin: calc(var(--cell) / 2) 0 0; justify-content: center; font-size: 12px; }
   .contact svg, .work-resume svg { width: 14px; height: 14px; }
 
-  /* Phones: the three stack, centred, in the same order as on desktop. */
+  /* Phones: the footer's items stack, centred, in the same order as on desktop, with a
+     space above the way back up when something comes before it. */
   .site-footer { grid-template-columns: 1fr; justify-items: center; text-align: center; font-size: 12px; }
   .footer-credit { justify-self: center; }
-  .footer-top { margin-top: var(--cell); }
+  .footer-top { grid-column: auto; }
+  .footer-top:not(:first-child) { margin-top: var(--cell); }
 
   .board { display: block; }
   .paper {
