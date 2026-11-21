@@ -612,6 +612,37 @@ a { color: inherit; }
   object-fit: contain;
 }
 
+/* Photos card: prints three to a row, each tilted its own way from the HTML (--print-r)
+   and held on by a strip of blank tape. Every print is cropped square, since the photos
+   are a mix of tall and wide, and each one's crop is placed from the HTML (--crop-pos). */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--cell) 14px;
+  padding-top: 12px;
+}
+
+.photos .print { --crop-ratio: 1; }
+
+/* The date each photo was taken, written on the print's white edge below it, in the same
+   style as the dates on the other cards. */
+.photos .print { background: var(--print-edge); }
+
+.print-date {
+  padding-top: 4px;
+  font: 10px / 1.2 var(--mono);
+  color: var(--muted);
+  text-align: center;
+}
+
+.photos .print-crop img {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: cover;
+  object-position: var(--crop-pos, 50% 50%);
+}
+
 /* Post page: the site header, smaller, with the notebook's name linking home; a link back
    under it, lined up with the header; then one sheet of paper, untilted so long text reads
    straight. The site footer closes the page with the link back in place of the hint. */
@@ -773,6 +804,21 @@ a { color: inherit; }
   .article > .tape.corner-tape-bottom-right { right: -18px; }
   .article-title { margin-top: 8px; font-size: 26px; }
   .article-date { font-size: 11px; }
+
+  /* Photos card on phones: smaller tape, to suit the smaller prints, with a shallower
+     tear so its torn ends don't look chewed at this size. It sits half above the print
+     and half on its white edge (top is measured from inside the 6px border). */
+  .tape.photo-tape {
+    top: -11px;
+    width: 32px;
+    height: 10px;
+    --tear: polygon(
+      2px 0, calc(100% - 1px) 0,
+      100% 25%, calc(100% - 2px) 50%, calc(100% - 1px) 75%, calc(100% - 2px) 100%,
+      1px 100%,
+      2px 75%, 0 50%, 2px 25%
+    );
+  }
 
   /* Blog and projects cards on phones: same sizes as the work card's. .paper.projects
      outranks the cards' 13px above. The project and logo prints keep a thin border, which
