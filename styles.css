@@ -144,13 +144,15 @@ a { color: inherit; }
 
 /* Board: a 12-column grid that the paper blocks sit on. The third row is flexible, so when
    the work card (which spans rows two and three) opens a job, that row takes the extra
-   height and the cards beside it in row two stay put. */
+   height and the cards beside it in row two stay put. --board-gap is the space between
+   columns, kept as a variable for blocks that measure in columns. */
 .board {
+  --board-gap: calc(var(--cell) * 2);
   position: relative;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto auto 1fr;
-  gap: var(--cell) calc(var(--cell) * 2);
+  gap: var(--cell) var(--board-gap);
   align-items: start;
   max-width: var(--page-width);
   margin: 0 auto;
@@ -169,6 +171,26 @@ a { color: inherit; }
   border: 1px solid var(--paper-edge);
   box-shadow: var(--shadow);
   transform: rotate(calc(var(--r, 0deg) * var(--tilt, 1)));
+}
+
+/* A stack of blocks that share one place on the board, one under another, so a block can
+   sit right below the one above it whatever the rows beside them do. The stack takes its
+   place from the HTML like a block does, plus --span, the number of columns it covers, for
+   blocks inside that measure in columns. Inside a stack, a block's --drop adds to the gap
+   below the block above it, rather than pushing it down from the top of a row. */
+.board-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cell);
+  grid-column: var(--col, span 4);
+  grid-row: var(--row, auto);
+  min-width: 0;
+}
+
+/* The stack's place on the board isn't passed down to the blocks inside it. */
+.board-stack > * {
+  --col: auto;
+  --row: auto;
 }
 
 .paper p + p { margin-top: 8px; }
@@ -649,6 +671,100 @@ a { color: inherit; }
   object-position: var(--crop-pos, 50% 50%);
 }
 
+/* Chat card: a terminal screen held for the chat that will run the puzzle. For now a
+   visitor can type at the prompt, and the notebook answers that no one's here yet. The
+   screen keeps its height and scrolls once the lines fill it, without scrolling the page
+   when it reaches either end. */
+.chat-screen {
+  --chat-size: 11; /* the screen's font size in px, unitless so phones can scale by it */
+  height: calc(var(--cell) * 17);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border: 1px solid rgb(0 0 0 / 0.12);
+  background: rgb(0 0 0 / 0.03);
+  font: calc(var(--chat-size) * 1px) / 1.5 var(--mono);
+  overflow-wrap: anywhere;
+  cursor: text;
+}
+
+/* The card starts one board column to the left of the stack it's in, nearer the photos,
+   and ends where the stack does. (One column plus its gap is the stack's width plus one
+   gap, divided by the number of columns it covers.) */
+.paper.chat {
+  --step: calc((100% + var(--board-gap)) / var(--span));
+  left: calc(var(--step) * -1);
+  width: calc(100% + var(--step));
+}
+
+/* Like a real terminal: when you last logged in, then what's been typed and answered,
+   then a shell prompt waiting for the visitor, signed in as a guest. What the notebook
+   says is dimmed; what the visitor types is in ink. (The rules for the screen's lines
+   start with .paper to outrank the card's own spacing between paragraphs, .paper p + p.) */
+.paper .chat-screen p { margin: 0; }
+
+.chat-login,
+.chat-reply { color: var(--muted); }
+
+/* A little space after each reply, so each exchange reads as its own group before the
+   next prompt. */
+.paper .chat-screen .chat-reply { margin-bottom: 0.5em; }
+
+/* The prompt, then the field a visitor types in, which takes the rest of the line. The
+   field is a one-line text area rather than a text input, so Safari doesn't take it for a
+   sign-in box (the "Last login" line above invites that) and offer saved passwords. */
+.chat-prompt {
+  display: flex;
+  gap: 1ch;
+}
+
+.chat-field {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 1.5em;
+}
+
+.chat-input {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  caret-color: var(--ink);
+  outline: none;
+  resize: none;
+  overflow: hidden;
+}
+
+.chat-input[hidden] { display: none; }
+
+/* A blinking underscore sits where the visitor would type, until they start (its place
+   is taken by the input's own caret). Without JS the input stays hidden and only the
+   underscore shows. The underscore holds still for reduced motion. */
+.chat-cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: blink 1.1s steps(1) infinite;
+}
+
+.chat-input:focus ~ .chat-cursor,
+.chat-input:not(:placeholder-shown) ~ .chat-cursor { display: none; }
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chat-cursor { animation: none; }
+}
+
 /* Post page: the site header, smaller, with the notebook's name linking home; a link back
    under it, lined up with the header; then one sheet of paper, untilted so long text reads
    straight. The site footer closes the page with the link back in its left column. */
@@ -753,7 +869,24 @@ a { color: inherit; }
   .footer-top { grid-column: auto; }
   .footer-top:not(:first-child) { margin-top: var(--cell); }
 
-  .board { display: block; }
+  /* On phones the blocks stack in one column. A stack's blocks join it, and the chat
+     card goes last, after the photos. */
+  .board { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+  .board-stack { display: contents; }
+  .paper.chat { left: 0; width: auto; order: 1; }
+
+  /* Phones have bigger cells, so the screen is fewer of them tall to stay in proportion. */
+  .chat-screen { height: calc(var(--cell) * 12); }
+
+  /* iPhones zoom in on a text field smaller than 16px when it's tapped, so on phones the
+     field is 16px, scaled down to the screen's own size (--chat-size). */
+  .chat-input {
+    width: calc(100% * 16 / var(--chat-size));
+    height: calc(100% * 16 / var(--chat-size));
+    font-size: 16px;
+    transform: scale(calc(var(--chat-size) / 16));
+    transform-origin: 0 0;
+  }
   .paper {
     --tilt: 0.4;
     margin: 0 0 var(--cell);

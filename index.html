@@ -378,89 +378,108 @@
         </ol>
       </section>
 
-      <section
-        class="paper projects"
-        style="--col: 8 / 13; --row: span 2; --drop: calc(var(--cell) * 2); --r: 0.5deg"
-      >
-        <span class="tape">/ projects</span>
-        <ol class="project-list">
-          <li class="project">
-            <figure class="print project-print" style="--print-r: -1.5deg">
-              <span class="print-crop">
-                <img src="content/projects/number-hunt.jpg" alt="Number Hunt app icon: a magnifying glass over the number 2" width="600" height="600" loading="lazy" />
-              </span>
-            </figure>
-            <div class="project-body">
-              <div class="project-head">
-                <h2 class="project-title">Number Hunt</h2>
-                <time class="project-date" datetime="2025">2025</time>
+      <div class="board-stack" style="--col: 8 / 13; --span: 5; --row: span 2">
+        <section
+          class="paper projects"
+          style="--drop: calc(var(--cell) * 2); --r: 0.5deg"
+        >
+          <span class="tape">/ projects</span>
+          <ol class="project-list">
+            <li class="project">
+              <figure class="print project-print" style="--print-r: -1.5deg">
+                <span class="print-crop">
+                  <img src="content/projects/number-hunt.jpg" alt="Number Hunt app icon: a magnifying glass over the number 2" width="600" height="600" loading="lazy" />
+                </span>
+              </figure>
+              <div class="project-body">
+                <div class="project-head">
+                  <h2 class="project-title">Number Hunt</h2>
+                  <time class="project-date" datetime="2025">2025</time>
+                </div>
+                <p class="project-about">
+                  A puzzle game for iOS. Trace a path through a grid of numbers and
+                  operators that works out to the target. Every level is generated
+                  on&#8209;device by a backtracking solver, so each one is solvable.
+                </p>
+                <p class="project-tech">Swift · UIKit</p>
               </div>
-              <p class="project-about">
-                A puzzle game for iOS. Trace a path through a grid of numbers and
-                operators that works out to the target. Every level is generated
-                on&#8209;device by a backtracking solver, so each one is solvable.
-              </p>
-              <p class="project-tech">Swift · UIKit</p>
-            </div>
-          </li>
-          <li class="project">
-            <figure class="print project-print" style="--print-r: 1deg">
-              <span class="print-crop">
-                <img src="content/projects/tumble.gif" alt="Tumble gameplay: numbered tiles sliding and merging on a grid" width="300" height="300" loading="lazy" />
-              </span>
-            </figure>
-            <div class="project-body">
-              <div class="project-head">
-                <h2 class="project-title"><a href="https://apps.apple.com/us/app/tumble-puzzle-game/id6480238709"><span class="project-title-end">Tumble<svg class="project-external" viewBox="0 0 12 12"><path d="M2 10 10 2M3.5 2H10v6.5" /></svg></span></a></h2>
-                <time class="project-date" datetime="2024">2024</time>
+            </li>
+            <li class="project">
+              <figure class="print project-print" style="--print-r: 1deg">
+                <span class="print-crop">
+                  <img src="content/projects/tumble.gif" alt="Tumble gameplay: numbered tiles sliding and merging on a grid" width="300" height="300" loading="lazy" />
+                </span>
+              </figure>
+              <div class="project-body">
+                <div class="project-head">
+                  <h2 class="project-title"><a href="https://apps.apple.com/us/app/tumble-puzzle-game/id6480238709"><span class="project-title-end">Tumble<svg class="project-external" viewBox="0 0 12 12"><path d="M2 10 10 2M3.5 2H10v6.5" /></svg></span></a></h2>
+                  <time class="project-date" datetime="2024">2024</time>
+                </div>
+                <p class="project-about">
+                  A puzzle game for iOS. Tilt the board and the tiles slide, stack and
+                  merge: 2048 meets gravity. Built on a modular MVC game engine.
+                </p>
+                <p class="project-tech">Swift · UIKit</p>
               </div>
-              <p class="project-about">
-                A puzzle game for iOS. Tilt the board and the tiles slide, stack and
-                merge: 2048 meets gravity. Built on a modular MVC game engine.
-              </p>
-              <p class="project-tech">Swift · UIKit</p>
-            </div>
-          </li>
-          <li class="project">
-            <figure class="print project-print" style="--print-r: -1deg">
-              <span class="print-crop">
-                <img src="content/projects/noise-suppression-rnn.png" alt="Figure 3 from the capstone paper: a diagram of the recurrent neural network, its GRU and dense layers connected by arrows" width="720" height="720" loading="lazy" />
-              </span>
-            </figure>
-            <div class="project-body">
-              <div class="project-head">
-                <h2 class="project-title"><a href="https://github.com/danielkweon/Background_Noise_Suppression">Background Noise <span class="project-title-end">Suppression<svg class="project-external" viewBox="0 0 12 12"><path d="M2 10 10 2M3.5 2H10v6.5" /></svg></span></a></h2>
-                <time class="project-date" datetime="2020">2020</time>
+            </li>
+            <li class="project">
+              <figure class="print project-print" style="--print-r: -1deg">
+                <span class="print-crop">
+                  <img src="content/projects/noise-suppression-rnn.png" alt="Figure 3 from the capstone paper: a diagram of the recurrent neural network, its GRU and dense layers connected by arrows" width="720" height="720" loading="lazy" />
+                </span>
+              </figure>
+              <div class="project-body">
+                <div class="project-head">
+                  <h2 class="project-title"><a href="https://github.com/danielkweon/Background_Noise_Suppression">Background Noise <span class="project-title-end">Suppression<svg class="project-external" viewBox="0 0 12 12"><path d="M2 10 10 2M3.5 2H10v6.5" /></svg></span></a></h2>
+                  <time class="project-date" datetime="2020">2020</time>
+                </div>
+                <p class="project-about">
+                  For my senior capstone, we trained RNNs to strip background noise from
+                  speech for live calls. They beat a DSP filter on audio quality but
+                  needed more compute.
+                </p>
+                <p class="project-tech">C++ · Python</p>
               </div>
-              <p class="project-about">
-                For my senior capstone, we trained RNNs to strip background noise from
-                speech for live calls. They beat a DSP filter on audio quality but
-                needed more compute.
-              </p>
-              <p class="project-tech">C++ · Python</p>
-            </div>
-          </li>
-          <li class="project">
-            <figure class="print project-print" style="--print-r: 1.5deg">
-              <span class="print-crop">
-                <img src="content/projects/puzzled.jpg" alt="The PuzzLED board: a wooden box of lit triangular panels with a red tangram shape on top" width="584" height="600" loading="lazy" />
-              </span>
-            </figure>
-            <div class="project-body">
-              <div class="project-head">
-                <h2 class="project-title">PuzzLED</h2>
-                <time class="project-date" datetime="2018">2018</time>
+            </li>
+            <li class="project">
+              <figure class="print project-print" style="--print-r: 1.5deg">
+                <span class="print-crop">
+                  <img src="content/projects/puzzled.jpg" alt="The PuzzLED board: a wooden box of lit triangular panels with a red tangram shape on top" width="584" height="600" loading="lazy" />
+                </span>
+              </figure>
+              <div class="project-body">
+                <div class="project-head">
+                  <h2 class="project-title">PuzzLED</h2>
+                  <time class="project-date" datetime="2018">2018</time>
+                </div>
+                <p class="project-about">
+                  A tangram board on a triangular LED grid: a shape lights up, and you
+                  fill it with the puzzle pieces. Selected for display by the
+                  Children’s Museum of Blacksburg.
+                </p>
+                <p class="project-tech">C++ · Arduino</p>
               </div>
-              <p class="project-about">
-                A tangram board on a triangular LED grid: a shape lights up, and you
-                fill it with the puzzle pieces. Selected for display by the
-                Children’s Museum of Blacksburg.
-              </p>
-              <p class="project-tech">C++ · Arduino</p>
-            </div>
-          </li>
-        </ol>
-      </section>
+            </li>
+          </ol>
+        </section>
+        <section
+          class="paper chat"
+          style="--drop: calc(var(--cell) * 4); --r: 0.6deg"
+        >
+          <span class="tape">/ chat</span>
+          <div class="chat-screen">
+            <p class="chat-login">Last login: <time datetime="2026-11-21T09:41:07">Sat Nov 21 09:41:07</time></p>
+            <div class="chat-log"></div>
+            <p class="chat-prompt">
+              <span class="chat-ps1">guest@notebook ~ %</span>
+              <span class="chat-field">
+                <textarea class="chat-input" rows="1" wrap="off" placeholder=" " maxlength="80" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="send" data-1p-ignore data-lpignore="true" hidden></textarea>
+                <span class="chat-cursor">_</span>
+              </span>
+            </p>
+          </div>
+        </section>
+      </div>
 
       <section
         class="paper photos"
