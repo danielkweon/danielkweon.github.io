@@ -331,7 +331,7 @@ a { color: inherit; }
   gap: 3px 16px;
   width: fit-content;
   margin: 13px auto 0;
-  font: 10px / 1.5 var(--mono);
+  font: 11px / 1.5 var(--mono);
   text-align: left;
 }
 
@@ -906,7 +906,6 @@ a { color: inherit; }
     font-size: 14px;
   }
   .profile-caption svg { width: 30px; height: 24px; margin-top: 4px; }
-  .profile-facts { gap: 4px 20px; margin-top: 16px; font-size: 11px; }
 
   /* Work card on phones: company and dates share the first line and the team gets its own
      full-width line under them; the role is left out. Collapsed jobs show their first point,
