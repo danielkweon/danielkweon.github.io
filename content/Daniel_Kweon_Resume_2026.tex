@@ -20,6 +20,7 @@
 	\usepackage[scaled]{helvet} % Helvetica
 	\renewcommand{\familydefault}{\sfdefault}
 	\newcommand{\growthArrow}{\hspace{0.2em}$\rightarrow$\hspace{0.2em}}
+	\newcommand{\atsWord}[1]{#1}
 \else
 	\usepackage{fontspec}
 	\setmainfont[Scale=0.915,Renderer=OpenType,RawFeature={-liga,-clig}]{Helvetica}
@@ -27,6 +28,7 @@
 	\newfontfamily\arrowfont[Scale=0.915]{Arial Unicode MS}
 	\renewcommand{\familydefault}{\sfdefault}
 	\newcommand{\growthArrow}{\hspace{0.2em}{\arrowfont →}\hspace{0.2em}}
+	\newcommand{\atsWord}[1]{{\addfontfeatures{RawFeature={-kern}}#1}}
 \fi
 
 % Colors & Links
@@ -117,6 +119,7 @@
 % Separator Bullets
 \newcommand{\sepBullet}{\raisebox{0.3ex}{\fontsize{6pt}{7pt}\selectfont$\bullet$}}
 \newcommand{\sepBulletSmall}{\raisebox{0.3ex}{\fontsize{5pt}{6pt}\selectfont$\bullet$}}
+\newcommand{\skillSep}{\hspace{0.5em}\sepBulletSmall\hspace{0.5em}}
 
 % List Wrappers
 \newcommand{\resumeEntryListStart}{\begin{itemize}[leftmargin=0.15in, label={}, itemsep=2pt, topsep=5pt]}
@@ -133,7 +136,7 @@
 \begin{document}
 	%---------- HEADER ----------
 	\begin{center}
-		\textsf{\textbf{\fontsize{28pt}{28pt}\selectfont DANIEL KWEON}} \\
+		\textsf{\textbf{\fontsize{24pt}{24pt}\selectfont DANIEL KWEON}} \\
 		\vspace{10pt}
 		{\fontsize{10pt}{12pt}\selectfont
 			703-473-4328 \hspace{0.4em}\sepBullet\hspace{0.4em}
@@ -149,19 +152,19 @@
 	\resumeEntryListStart
 	\resumeEntry{Adaptive Security}{05/2026 -- 10/2026}{Software Engineer}{New York City, NY}{AI Security \& Governance Startup (Series B)}
 	\resumeItemListStart
-	\resumeItem{Built a Windows device agent for AI governance and scaled deployment from \textbf{0\growthArrow20} customers and \textbf{1,500+} endpoints, enabling AI application detection, app usage visibility, and fleet health monitoring}
-	\resumeItem{Developed a Kafka pipeline ingesting device activity and detecting risk, using RDS for operations and ClickHouse for analytics}
-	\resumeItem{Created an activity model for device, browser, and API integrations, powering a governance feed for user and agentic actions}
-	\resumeItem{Led development of policy enforcement in the device agent and admin controls for AI application, account, and DLP policies, combining deterministic policy evaluation with an Amazon Bedrock-hosted LLM classifier to block sensitive data}
+	\resumeItem{Built a Windows device agent for AI governance, enabling AI application detection and app usage visibility; scaled deployment from \textbf{0\growthArrow20} customers across \textbf{1,500+} endpoints using fleet health monitoring, staged rollouts, and rollback controls}
+	\resumeItem{Developed a Kafka pipeline processing \textbf{500K+} device and agentic events per day to detect policy violations, sensitive data, and malicious content, using RDS for operational workloads and ClickHouse for analytics}
+	\resumeItem{Led design of a unified model for device, browser, and API activity, powering a governance feed for user and agentic actions}
+	\resumeItem{Developed device-agent enforcement and admin controls for AI usage policies, combining deterministic evaluation with an Amazon Bedrock-hosted LLM classifier configured with a \textbf{500 ms fail-open threshold}}
 	\resumeItemListEnd
 
 	\resumeEntry{Macro}{07/2024 -- 01/2026}{Software Engineer}{New York City, NY}{AI Productivity Suite Startup (Series A)}
 	\resumeItemListStart
 	\resumeItem{Owned the metadata \& properties platform across all workspace entity types, enabling extensibility and unified querying}
-	\resumeItem{Led the design and implementation of a permissions-aware service for user and system properties, automated tagging, and relationship inference; aligned \textbf{3 product teams} on shared property semantics}
-	\resumeItem{Built and rolled out an in-product task management system on the properties platform, replacing Linear company-wide and serving 3 external customers; scaled to \textbf{10K+ tasks} in the first month}
-	\resumeItem{Owned the Markdown editor driving \textbf{50\%+ of in-product activity}, delivering real-time collaboration and AI writing workflows while improving reliability through telemetry and performance tuning}
-	\resumeItem{Built an AI chat with WebSocket streaming and prompts using conversation and document context to improve answer quality}
+	\resumeItem{Led the design and implementation of a permissions-aware properties service supporting user and system properties, automated tagging, and relationship inference; aligned \textbf{3 product teams} on shared property semantics}
+	\resumeItem{Launched an in-product task management system on the properties platform; replaced Linear company-wide, served 3 external customers, and scaled to \textbf{10K+ tasks} in the first month}
+	\resumeItem{Owned the Markdown editor accounting for \textbf{50\%+ of in-product activity}; delivered real-time collaboration and AI writing workflows and improved reliability through telemetry and performance tuning}
+	\resumeItem{Integrated LibreOfficeKit (C++/WebAssembly) for in-browser DOCX rendering and editing, reducing load times by \textbf{40\%+}}
 	\resumeItemListEnd
 
 	\resumeEntry{Amazon}{10/2022 -- 10/2023}{Software Engineer II}{New York City, NY}{Amazon Business Inventory Replenishment Services}
@@ -180,15 +183,40 @@
 	%---------- EDUCATION ----------
 	\resumeSection[6pt]{Education}
 	\resumeEntryListStart
-	\resumeEducationEntry{Virginia Tech}{12/2020}{Bachelor of Science in Computer Science}{Bachelor of Science in Mathematics (Applied Discrete Mathematics)}{Blacksburg, VA}
+	\resumeEducationEntry{Virginia Tech}{12/2020}{Bachelor of Science in Computer Science}{Bachelor of Science in Mathematics}{Blacksburg, VA}
 	\resumeEntryListEnd
 
 	%---------- SKILLS ----------
 	\resumeSection[14pt]{Skills}
 	\resumeSkillsListStart
-	\item \textbf{Languages:}\hspace{0.5em} Rust \hspace{0.5em}\sepBulletSmall\hspace{0.5em} TypeScript \hspace{0.5em}\sepBulletSmall\hspace{0.5em} Python \hspace{0.5em}\sepBulletSmall\hspace{0.5em} Java \hspace{0.5em}\sepBulletSmall\hspace{0.5em} C++ \hspace{0.5em}\sepBulletSmall\hspace{0.5em} Swift \hspace{0.5em}\sepBulletSmall\hspace{0.5em} SQL
-	\item \textbf{Frameworks \& APIs:}\hspace{0.5em} React \hspace{0.5em}\sepBulletSmall\hspace{0.5em} SolidJS \hspace{0.5em}\sepBulletSmall\hspace{0.5em} TanStack \hspace{0.5em}\sepBulletSmall\hspace{0.5em} REST APIs \hspace{0.5em}\sepBulletSmall\hspace{0.5em} GraphQL \hspace{0.5em}\sepBulletSmall\hspace{0.5em} WebSockets
-	\item \textbf{Data \& Infrastructure:}\hspace{0.5em} AWS \hspace{0.5em}\sepBulletSmall\hspace{0.5em} Kafka \hspace{0.5em}\sepBulletSmall\hspace{0.5em} ClickHouse \hspace{0.5em}\sepBulletSmall\hspace{0.5em} Docker
+	\item \textbf{Languages:}\hspace{0.5em}%
+		Rust \skillSep%
+		TypeScript \skillSep%
+		Python \skillSep%
+		Java \skillSep%
+		C++ \skillSep%
+		SQL
+	\item \textbf{Cloud \& Data:}\hspace{0.5em}%
+		AWS \skillSep%
+		S3 \skillSep%
+		SQS \skillSep%
+		Lambda \skillSep%
+		ECS/Fargate \skillSep%
+		DynamoDB \skillSep%
+		Kafka \skillSep%
+		PostgreSQL \skillSep%
+		ClickHouse
+	\item \textbf{Infrastructure \& Tooling:}\hspace{0.5em}%
+		Docker \skillSep%
+		\atsWord{Terraform} \skillSep%
+		GitHub Actions \skillSep%
+		Datadog
+	\item \textbf{Web \& APIs:}\hspace{0.5em}%
+		REST APIs \skillSep%
+		GraphQL \skillSep%
+		WebSockets \skillSep%
+		React \skillSep%
+		SolidJS
 	\resumeSkillsListEnd
 \end{document}
 
