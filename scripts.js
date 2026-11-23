@@ -31,6 +31,24 @@ document.querySelectorAll(".job").forEach((job) => {
   });
 });
 
+// Work and chat: on desktop the chat card reaches into /work's last column, so when /work
+// grows past the card's top (a job opens), push the card down to clear it by the gap
+// between cards; the stylesheet adds --clear to the card's drop. On phones the cards
+// don't sit side by side, so nothing moves.
+const workCard = document.querySelector(".paper.work");
+const chatCard = document.querySelector(".paper.chat");
+if (workCard && chatCard) {
+  const clear = () => {
+    chatCard.style.removeProperty("--clear");
+    const work = workCard.getBoundingClientRect();
+    const card = chatCard.getBoundingClientRect();
+    const gap = parseFloat(getComputedStyle(chatCard.parentElement).rowGap) || 0;
+    const overlap = work.bottom + gap - card.top;
+    if (card.left < work.right && overlap > 0) chatCard.style.setProperty("--clear", `${overlap}px`);
+  };
+  new ResizeObserver(clear).observe(workCard);
+}
+
 // Chat: a terminal screen held for the chat that will run the puzzle.
 // - The "Last login" line shows the visitor's own date and time, the way a real terminal
 //   would. Without JS it keeps the date written in the HTML.
@@ -39,12 +57,12 @@ document.querySelectorAll(".job").forEach((job) => {
 // - The screen scrolls to the newest line; past 100 lines the oldest go.
 // - Clicking the screen starts typing, except while selecting text in it.
 // - The field is a text area, so a pasted line break becomes a space.
-const chat = document.querySelector(".chat-screen");
-if (chat) {
-  const login = chat.querySelector(".chat-login time");
-  const input = chat.querySelector(".chat-input");
-  const log = chat.querySelector(".chat-log");
-  const prompt = chat.querySelector(".chat-ps1").textContent;
+const terminal = document.querySelector(".chat-screen");
+if (terminal) {
+  const login = terminal.querySelector(".chat-login time");
+  const input = terminal.querySelector(".chat-input");
+  const log = terminal.querySelector(".chat-log");
+  const prompt = terminal.querySelector(".chat-ps1").textContent;
 
   const now = new Date();
   const part = (options) => now.toLocaleString("en-US", options);
@@ -62,9 +80,9 @@ if (chat) {
   };
 
   input.hidden = false;
-  chat.addEventListener("click", () => {
+  terminal.addEventListener("click", () => {
     const selection = getSelection();
-    const selecting = !selection.isCollapsed && chat.contains(selection.anchorNode);
+    const selecting = !selection.isCollapsed && terminal.contains(selection.anchorNode);
     if (!selecting) input.focus();
   });
   input.addEventListener("input", () => {
@@ -78,6 +96,6 @@ if (chat) {
     if (text.trim()) say(reply(text), "chat-reply");
     while (log.children.length > 100) log.firstElementChild.remove();
     input.value = "";
-    chat.scrollTop = chat.scrollHeight;
+    terminal.scrollTop = terminal.scrollHeight;
   });
 }
