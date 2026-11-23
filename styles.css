@@ -40,10 +40,27 @@ body {
   background-size: var(--cell) var(--cell);
 }
 
+/* With a mouse, a pen over the bare grid paper, the one place a drag draws (see Doodles
+   in scripts.js). The header, footer and cards keep their usual cursors; the nib (bottom
+   left) is where it points. Narrow windows don't draw, so they drop the pen (phones,
+   below). */
+@media (hover: hover) and (pointer: fine) {
+  body { cursor: url("content/pen.svg") 1 22, auto; }
+
+  .site-header,
+  .site-footer,
+  .paper { cursor: auto; }
+
+  /* A clickable row and the chat screen keep one cursor all over, text included. */
+  .is-clickable *,
+  .chat-screen * { cursor: inherit; }
+}
+
 a { color: inherit; }
 
 /* Header. Every line is a whole number of grid cells tall, so the rule lands on a gridline. */
 .site-header {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: last baseline;
@@ -141,6 +158,46 @@ a { color: inherit; }
 .footer-top { text-decoration: none; }
 .footer-top:hover { text-decoration: underline; }
 .footer-credit { grid-column: 3; justify-self: end; }
+
+/* Erase doodles (added by scripts.js, with a mouse only): a small button just under the
+   header's rule on the right, in the space above the top row of cards, with an eraser
+   drawn like the header's icons. */
+.doodle-erase {
+  position: absolute;
+  top: calc(100% + var(--cell));
+  right: 0;
+  z-index: 1; /* above the board, which starts level with it */
+  padding: 0;
+  border: 0;
+  background: none;
+  font: 10px / var(--cell) var(--mono);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.doodle-erase:hover { color: var(--ink); text-decoration: underline; }
+
+.doodle-erase svg {
+  width: 13px;
+  height: 13px;
+  margin-right: 5px;
+  vertical-align: -0.25em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Doodles: a canvas the script lays over the whole page, under everything on it (z-index
+   -1 puts it just above the grid paper), so ink drawn on the paper runs under the cards. */
+.doodles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+}
 
 /* Board: a 12-column grid that the paper blocks sit on. The third row is flexible, so when
    the work card (which spans rows two and three) opens a job, that row takes the extra
@@ -864,6 +921,13 @@ a { color: inherit; }
 
   body { padding: var(--cell) 16px 50px; font-size: 15px; }
   .site-header h1 { font-size: clamp(38px, 5vw, 70px); }
+
+  /* Doodles are for the wide board: with the cards stacked there's no paper around them
+     to draw on, so a narrow window hides the ink, its erase button and the pen
+     (scripts.js stops drawing while the ink is hidden). Widen it again and they're back. */
+  .doodles,
+  .doodle-erase { display: none; }
+  body { cursor: auto; }
 
   .site-header {
     grid-template-columns: 1fr;
