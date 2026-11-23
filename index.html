@@ -2,951 +2,561 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
     <meta
       name="description"
       content="Daniel Kweon, software engineer in NYC. Previously Adaptive Security, Macro, Amazon, and Bloomberg. I also build puzzle games."
     />
-    <meta
-      name="keywords"
-      content="Daniel Kweon, Software Engineer, NYC, Adaptive Security, AI Governance, Macro, Amazon, Bloomberg, Developer, Puzzle Games"
-    />
-    <meta name="author" content="Daniel Kweon" />
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Daniel Kweon | Software Engineer" />
-    <meta
-      property="og:description"
-      content="Software engineer in NYC. Previously Adaptive Security, Macro, Amazon, and Bloomberg. I also build puzzle games."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://daniel.kweon.dev" />
-
     <title>Daniel Kweon | Software Engineer</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Caveat:wght@500&display=swap"
-      rel="stylesheet"
-    />
-
+    <meta property="og:title" content="Daniel Kweon | Software Engineer" />
+    <meta property="og:image" content="https://daniel.kweon.dev/content/share.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="scripts.js" defer></script>
   </head>
-
   <body>
-    <!-- Skip to content -->
-    <a href="#content" class="skip-to-content">Skip to Content</a>
-
-    <!-- Fixed Sidebar Navigation (Desktop) -->
-    <aside class="sidebar">
-      <div class="sidebar-main">
-        <div class="sidebar-header">
-          <div class="sidebar-name">Daniel Kweon</div>
-          <div class="sidebar-title">Software Engineer</div>
-        </div>
-
-        <nav class="sidebar-nav">
-          <ul>
-            <li><a href="#about" data-section="about">About</a></li>
-            <li>
-              <a href="#work" data-section="work">Work</a>
-            </li>
-            <li><a href="#projects" data-section="projects">Projects</a></li>
-            <li><a href="#blog" data-section="blog">Blog</a></li>
-            <li><a href="#photos" data-section="photos">Photos</a></li>
-            <li><a href="#contact" data-section="contact">Contact</a></li>
-          </ul>
-        </nav>
+    <header class="site-header">
+      <p class="updated"><i></i> <span>Last updated: <span class="long">November</span><span class="short">Nov</span> 2026</span></p>
+      <div>
+        <h1>Daniel<span class="surname"> Kweon</span>’s notebook</h1>
+        <p>
+          A record of the things I’ve built, learned along the way, and am still
+          figuring out.
+        </p>
       </div>
-
-      <div class="sidebar-social">
-        <a
-          href="https://github.com/danielkweon"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path
-              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-            ></path>
+      <nav class="contact">
+        <a href="content/Daniel_Kweon_Resume_2026.pdf">
+          <svg viewBox="0 0 24 24">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
           </svg>
+          Resume
         </a>
-        <a
-          href="https://linkedin.com/in/danielkweon"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path
-              d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-            ></path>
-            <rect x="2" y="9" width="4" height="12"></rect>
-            <circle cx="4" cy="4" r="2"></circle>
+        <a href="https://github.com/danielkweon">
+          <svg viewBox="0 0 24 24">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
           </svg>
+          GitHub
         </a>
-        <a href="mailto:daniel@kweon.dev" aria-label="Email">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path
-              d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-            ></path>
-            <polyline points="22,6 12,13 2,6"></polyline>
+        <a href="https://linkedin.com/in/danielkweon">
+          <svg viewBox="0 0 24 24">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
+            <circle cx="4" cy="4" r="2" />
           </svg>
+          LinkedIn
         </a>
-      </div>
-    </aside>
-
-    <!-- Mobile Navigation -->
-    <header class="mobile-nav">
-      <a href="#hero" class="mobile-nav-logo">DK</a>
-      <button class="hamburger" aria-label="Menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+        <a href="mailto:daniel@kweon.dev">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <path d="m22 6-10 7L2 6" />
+          </svg>
+          Email
+        </a>
+      </nav>
     </header>
 
-    <div class="mobile-overlay"></div>
+    <main class="board">
+      <section
+        class="paper"
+        style="--col: 1 / 5; --drop: var(--cell); --r: -1.2deg"
+      >
+        <span class="tape">/ about</span>
+        <h2>Hi, I’m Daniel.</h2>
+        <p>
+          I’ve always loved puzzles, and coding is a lot like one: a clear goal,
+          a pile of pieces, and trying things until they fit. I like making
+          things feel seamless on the surface, with a lot of care underneath.
+        </p>
+        <p>
+          When I’m not coding, I’m usually playing tennis, reading, or wandering
+          the city for good coffee.
+        </p>
+      </section>
 
-    <div class="mobile-menu">
-      <nav>
-        <a href="#about"><span class="section-number">01.</span>About</a>
-        <a href="#work"><span class="section-number">02.</span>Work</a>
-        <a href="#projects"><span class="section-number">03.</span>Projects</a>
-        <a href="#blog"><span class="section-number">04.</span>Blog</a>
-        <a href="#photos"><span class="section-number">05.</span>Photos</a>
-        <a href="#contact"><span class="section-number">06.</span>Contact</a>
-      </nav>
-    </div>
+      <section
+        class="paper profile"
+        style="--col: 5 / 9; --drop: var(--cell); --r: 0.9deg"
+      >
+        <span class="tape">/ profile</span>
+        <figure
+          class="print profile-photo"
+          style="--crop-zoom: 200%; --crop-x: -45%; --crop-y: -116%"
+        >
+          <span class="print-crop">
+            <img
+              src="content/profile.jpg"
+              alt="Daniel Kweon sitting on a boulder in the woods"
+              width="640"
+              height="853"
+            />
+          </span>
+          <figcaption class="profile-caption">
+            Software engineer in the wild&nbsp;🍃
+            <svg viewBox="0 0 30 24">
+              <path d="M22 2C24 13 16 20 4 19M9 14l-5 5 6 4" />
+            </svg>
+          </figcaption>
+        </figure>
+        <dl class="profile-facts">
+          <dt>Home</dt>
+          <dd>New York City</dd>
+          <dt>Open to</dt>
+          <dd>Software Engineering Roles</dd>
+          <dt>School</dt>
+          <dd>Virginia Tech ’20</dd>
+          <dt>Studied</dt>
+          <dd>Computer Science &amp; Math</dd>
+        </dl>
+      </section>
 
-    <!-- Main Content (wrapped so tumble easter egg doesn't affect fixed sidebar) -->
-    <div id="tumble-wrap">
-      <main id="content" class="main-content">
-        <!-- Hero Section -->
-        <section id="hero">
-          <div class="hero-content">
-            <p class="hero-intro">Hi, I'm</p>
-            <h1 class="hero-name">Daniel Kweon</h1>
-            <h2 class="hero-tagline">I build systems & puzzles</h2>
-            <p class="hero-description">
-              I'm Daniel, a software engineer in NYC. Previously Adaptive
-              Security, Macro, Amazon, and Bloomberg. I also build puzzle
-              games.
+      <section
+        class="paper"
+        style="--col: 9 / 13; --drop: calc(var(--cell) * 4.5); --r: -0.7deg"
+      >
+        <span class="tape">/ now</span>
+        <p>
+          I’m making puzzle games.&nbsp;🧩 Making a puzzle is different from
+          solving one: you’re building the moment where it clicks for someone
+          else.
+        </p>
+      </section>
+
+      <section
+        class="paper work"
+        style="--col: 1 / 8; --row: span 2; --drop: var(--cell); --r: 0.4deg"
+      >
+        <span class="tape">/ work</span>
+        <a class="work-resume" href="content/Daniel_Kweon_Resume_2026.pdf">
+          <svg viewBox="0 0 24 24">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
+          </svg>
+          Resume
+        </a>
+        <ol class="work-list">
+          <li class="job">
+            <figure class="print job-logo" style="--print-r: -1deg">
+              <span class="print-crop">
+                <img src="content/work/adaptive-security.png" alt="" width="180" height="180" loading="lazy" />
+              </span>
+            </figure>
+            <div class="job-body">
+              <div class="job-head">
+                <h2 class="job-company">Adaptive Security</h2>
+                <span class="job-team">AI Security &amp; Governance Startup (Series B)</span>
+                <span class="job-dates">May 2026 – Oct 2026</span>
+                <p class="job-role">Software Engineer</p>
+              </div>
+              <ul class="job-points">
+                <li>
+                  Built a Windows device agent for AI governance, enabling AI
+                  application detection and app usage visibility; scaled deployment
+                  from 0&nbsp;→&nbsp;20 customers across 1,500+ endpoints using
+                  fleet health monitoring, staged rollouts, and rollback controls.
+                </li>
+                <li>
+                  Developed a Kafka pipeline processing 500K+ device and agentic
+                  events per day to detect policy violations, sensitive data, and
+                  malicious content, using RDS for operational workloads and
+                  ClickHouse for analytics.
+                </li>
+                <li>
+                  Led design of a unified model for device, browser, and API
+                  activity, powering a governance feed for user and agentic actions.
+                </li>
+                <li>
+                  Developed device-agent enforcement and admin controls for AI usage
+                  policies, combining deterministic evaluation with an Amazon
+                  Bedrock-hosted LLM classifier configured with a 500&nbsp;ms
+                  fail-open threshold.
+                </li>
+              </ul>
+              <dl class="job-tech">
+                <div>
+                  <dt>Languages</dt>
+                  <dd>Rust · Java · TypeScript</dd>
+                </div>
+                <div>
+                  <dt>Infra</dt>
+                  <dd>ECS&nbsp;Fargate · Kafka · ClickHouse · RDS · S3 · Bedrock</dd>
+                </div>
+              </dl>
+              <button
+                class="more-toggle"
+                type="button"
+                hidden
+              ></button>
+            </div>
+          </li>
+          <li class="job">
+            <figure class="print job-logo" style="--print-r: 1deg">
+              <span class="print-crop">
+                <img src="content/work/macro.png" alt="" width="240" height="240" loading="lazy" />
+              </span>
+            </figure>
+            <div class="job-body">
+              <div class="job-head">
+                <h2 class="job-company">Macro</h2>
+                <span class="job-team">AI Productivity Suite Startup (Series A)</span>
+                <span class="job-dates">Jul 2024 – Jan 2026</span>
+                <p class="job-role">Software Engineer</p>
+              </div>
+              <ul class="job-points">
+                <li>
+                  Owned the metadata &amp; properties platform across all workspace
+                  entity types, enabling extensibility and unified querying.
+                </li>
+                <li>
+                  Led the design and implementation of a permissions-aware
+                  properties service supporting user and system properties,
+                  automated tagging, and relationship inference; aligned 3 product
+                  teams on shared property semantics.
+                </li>
+                <li>
+                  Launched an in-product task management system on the properties
+                  platform; replaced Linear company-wide, served 3 external
+                  customers, and scaled to 10K+ tasks in the first month.
+                </li>
+                <li>
+                  Owned the Markdown editor accounting for 50%+ of in-product
+                  activity; delivered real-time collaboration and AI writing
+                  workflows and improved reliability through telemetry and
+                  performance tuning.
+                </li>
+                <li>
+                  Integrated LibreOfficeKit (C++/WebAssembly) for in-browser DOCX
+                  rendering and editing, reducing load times by 40%+.
+                </li>
+              </ul>
+              <dl class="job-tech">
+                <div>
+                  <dt>Languages</dt>
+                  <dd>Rust · TypeScript · C++</dd>
+                </div>
+                <div>
+                  <dt>Frameworks</dt>
+                  <dd>SolidJS · TanStack</dd>
+                </div>
+                <div>
+                  <dt>Infra</dt>
+                  <dd>ECS&nbsp;Fargate · RDS</dd>
+                </div>
+              </dl>
+              <button
+                class="more-toggle"
+                type="button"
+                hidden
+              ></button>
+            </div>
+          </li>
+          <li class="job">
+            <figure class="print job-logo" style="--print-r: -1.5deg">
+              <span class="print-crop">
+                <img src="content/work/amazon.png" alt="" width="240" height="240" loading="lazy" />
+              </span>
+            </figure>
+            <div class="job-body">
+              <div class="job-head">
+                <h2 class="job-company">Amazon</h2>
+                <span class="job-team">Amazon Business Inventory Replenishment Services</span>
+                <span class="job-dates">Oct 2022 – Oct 2023</span>
+                <p class="job-role">Software Engineer II</p>
+              </div>
+              <ul class="job-points">
+                <li>
+                  Built and launched an Amazon Business inventory-replenishment
+                  work order system, automating scheduling and service provider
+                  assignment for 3 external customers.
+                </li>
+                <li>
+                  Developed and operated an AWS pipeline for work order validation
+                  and downstream data delivery, reducing manual processing and
+                  providing near-real-time operational visibility.
+                </li>
+              </ul>
+              <dl class="job-tech">
+                <div>
+                  <dt>Languages</dt>
+                  <dd>Java · Python</dd>
+                </div>
+                <div>
+                  <dt>Frameworks</dt>
+                  <dd>React</dd>
+                </div>
+                <div>
+                  <dt>Infra</dt>
+                  <dd>ECS&nbsp;Fargate · Lambda · SQS · DynamoDB · RDS · S3</dd>
+                </div>
+              </dl>
+              <button
+                class="more-toggle"
+                type="button"
+                hidden
+              ></button>
+            </div>
+          </li>
+          <li class="job">
+            <figure class="print job-logo" style="--print-r: 1.5deg">
+              <span class="print-crop">
+                <img src="content/work/bloomberg.png" alt="" width="240" height="240" loading="lazy" />
+              </span>
+            </figure>
+            <div class="job-body">
+              <div class="job-head">
+                <h2 class="job-company">Bloomberg L.P.</h2>
+                <span class="job-team">Fixed Income Trading Infrastructure</span>
+                <span class="job-dates">Jan 2021 – Aug 2022</span>
+                <p class="job-role">Software Engineer</p>
+              </div>
+              <ul class="job-points">
+                <li>
+                  Extended and maintained a fixed-income trading billing platform
+                  and C++ library supporting $300M+ in annual revenue across
+                  multiple trading workflows.
+                </li>
+                <li>
+                  Built infrastructure for revenue forecasting and end-to-end
+                  trade testing, including a security classification API,
+                  backtesting framework, and clearinghouse simulator.
+                </li>
+              </ul>
+              <dl class="job-tech">
+                <div>
+                  <dt>Languages</dt>
+                  <dd>C++ · Python · TypeScript</dd>
+                </div>
+                <div>
+                  <dt>Infra</dt>
+                  <dd>BAS · Kafka · Comdb2 · Redis</dd>
+                </div>
+              </dl>
+              <button
+                class="more-toggle"
+                type="button"
+                hidden
+              ></button>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section
+        class="paper blog"
+        style="--col: 8 / 13; --drop: calc(var(--cell) * 3); --r: -0.6deg"
+      >
+        <span class="tape">/ blog</span>
+        <ol class="blog-list">
+          <li class="post">
+            <div class="post-head">
+              <h2 class="post-title"><a href="blog/what-big-tech-and-startups-each-taught-me/">What Big Tech and Startups Each Taught&nbsp;Me</a></h2>
+              <time class="post-date" datetime="2026-03-06">Mar 2026</time>
+            </div>
+            <p class="post-blurb">
+              <span>
+                People usually compare big tech and startups on prestige,
+                compensation, stability and speed. Those matter, but the
+                difference that stayed with me is what each one trained in me.
+              </span>
             </p>
-            <div class="hero-cta">
-              <a href="#contact" class="btn btn-game btn-large">Get in touch</a>
+          </li>
+          <li class="post">
+            <div class="post-head">
+              <h2 class="post-title"><a href="blog/ai-changes-the-workflow-not-the-standard/">AI Changes the Workflow, Not the Standard</a></h2>
+              <time class="post-date" datetime="2026-02-16">Feb 2026</time>
             </div>
-          </div>
+            <p class="post-blurb">
+              <span>
+                My issue is not that AI writes code. It’s that it can make it too
+                easy to produce code without fully understanding the change, the
+                system around it, or the cost of what is being added.
+              </span>
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <div class="board-stack" style="--col: 8 / 13; --span: 5; --row: span 2">
+        <section
+          class="paper projects"
+          style="--drop: var(--cell); --r: 0.5deg"
+        >
+          <span class="tape">/ projects</span>
+          <ol class="project-list">
+            <li class="project">
+              <figure class="print project-print" style="--print-r: -1.5deg">
+                <span class="print-crop">
+                  <img src="content/projects/number-hunt.jpg" alt="Number Hunt app icon: a magnifying glass over the number 2" width="600" height="600" loading="lazy" />
+                </span>
+              </figure>
+              <div class="project-body">
+                <div class="project-head">
+                  <h2 class="project-title">Number Hunt</h2>
+                  <time class="project-date" datetime="2025">2025</time>
+                </div>
+                <p class="project-about">
+                  A puzzle game for iOS. Trace a path through a grid of numbers and
+                  operators that works out to the target. Every level is generated
+                  on&#8209;device by a backtracking solver, so each one is solvable.
+                </p>
+                <p class="project-tech">Swift · UIKit</p>
+              </div>
+            </li>
+            <li class="project">
+              <figure class="print project-print" style="--print-r: 1deg">
+                <span class="print-crop">
+                  <img src="content/projects/tumble.gif" alt="Tumble gameplay: numbered tiles sliding and merging on a grid" width="300" height="300" loading="lazy" />
+                </span>
+              </figure>
+              <div class="project-body">
+                <div class="project-head">
+                  <h2 class="project-title"><a href="https://apps.apple.com/us/app/tumble-puzzle-game/id6480238709"><span class="project-title-end">Tumble<svg class="project-external" viewBox="0 0 12 12"><path d="M2 10 10 2M3.5 2H10v6.5" /></svg></span></a></h2>
+                  <time class="project-date" datetime="2024">2024</time>
+                </div>
+                <p class="project-about">
+                  A puzzle game for iOS. Tilt the board and the tiles slide, stack and
+                  merge: 2048 meets gravity. Built on a modular MVC game engine.
+                </p>
+                <p class="project-tech">Swift · UIKit</p>
+              </div>
+            </li>
+            <li class="project">
+              <figure class="print project-print" style="--print-r: -1deg">
+                <span class="print-crop">
+                  <img src="content/projects/noise-suppression-rnn.png" alt="Figure 3 from the capstone paper: a diagram of the recurrent neural network, its GRU and dense layers connected by arrows" width="720" height="720" loading="lazy" />
+                </span>
+              </figure>
+              <div class="project-body">
+                <div class="project-head">
+                  <h2 class="project-title"><a href="https://github.com/danielkweon/Background_Noise_Suppression">Background Noise <span class="project-title-end">Suppression<svg class="project-external" viewBox="0 0 12 12"><path d="M2 10 10 2M3.5 2H10v6.5" /></svg></span></a></h2>
+                  <time class="project-date" datetime="2020">2020</time>
+                </div>
+                <p class="project-about">
+                  For my senior capstone, we trained RNNs to strip background noise from
+                  speech for live calls. They beat a DSP filter on audio quality but
+                  needed more compute.
+                </p>
+                <p class="project-tech">C++ · Python</p>
+              </div>
+            </li>
+            <li class="project">
+              <figure class="print project-print" style="--print-r: 1.5deg">
+                <span class="print-crop">
+                  <img src="content/projects/puzzled.jpg" alt="The PuzzLED board: a wooden box of lit triangular panels with a red tangram shape on top" width="584" height="600" loading="lazy" />
+                </span>
+              </figure>
+              <div class="project-body">
+                <div class="project-head">
+                  <h2 class="project-title">PuzzLED</h2>
+                  <time class="project-date" datetime="2018">2018</time>
+                </div>
+                <p class="project-about">
+                  A tangram board on a triangular LED grid: a shape lights up, and you
+                  fill it with the puzzle pieces. Selected for display by the
+                  Children’s Museum of Blacksburg.
+                </p>
+                <p class="project-tech">C++ · Arduino</p>
+              </div>
+            </li>
+          </ol>
         </section>
-
-        <!-- About Section -->
-        <section id="about" class="fade-up">
-          <h2 class="section-heading">
-            <span class="section-number">01.</span> About Me
-          </h2>
-
-          <div class="about-content">
-            <div class="about-text">
-              <p>
-                Hi, I'm Daniel, a software engineer in NYC. I like building
-                things that feel simple and elegant on the surface, with a lot
-                of care underneath.
-              </p>
-              <p>
-                I've worked at Adaptive Security, Macro, Amazon, and Bloomberg,
-                with experience across the stack, from deep infrastructure to
-                product work.
-              </p>
-              <p>
-                Right now, I'm looking for what's next and spending a lot of
-                time on puzzles, building and shipping mobile games to the App
-                Store. If I'm not coding, I'm probably climbing, snowboarding,
-                cooking, or just wandering the city.
-              </p>
-            </div>
-
-            <div class="about-image">
-              <div class="about-image-wrapper">
-                <img src="content/profile_pic.png" loading="lazy" />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Work Section -->
-        <section id="work" class="fade-up">
-          <h2 class="section-heading">
-            <span class="section-number">02.</span> Work
-          </h2>
-
-          <div class="experience-container">
-            <div class="experience-tabs" role="tablist">
-              <button
-                class="experience-tab active"
-                role="tab"
-                aria-selected="true"
-                data-tab="adaptive-security"
-              >
-                Adaptive Security
-              </button>
-              <button
-                class="experience-tab"
-                role="tab"
-                aria-selected="false"
-                data-tab="macro"
-              >
-                Macro
-              </button>
-              <button
-                class="experience-tab"
-                role="tab"
-                aria-selected="false"
-                data-tab="amazon"
-              >
-                Amazon
-              </button>
-              <button
-                class="experience-tab"
-                role="tab"
-                aria-selected="false"
-                data-tab="bloomberg"
-              >
-                Bloomberg
-              </button>
-              <button
-                class="experience-tab"
-                role="tab"
-                aria-selected="false"
-                data-tab="vt"
-              >
-                Virginia Tech
-              </button>
-            </div>
-
-            <div class="experience-panels">
-              <!-- Adaptive Security -->
-              <div
-                class="experience-panel active"
-                id="adaptive-security"
-                role="tabpanel"
-              >
-                <h3>
-                  Software Engineer
-                  <span class="company">@ Adaptive Security</span>
-                </h3>
-                <p class="experience-duration">
-                  May 2026 to October 2026 · AI Security &amp; Governance Startup
-                  (Series B)
-                </p>
-                <div class="experience-body">
-                  <p>
-                    Built and scaled a Windows device agent for AI governance
-                    from 0 to 20 customers and 1,500+ endpoints, enabling AI
-                    application detection, app usage visibility, and fleet
-                    health monitoring.
-                  </p>
-                  <p>
-                    Developed a Kafka pipeline ingesting device activity and
-                    detecting risk, using RDS for operations and ClickHouse for
-                    analytics.
-                  </p>
-                  <p>
-                    Created an activity model for device, browser, and API
-                    integrations, powering a governance feed for user and
-                    agentic actions.
-                  </p>
-                  <p>
-                    Led development of policy enforcement in the device agent
-                    and admin controls for AI application, account, and DLP
-                    policies, using deterministic evaluation and an Amazon
-                    Bedrock-hosted LLM classifier to block sensitive data.
-                  </p>
-                </div>
-                <div class="experience-tech">
-                  <span>Windows</span>
-                  <span>Kafka</span>
-                  <span>RDS</span>
-                  <span>ClickHouse</span>
-                  <span>Amazon Bedrock</span>
-                  <span>DLP</span>
-                </div>
-              </div>
-
-              <!-- Macro -->
-              <div class="experience-panel" id="macro" role="tabpanel">
-                <h3>
-                  Software Engineer
-                  <span class="company">@ Macro</span>
-                </h3>
-                <p class="experience-duration">
-                  July 2024 to January 2026 · AI Productivity Suite Startup
-                  (Series A)
-                </p>
-                <div class="experience-body">
-                  <p>
-                    At
-                    <a
-                      href="https://macro.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >Macro</a
-                    >, I owned the metadata and properties platform across all
-                    workspace entity types. Shipped a permissions-aware
-                    properties service from scratch (user- and system-defined
-                    properties, automated tagging, relationship inference),
-                    enabling unified querying and extensibility; drove
-                    cross-team alignment on shared property semantics across 3
-                    product teams.
-                  </p>
-                  <p>
-                    Built and rolled out an in-product task management system
-                    on the properties platform, replacing Linear company-wide.
-                    It was adopted by 3 external customers and scaled to 10K+
-                    tasks in the first month.
-                  </p>
-                  <p>
-                    Owned the Markdown editor that drives 50%+ of
-                    in-product activity: real-time collaboration, cross-workspace
-                    integrations, agentic AI writing workflows. Improved UX and
-                    reliability through telemetry, performance tuning, and bug
-                    triage.
-                  </p>
-                  <p>
-                    Built a streaming AI chat system using conversation and
-                    document context for prompt assembly and real-time token
-                    delivery over WebSockets, improving answer quality and
-                    enabling interactive document workflows. Enabled
-                    in-browser docx rendering and editing via LibreOfficeKit
-                    (C++ / WebAssembly), significantly reducing document load
-                    times.
-                  </p>
-                </div>
-                <div class="experience-tech">
-                  <span>C++</span>
-                  <span>Rust</span>
-                  <span>TypeScript</span>
-                  <span>SolidJS</span>
-                  <span>TanStack</span>
-                  <span>Emscripten / WASM</span>
-                  <span>ECS Fargate</span>
-                  <span>RDS</span>
-                </div>
-              </div>
-
-              <!-- Amazon -->
-              <div class="experience-panel" id="amazon" role="tabpanel">
-                <h3>
-                  Software Engineer II
-                  <span class="company">@ Amazon</span>
-                </h3>
-                <p class="experience-duration">
-                  October 2022 to October 2023 · Amazon Business Inventory
-                  Replenishment Services
-                </p>
-                <div class="experience-body">
-                  <p>
-                    Led the design and implementation of a greenfield work order
-                    system for Amazon Business inventory replenishment, defining
-                    the domain model and service interfaces end-to-end.
-                  </p>
-                  <p>
-                    Built an AWS ingestion pipeline (S3, Lambda, ECS Fargate) to
-                    validate and process work order files and publish updates
-                    downstream and to a data lake, enabling near real-time ops
-                    KPI visibility.
-                  </p>
-                  <p>
-                    Implemented automated scheduling and service provider
-                    assignment, reducing manual ops overhead and enabling
-                    onboarding for 3 external customers.
-                  </p>
-                </div>
-                <div class="experience-tech">
-                  <span>Java</span>
-                  <span>Python</span>
-                  <span>React</span>
-                  <span>S3</span>
-                  <span>SQS / SNS</span>
-                  <span>Lambda</span>
-                  <span>ECS Fargate</span>
-                  <span>RDS</span>
-                  <span>DynamoDB</span>
-                </div>
-              </div>
-
-              <!-- Bloomberg -->
-              <div class="experience-panel" id="bloomberg" role="tabpanel">
-                <h3>
-                  Software Engineer
-                  <span class="company">@ Bloomberg L.P.</span>
-                </h3>
-                <p class="experience-duration">
-                  January 2021 to August 2022 · Fixed Income Trading
-                  Infrastructure
-                </p>
-                <div class="experience-body">
-                  <p>
-                    Maintained and extended the fixed income trading billing
-                    platform and C++ billing library, supporting $300M+ in
-                    annual revenue through accurate fee calculations across
-                    multiple trading workflows.
-                  </p>
-                  <p>
-                    Built internal tools (security classification API,
-                    backtesting, and clearinghouse simulation), improving
-                    revenue forecasting accuracy and enabling end-to-end trade
-                    testing.
-                  </p>
-                  <p>
-                    Improved scalability of fixed income trading infrastructure
-                    by optimizing trade data models for better storage
-                    efficiency.
-                  </p>
-                </div>
-                <div class="experience-tech">
-                  <span>C++</span>
-                  <span>Python</span>
-                  <span>TypeScript</span>
-                  <span title="Bloomberg Application Service">BAS</span>
-                  <span>Comdb2</span>
-                  <span>Redis</span>
-                  <span>Kafka</span>
-                </div>
-              </div>
-
-              <!-- Virginia Tech -->
-              <div class="experience-panel" id="vt" role="tabpanel">
-                <h3>
-                  B.S. Computer Science & B.S. Mathematics (Applied Discrete)
-                  <span class="company">@ Virginia Tech</span>
-                </h3>
-                <p class="experience-duration">
-                  December 2020 · Blacksburg, VA
-                </p>
-                <div class="experience-body">
-                  <p>
-                    I graduated with a dual degree in Computer Science and
-                    Mathematics, with a focus on Applied Discrete Mathematics.
-                  </p>
-                  <p>
-                    My coursework included Data Structures, Operating Systems,
-                    Machine Learning, AI, Parallel Computing, and Combinatorics.
-                    I also collaborated with physics educators to design an
-                    interactive assessment platform for studying problem-solving
-                    processes.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="resume-link">
-            <a
-              href="content/Daniel_Kweon_Resume_2026.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn"
-              >Full resume (PDF)</a
-            >
-          </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="fade-up">
-          <h2 class="section-heading">
-            <span class="section-number">03.</span> Some Things I've Built
-          </h2>
-
-          <!-- Featured Project 1: Number Hunt -->
-          <div class="featured-project">
-            <div class="project-image">
-              <img src="content/projects/number-hunt.png" loading="lazy" />
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Number Hunt</h3>
-              <div class="project-description">
-                <p>
-                  Constraint-solved procedural puzzle generation using
-                  backtracking and pruning with guaranteed solvability. Levels
-                  generated on-device with tiered difficulty. Still in
-                  development.
-                </p>
-              </div>
-              <div class="project-tech">
-                <span>Swift</span>
-                <span>iOS</span>
-                <span>UIKit</span>
-                <span>Storyboard</span>
-                <span>Xcode</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Featured Project 2: Tumble -->
-          <div class="featured-project">
-            <div class="project-image">
-              <a
-                href="https://apps.apple.com/us/app/tumble-puzzle-game/id6480238709"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="content/projects/tumble_0.gif"
-                  width="600"
-                  height="599"
-                  alt="Tumble puzzle game gameplay"
-                  loading="lazy"
-                />
-              </a>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">
-                <a
-                  href="https://apps.apple.com/us/app/tumble-puzzle-game/id6480238709"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Tumble</a
-                >
-              </h3>
-              <div class="project-description">
-                <p>
-                  Modular MVC game engine with gesture-driven merging,
-                  persistent state, and user-selectable themes and grid layouts.
-                  Tilt the board and tiles slide and stack; 2048 meets gravity.
-                  Published on the App Store.
-                </p>
-              </div>
-              <div class="project-tech">
-                <span>Swift</span>
-                <span>iOS</span>
-                <span>UIKit</span>
-                <span>Storyboard</span>
-                <span>Xcode</span>
-              </div>
-              <div class="project-links">
-                <a
-                  href="https://apps.apple.com/us/app/tumble-puzzle-game/id6480238709"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="App Store"
-                >
-                  <img
-                    src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/appstore.svg"
-                    alt=""
-                    width="22"
-                    height="22"
-                    loading="lazy"
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Featured Project 3: Background Noise Suppression -->
-          <div class="featured-project">
-            <div class="project-image">
-              <a
-                href="https://github.com/danielkweon/Background_Noise_Suppression"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="content/projects/background-noise-suppression.png"
-                  width="192"
-                  height="192"
-                  loading="lazy"
-                  alt="Background Noise Suppression project"
-                />
-              </a>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">
-                <a
-                  href="https://github.com/danielkweon/Background_Noise_Suppression"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Background Noise Suppression</a
-                >
-              </h3>
-              <div class="project-description">
-                <p>
-                  Real-time speech separation from noisy audio using DSP and
-                  RNNs. Senior capstone; code and paper on GitHub.
-                </p>
-              </div>
-              <div class="project-tech">
-                <span>C++</span>
-                <span>Python</span>
-                <span>RNN</span>
-                <span>DSP</span>
-                <span>Machine Learning</span>
-              </div>
-              <div class="project-links">
-                <a
-                  href="https://github.com/danielkweon/Background_Noise_Suppression"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path
-                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                    ></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="projects-load-more-wrap">
-            <button
-              type="button"
-              class="btn btn-load-more"
-              id="projects-load-more"
-              aria-expanded="false"
-            >
-              LOAD MORE
-            </button>
-          </div>
-
-          <!-- Featured Project 4: PuzzLED -->
-          <div
-            class="featured-project project-more"
-            id="project-puzzled"
-            hidden
-          >
-            <div class="project-image">
-              <img
-                src="content/projects/puzzled.png"
-                loading="lazy"
-                alt="PuzzLED project"
-              />
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">PuzzLED</h3>
-              <div class="project-description">
-                <p>
-                  Physical puzzle board with triangular LED grid and Arduino,
-                  tangram-style shapes. Won the Children's Museum of Blacksburg
-                  in 2018 and is still on display.
-                </p>
-              </div>
-              <div class="project-tech">
-                <span>C++</span>
-                <span>Arduino</span>
-                <span>Hardware</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Writing Section -->
-        <section id="blog" class="fade-up">
-          <h2 class="section-heading">
-            <span class="section-number">04.</span> Thoughts I'd Like to Share
-          </h2>
-
-          <div class="blog-grid">
-            <article class="blog-card">
-              <a
-                href="blog/what-im-looking-for-next/"
-                class="blog-card-link"
-                data-preview-source="blog/what-im-looking-for-next/"
-              >
-                <div class="blog-card-image">
-                  <div class="blog-card-placeholder" aria-hidden="true">Work</div>
-                </div>
-                <div class="blog-card-content">
-                  <h3 class="blog-card-title">What I'm Looking For Next</h3>
-                  <time class="blog-card-date" datetime="2026-03-22"
-                    >March 22, 2026</time
-                  >
-                  <p class="blog-preview" data-preview-auto>
-                    Toward the end of January, I walked into the office at
-                    Macro expecting a normal Tuesday. It was cold and bright,
-                    the kind of winter morning that barely registers while it
-                    is happening.
-                  </p>
-                </div>
-              </a>
-            </article>
-            <article class="blog-card">
-              <a
-                href="blog/how-i-think-about-big-tech-vs-startups/"
-                class="blog-card-link"
-                data-preview-source="blog/how-i-think-about-big-tech-vs-startups/"
-              >
-                <div class="blog-card-image">
-                  <div class="blog-card-placeholder" aria-hidden="true">
-                    Career
-                  </div>
-                </div>
-                <div class="blog-card-content">
-                  <h3 class="blog-card-title">
-                    How I Think About Big Tech vs Startups
-                  </h3>
-                  <time class="blog-card-date" datetime="2026-03-06"
-                    >March 6, 2026</time
-                  >
-                  <p class="blog-preview" data-preview-auto>
-                    When I first started working as a software engineer in 2021,
-                    I was not really thinking in terms of big tech versus
-                    startup. The bigger adjustment, at least at first, was just
-                    school to professional engineering. In school, most of what
-                    I built felt direct. The goal was usually to make something
-                    work.
-                  </p>
-                </div>
-              </a>
-            </article>
-            <article class="blog-card">
-              <a
-                href="blog/what-i-learned-without-ai/"
-                class="blog-card-link"
-                data-preview-source="blog/what-i-learned-without-ai/"
-              >
-                <div class="blog-card-image">
-                  <div class="blog-card-placeholder" aria-hidden="true">AI</div>
-                </div>
-                <div class="blog-card-content">
-                  <h3 class="blog-card-title">What I Learned Without AI</h3>
-                  <time class="blog-card-date" datetime="2026-02-16"
-                    >February 16, 2026</time
-                  >
-                  <p class="blog-preview" data-preview-auto>
-                    I started learning how to code in 2014, when I was a
-                    freshman at TJHSST. Every freshman had to take an intro to
-                    software engineering class. I didn't start with some
-                    long-term plan or career in mind. I just knew I loved the
-                    idea of building something from nothing.
-                  </p>
-                </div>
-              </a>
-            </article>
-          </div>
-        </section>
-
-        <!-- Photos Section -->
-        <section id="photos" class="fade-up">
-          <h2 class="section-heading">
-            <span class="section-number">05.</span> Proof I'm Not A Bot
-          </h2>
-
-          <div class="personal-intro">
-            <p>
-              When I'm not coding, I'm usually exploring the city, solving
-              puzzles, or hunting for good coffee.
+        <section
+          class="paper chat"
+          style="--drop: calc(var(--cell) * 5); --r: 0.6deg"
+        >
+          <span class="tape">/ chat</span>
+          <div class="chat-screen">
+            <p class="chat-login">Last login: <time datetime="2026-11-21T09:41:07">Sat Nov 21 09:41:07</time></p>
+            <div class="chat-log"></div>
+            <p class="chat-prompt">
+              <span class="chat-ps1">guest@notebook ~ %</span>
+              <span class="chat-field">
+                <textarea class="chat-input" rows="1" wrap="off" placeholder=" " maxlength="80" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="send" data-1p-ignore data-lpignore="true" hidden></textarea>
+                <span class="chat-cursor">_</span>
+              </span>
             </p>
           </div>
-
-          <div class="photo-gallery">
-            <div class="photo-item">
-              <div class="photo-item-inner">
-                <div class="photo-item-img-wrap">
-                  <img
-                    src="content/personal/personal-dog.jpeg"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="photo-item">
-              <div class="photo-item-inner">
-                <div class="photo-item-img-wrap">
-                  <img src="content/personal/personal-bar.png" loading="lazy" />
-                </div>
-              </div>
-            </div>
-            <div class="photo-item">
-              <div class="photo-item-inner">
-                <div class="photo-item-img-wrap">
-                  <img
-                    src="content/personal/personal-seoul.jpg"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="photo-item">
-              <div class="photo-item-inner">
-                <div class="photo-item-img-wrap">
-                  <img
-                    src="content/personal/personal-beach.jpg"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="photo-item">
-              <div class="photo-item-inner">
-                <div class="photo-item-img-wrap">
-                  <img
-                    src="content/personal/personal-snowboard.png"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="photo-item">
-              <div class="photo-item-inner">
-                <div class="photo-item-img-wrap">
-                  <img
-                    src="content/personal/personal-bouldering.png"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="photo-item">
-              <div class="photo-item-inner">
-                <div class="photo-item-img-wrap">
-                  <img
-                    src="content/personal/personal-woods.jpg"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="photo-item">
-              <div class="photo-item-inner">
-                <div class="photo-item-img-wrap">
-                  <img
-                    src="content/personal/personal-snowman.jpeg"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="photo-item">
-              <div class="photo-item-inner">
-                <div class="photo-item-img-wrap">
-                  <img
-                    src="content/personal/personal-kitchen.jpeg"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
         </section>
+      </div>
 
-        <!-- Contact Section -->
-        <section id="contact" class="fade-up">
-          <h2 class="section-heading">
-            <span class="section-number">06.</span> Contact
-          </h2>
-          <p>
-            I’m looking for what’s next. If you want to talk roles, puzzles, or
-            just say hi — get in touch.
-          </p>
-          <a href="mailto:daniel@kweon.dev" class="btn btn-game btn-large"
-            >Say hi</a
-          >
-        </section>
-      </main>
-
-      <!-- Footer -->
-      <footer>
-        <div class="footer-social">
-          <a
-            href="https://github.com/danielkweon"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-              ></path>
-            </svg>
-          </a>
-          <a
-            href="https://linkedin.com/in/danielkweon"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-              ></path>
-              <rect x="2" y="9" width="4" height="12"></rect>
-              <circle cx="4" cy="4" r="2"></circle>
-            </svg>
-          </a>
-          <a href="mailto:daniel@kweon.dev" aria-label="Email">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-              ></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-          </a>
+      <section
+        class="paper photos"
+        style="--col: 1 / 7; --drop: var(--cell); --r: -0.4deg"
+      >
+        <span class="tape">/ photos</span>
+        <div class="photo-grid">
+          <figure class="print" style="--print-r: -2deg; --crop-pos: 50% 90%">
+            <span class="tape photo-tape"></span>
+            <span class="print-crop">
+              <img src="content/personal/personal-dog.jpeg" alt="Daniel with a German Shepherd at a dog park" loading="lazy" />
+            </span>
+            <figcaption class="print-date"><time datetime="2023-12">Dec 2023</time></figcaption>
+          </figure>
+          <figure class="print" style="--print-r: 1.5deg; --crop-pos: 50% 45%">
+            <span class="tape photo-tape"></span>
+            <span class="print-crop">
+              <img src="content/personal/personal-kitchen.jpeg" alt="Daniel plating desserts in a kitchen" loading="lazy" />
+            </span>
+            <figcaption class="print-date"><time datetime="2025-09">Sep 2025</time></figcaption>
+          </figure>
+          <figure class="print" style="--print-r: -1deg; --crop-pos: 50% 60%">
+            <span class="tape photo-tape"></span>
+            <span class="print-crop">
+              <img src="content/personal/personal-beach.jpg" alt="Friends playing volleyball on a beach at sunset" loading="lazy" />
+            </span>
+            <figcaption class="print-date"><time datetime="2025-08">Aug 2025</time></figcaption>
+          </figure>
+          <figure class="print" style="--print-r: 1deg; --crop-pos: 85% 50%">
+            <span class="tape photo-tape"></span>
+            <span class="print-crop">
+              <img src="content/personal/personal-bar.png" alt="Daniel with friends at a bar" loading="lazy" />
+            </span>
+            <figcaption class="print-date"><time datetime="2025-10">Oct 2025</time></figcaption>
+          </figure>
+          <figure class="print" style="--print-r: -1.5deg; --crop-pos: 50% 80%">
+            <span class="tape photo-tape"></span>
+            <span class="print-crop">
+              <img src="content/personal/personal-bouldering.png" alt="Daniel bouldering on a rock outcrop" loading="lazy" />
+            </span>
+            <figcaption class="print-date"><time datetime="2024-08">Aug 2024</time></figcaption>
+          </figure>
+          <figure class="print" style="--print-r: 2deg; --crop-pos: 55% 50%">
+            <span class="tape photo-tape"></span>
+            <span class="print-crop">
+              <img src="content/personal/personal-snowboard.png" alt="Daniel carrying a snowboard through a ski village" loading="lazy" />
+            </span>
+            <figcaption class="print-date"><time datetime="2026-01">Jan 2026</time></figcaption>
+          </figure>
+          <figure class="print" style="--print-r: -0.5deg; --crop-pos: 50% 48%">
+            <span class="tape photo-tape"></span>
+            <span class="print-crop">
+              <img src="content/personal/personal-woods.jpg" alt="Daniel sitting on a boulder in the woods with a dog" loading="lazy" />
+            </span>
+            <figcaption class="print-date"><time datetime="2025-11">Nov 2025</time></figcaption>
+          </figure>
+          <figure class="print" style="--print-r: 1.5deg; --crop-pos: 50% 56%">
+            <span class="tape photo-tape"></span>
+            <span class="print-crop">
+              <img src="content/personal/personal-snowman.jpeg" alt="Daniel standing in front of a giant snowman" loading="lazy" />
+            </span>
+            <figcaption class="print-date"><time datetime="2024-01">Jan 2024</time></figcaption>
+          </figure>
+          <figure class="print" style="--print-r: -2deg; --crop-pos: 50% 80%">
+            <span class="tape photo-tape"></span>
+            <span class="print-crop">
+              <img src="content/personal/personal-seoul.jpg" alt="Daniel on a street of traditional houses in Seoul" loading="lazy" />
+            </span>
+            <figcaption class="print-date"><time datetime="2025-03">Mar 2025</time></figcaption>
+          </figure>
         </div>
-        <p>Built by Daniel Kweon &copy; 2026</p>
-        <p class="footer-easter-egg">Try typing "tumble" anywhere...</p>
-      </footer>
-    </div>
+      </section>
+    </main>
 
-    <script src="script.js"></script>
+    <footer class="site-footer">
+      <!-- <p class="footer-hint">Lost? Someone might know the way.</p> -->
+      <a class="footer-top" href="#">Back to top ↑</a>
+      <p class="footer-credit">Built by Daniel Kweon &copy; 2026</p>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <meta
+      name="description"
+      content="Bloomberg and Amazon taught me how to build within structure; a two-pizza startup taught me how to build without it."
+    />
+    <title>What Big Tech and Startups Each Taught Me | Daniel Kweon</title>
+    <meta property="og:title" content="What Big Tech and Startups Each Taught Me" />
+    <meta property="og:image" content="https://daniel.kweon.dev/content/share.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <script src="../../scripts.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <p class="site-name"><a href="../../">Daniel<span class="surname"> Kweon</span>’s notebook</a></p>
+      <nav class="contact">
+        <a href="../../content/Daniel_Kweon_Resume_2026.pdf">
+          <svg viewBox="0 0 24 24">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
+          </svg>
+          Resume
+        </a>
+        <a href="https://github.com/danielkweon">
+          <svg viewBox="0 0 24 24">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+          </svg>
+          GitHub
+        </a>
+        <a href="https://linkedin.com/in/danielkweon">
+          <svg viewBox="0 0 24 24">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
+            <circle cx="4" cy="4" r="2" />
+          </svg>
+          LinkedIn
+        </a>
+        <a href="mailto:daniel@kweon.dev">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <path d="m22 6-10 7L2 6" />
+          </svg>
+          Email
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <a class="post-back" href="../../">← Back to notebook</a>
+      <article class="paper article">
+        <span class="tape corner-tape corner-tape-top-left"></span>
+        <span class="tape corner-tape corner-tape-top-right"></span>
+        <span class="tape corner-tape corner-tape-bottom-left"></span>
+        <span class="tape corner-tape corner-tape-bottom-right"></span>
+        <h1 class="article-title">What Big Tech and Startups Each Taught&nbsp;Me</h1>
+        <time class="article-date" datetime="2026-03">March 2026</time>
+        <div class="article-body">
+          <p>
+            People usually compare big tech and startups on prestige,
+            compensation, stability and speed. Those matter, but the
+            difference that stayed with me is what each one trained in me. Bloomberg
+            and Amazon taught me how to build within structure. Macro, a
+            startup, taught me how to build without it.
+          </p>
+
+          <hr />
+
+          <p>
+            At Bloomberg, it was obvious early that writing code was only one
+            part of the job. A lot of the work was reading code I didn’t
+            write, understanding systems I didn’t design, and changing
+            codebases already shaped by years of decisions made before I got
+            there. There, and later at Amazon, even a task that looked small
+            sat inside more context than I could see: existing patterns and
+            architecture, existing assumptions, downstream dependencies,
+            operational concerns, team norms, review expectations. A local fix
+            wasn’t necessarily a good fix. “Does it work?” was still
+            necessary, but it was no longer the full standard.
+          </p>
+
+          <p>
+            Part of that came from the workflow around the code: planning,
+            review, testing, deployment, design discussions, cross-team
+            coordination. Early on I experienced that as friction, distance
+            between the idea and the work. Later I understood that much of it
+            was accumulated caution: the cost of working on systems that
+            already carried history and other people’s trust. When more people
+            are involved, more systems are connected and more customers depend
+            on the software, care has to show up earlier. At Amazon, I also
+            had to explain my thinking, defend tradeoffs and anticipate review
+            questions. That taught me patience and
+            discipline, and to respect the idea that good engineering is often shaped
+            by structure long before anyone writes code.
+          </p>
+
+          <p>
+            That changed what rigor meant to me. It used to sound like a
+            polished way of saying “be careful.” In those environments it was
+            concrete. Systems have memory. Decisions outlive the person who
+            made them. Rigor meant asking whether
+            something fit, what it assumed, what would break at the edges once
+            other people depended on it, and what it would cost someone else
+            to maintain.
+          </p>
+
+          <p>
+            It also taught me humility. When you join a system with history,
+            your job at first is learning before changing. You’re not walking
+            into a blank canvas. You’re walking into other people’s reasoning,
+            tradeoffs and mistakes, some of which still make sense and some of
+            which no longer do. I got slower to assume I understood a problem
+            from the surface, and more likely to ask why a system looks the
+            way it does before deciding it should change.
+          </p>
+
+          <p>
+            Some of my first instincts still come from those years. I look for
+            edge cases. I ask whether an abstraction belongs. I worry about
+            long-term maintainability. I care whether a change fits the rest
+            of the system, not just whether it succeeds in isolation.
+          </p>
+
+          <hr />
+
+          <p>
+            At Amazon, I worked on a two-pizza team, the idea that a team
+            shouldn’t be bigger than what two pizzas could feed. Macro was a
+            two-pizza company, and much less had been decided for me. The
+            boundaries were looser, and there was less process between an idea
+            and a decision, and between a decision and the code. In bigger
+            companies, the shape of the work was mostly set by the time it
+            reached me. At Macro, the shape of the work was part of the work.
+          </p>
+
+          <p>
+            The work was also more immediate. There was less ceremony and less
+            insulation. That directness was energizing. The engineering felt
+            broader, but also more exposed.
+          </p>
+
+          <p>
+            That meant implementation and product judgment were hard to
+            separate. The technical question was rarely the only one. I spent
+            much more time asking whether something was useful, whether users
+            would care, whether this was the right version of the idea, and
+            whether the company should be investing in this direction yet. I
+            was helping set scope, pressure-testing whether an idea was good,
+            and deciding what version was worth shipping now, knowing some of
+            those calls would be revised as soon as reality showed up.
+          </p>
+
+          <p>
+            So “good” started one step earlier. Before asking whether
+            something was well designed, you had to ask whether it was worth
+            building. Sometimes the most valuable thing wasn’t the most
+            polished version of an idea but the fastest honest version, so the
+            company could learn something real.
+          </p>
+
+          <p>
+            The product direction, the scope, sometimes the technical
+            direction too, could all be moving at once. The right answer often
+            wasn’t waiting to be found through enough careful analysis. You
+            made a reasonable call, moved forward and learned from what
+            happened next.
+          </p>
+
+          <p>
+            Parts of this felt like school again: build directly, figure it
+            out in motion. The difference was that the product was real, the
+            users were real, and so were the consequences of a wrong
+            assumption. Moving fast at a startup doesn’t mean moving
+            carelessly. In some ways it demands more judgment, because there
+            is less process protecting you from your own assumptions. When I
+            say Macro taught me to build without structure, I don’t mean
+            without standards or without good engineering. I mean without
+            settled process, institutional memory and predefined boundaries
+            around the work.
+          </p>
+
+          <hr />
+
+          <p>
+            Each environment’s strengths were tied to its limitations. Big
+            companies run on continuity. The systems have history, the
+            workflows have been refined, the people around the work carry
+            context, and there’s a clearer path from idea to deployment. When
+            that structure matches the problem, it’s very effective.
+          </p>
+
+          <p>
+            But a system refined over years is strong partly because it has
+            habits, and habits are hard to change. When the assumptions
+            underneath the work shift, the same workflows can keep working
+            very well for a version of the problem that is no longer the one
+            in front of you.
+          </p>
+
+          <p>
+            Startup work has the opposite shape. There’s little continuity to
+            rely on and little distance between building something and
+            learning whether it matters. The work is
+            less about fitting into a machine that already exists and more
+            about figuring out what the machine needs to become. The cost is
+            that you can build quickly, think carefully and still throw away a
+            surprising amount of work because the company learned something
+            new or a different priority suddenly mattered more.
+          </p>
+
+          <p>
+            Progress at a big company often felt more durable. At a startup it
+            felt more provisional.
+          </p>
+
+          <hr />
+
+          <p>
+            I don’t see big tech and startups as opposites anymore. When I
+            look at a problem now, I still ask the big-company questions
+            first: will this hold up, does it fit, what hidden costs are we
+            creating, what happens when other people depend on this? Then I
+            ask the startup ones: is this useful, is this the right version of
+            the idea, what will we learn by shipping it, is it worth building
+            now? One environment gave me system judgment, the other product
+            judgment, and each made me see something the other could not.
+          </p>
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-home" href="../../">← Back to notebook</a>
+      <a class="footer-top" href="#">Back to top ↑</a>
+      <p class="footer-credit">Built by Daniel Kweon &copy; 2026</p>
+    </footer>
+  </body>
+</html>

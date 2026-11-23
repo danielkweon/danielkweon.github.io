@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <meta
+      name="description"
+      content="Why I use AI to accelerate my work, not replace my understanding."
+    />
+    <title>AI Changes the Workflow, Not the Standard | Daniel Kweon</title>
+    <meta property="og:title" content="AI Changes the Workflow, Not the Standard" />
+    <meta property="og:image" content="https://daniel.kweon.dev/content/share.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <script src="../../scripts.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <p class="site-name"><a href="../../">Daniel<span class="surname"> Kweon</span>’s notebook</a></p>
+      <nav class="contact">
+        <a href="../../content/Daniel_Kweon_Resume_2026.pdf">
+          <svg viewBox="0 0 24 24">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
+          </svg>
+          Resume
+        </a>
+        <a href="https://github.com/danielkweon">
+          <svg viewBox="0 0 24 24">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+          </svg>
+          GitHub
+        </a>
+        <a href="https://linkedin.com/in/danielkweon">
+          <svg viewBox="0 0 24 24">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
+            <circle cx="4" cy="4" r="2" />
+          </svg>
+          LinkedIn
+        </a>
+        <a href="mailto:daniel@kweon.dev">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <path d="m22 6-10 7L2 6" />
+          </svg>
+          Email
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <a class="post-back" href="../../">← Back to notebook</a>
+      <article class="paper article">
+        <span class="tape corner-tape corner-tape-top-left"></span>
+        <span class="tape corner-tape corner-tape-top-right"></span>
+        <span class="tape corner-tape corner-tape-bottom-left"></span>
+        <span class="tape corner-tape corner-tape-bottom-right"></span>
+        <h1 class="article-title">AI Changes the Workflow, Not the Standard</h1>
+        <time class="article-date" datetime="2026-02">February 2026</time>
+        <div class="article-body">
+          <p>
+            My issue is not that AI writes code. It’s that it can make it too
+            easy to produce code without fully understanding the change, the
+            system around it, or the cost of what is being added.
+          </p>
+
+          <p>
+            I learned to code before these tools existed, starting in 2014
+            with an intro class as a high school freshman. Progress was trial
+            and error: read the error closely, change one thing, run it again.
+            Getting unstuck meant stitching together half-relevant answers
+            from Stack Overflow and old forum posts. It was slow, but it built
+            habits I still depend on: patience, attention to detail, and the
+            ability to work through a system I don’t fully understand yet.
+            When I joined Bloomberg in 2021, much of the job was reading other
+            people’s code, reviewing changes, and debugging larger systems I
+            didn’t write.
+          </p>
+
+          <hr />
+
+          <p>
+            The first problem is visibility. AI collapses the distance between
+            request and result. Code shows up quickly, often in large chunks,
+            and engineers can lose sight of what changed, why it changed, what
+            assumptions were made, and what might break somewhere else. The
+            speed itself makes it harder to slow down and inspect. If you
+            can’t explain why a change was made, what tradeoffs it introduced,
+            or how it fits into the rest of the codebase, “it works” is not
+            enough.
+          </p>
+
+          <p>
+            The second is hidden tech debt. Used carelessly, AI produces code
+            that works locally, passes the immediate task, and looks plausible
+            in a PR while quietly making the system worse. It duplicates logic
+            that already exists, ignores patterns the codebase already uses,
+            and introduces abstractions that don’t fit. AI often optimizes for
+            completion, not coherence. It’s good at getting something over the
+            finish line and much worse at asking whether the solution should
+            look this way, or what it will cost the next person who works in
+            the code.
+          </p>
+
+          <p>
+            Part of that is the human side. Once the feature works and the PR
+            is out the door, it’s easy to ignore the redundancy, the awkward
+            patterns, and the assumptions no one checked. The immediate win is
+            visible. The long-term cost usually isn’t.
+          </p>
+
+          <p>
+            What worries me most is what over-reliance does to how engineers
+            learn. It lets people make the immediate change without
+            understanding the system they are changing. They can ship code
+            without building the intuition to anticipate failure, reason
+            through tradeoffs, or debug when something breaks. And something
+            always breaks: assumptions fail, edge cases show up, traffic
+            patterns shift. At that point the question is not whether you
+            could generate the change. It is whether you understand the system
+            well enough to fix it on a random Wednesday at 2AM. If an engineer
+            can ship changes but cannot explain how the system works, that is
+            not leverage. That is dependency.
+          </p>
+
+          <hr />
+
+          <p>
+            None of this means rejecting AI. Engineers should learn what it is
+            good at, where it actually helps, and where it should stop. It
+            handles boilerplate and mundane work well, where most of the
+            structure is the same and only a few details change. It can write
+            a solid first pass. It helps you navigate a large codebase
+            and form a high-level picture of an unfamiliar stack, as long as
+            you verify what it tells you. It also works as a thought partner:
+            sanity-checking a design, asking what you might be missing,
+            comparing options, or acting as a rubber duck while debugging.
+          </p>
+
+          <p>
+            It lowers the barrier to entry, too. Beginners spend less time
+            completely stuck, and engineers move across unfamiliar languages,
+            frameworks, and systems faster. That is a real advantage, but
+            lowering the barrier is not the same as building deep
+            understanding. People still have to learn to reason about what
+            they are building. AI lowers friction and increases speed. The
+            challenge is using that speed without letting it replace judgment.
+          </p>
+
+          <hr />
+
+          <p>
+            Two principles shape how I use AI. First, use it to accelerate
+            your work, not replace your understanding. Second, trust it enough
+            to use it, and verify it enough to own it.
+          </p>
+
+          <p>
+            AI makes engineers faster. It can help plan, write code, review
+            code, and handle repetitive work that does not need deep attention
+            every time. But it does not change what makes someone a good
+            engineer. The skills that mattered before these tools still
+            matter now: understanding systems, debugging carefully, reading
+            code closely, reasoning about tradeoffs, and maintaining quality
+            over time. The goal is to use AI in a way that makes judgment more
+            effective, not less necessary.
+          </p>
+
+          <p>
+            Verifying it enough to own it means reading the code closely,
+            testing it against actual behavior, and making sure it fits the
+            system it is entering. In infrastructure or security-sensitive
+            code, verification has to be stricter. “Mostly right” is not
+            enough.
+          </p>
+
+          <p>
+            One rule follows from that: never merge code you cannot explain.
+            If you can’t say what a change does, why it was written that way,
+            what it assumes, and how it fits into the rest of the system, it
+            should not ship. “The AI wrote it” does not change that. Ownership
+            still belongs to the engineer.
+          </p>
+
+          <p>
+            That also means anchoring AI output to the actual codebase, not
+            generic best practices. A generated solution can look clean in
+            isolation and still be wrong for the system it is being added to.
+            Ask specific questions: Does this match our architecture? Do we
+            already have a utility or pattern for this? Is this the style we
+            want here? Who is going to maintain this six months from now?
+          </p>
+
+          <p>
+            Used with care, AI can accelerate work and improve quality. But it
+            only works when the engineer stays responsible for understanding,
+            judgment, and ownership. AI changes the workflow. It does not
+            change the standard.
+          </p>
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-home" href="../../">← Back to notebook</a>
+      <a class="footer-top" href="#">Back to top ↑</a>
+      <p class="footer-credit">Built by Daniel Kweon &copy; 2026</p>
+    </footer>
+  </body>
+</html>
